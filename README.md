@@ -1,1 +1,4284 @@
-# derby-marrakech-international
+[index.html.html](https://github.com/user-attachments/files/26846167/index.html.html)
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Derby Marrakech International</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Noto+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   RESET
+═══════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+/* ═══════════════════════════════════════════════
+   LIGHT THEME (default)
+═══════════════════════════════════════════════ */
+:root{
+  --bg:          #f5f0e8;
+  --bg-alt:      #ede4d0;
+  --surface:     #fffdf8;
+  --surface2:    #f0ebe0;
+  --ink:         #111810;
+  --ink-2:       #6b6557;
+  --ink-3:       #a09887;
+  --primary:     #1a3820;
+  --primary-h:   #254d2b;
+  --gold:        #c8952a;
+  --gold-h:      #e0aa3a;
+  --gold-light:  rgba(200,149,42,0.12);
+  --gold-border: rgba(200,149,42,0.30);
+  --white-glass: rgba(255,255,255,0.60);
+  --dark-glass:  rgba(26,56,32,0.06);
+  --border:      rgba(17,24,16,0.09);
+  --border-2:    rgba(17,24,16,0.05);
+  --shadow:      0 4px 24px rgba(17,24,16,0.08);
+  --shadow-lg:   0 16px 48px rgba(17,24,16,0.14);
+  --hero-bg:     #1a3820;
+  --on-hero:     #f5f0e8;
+  --on-hero-2:   rgba(245,240,232,0.55);
+  --on-hero-3:   rgba(245,240,232,0.30);
+  --detail-bg:   #162e1c;
+  --cta-bg:      #1a3820;
+  --footer-bg:   #0f2014;
+  --modal-bg:    #fffdf8;
+  --input-bg:    rgba(255,253,248,0.08);
+  --input-bdr:   rgba(245,240,232,0.18);
+  --input-txt:   #f5f0e8;
+  --input-ph:    rgba(245,240,232,0.30);
+  --card-bg:     #fffdf8;
+  --badge-live:  #c8952a;
+  --badge-new:   #1a3820;
+  --badge-urg:   #a82020;
+  --serif: 'Cormorant Garamond',Georgia,serif;
+  --sans:  'DM Sans',system-ui,sans-serif;
+  --arab:  'Noto Sans Arabic',sans-serif;
+  --r:10px;
+  --r2:16px;
+}
+
+/* ═══════════════════════════════════════════════
+   DARK THEME
+═══════════════════════════════════════════════ */
+[data-theme="dark"]{
+  --bg:          #0c1510;
+  --bg-alt:      #111d14;
+  --surface:     #162019;
+  --surface2:    #1c2a1f;
+  --ink:         #ddd8cc;
+  --ink-2:       #7a8270;
+  --ink-3:       #4e5548;
+  --primary:     #3d7a46;
+  --primary-h:   #4d9458;
+  --gold:        #d4a040;
+  --gold-h:      #e8b84e;
+  --gold-light:  rgba(212,160,64,0.12);
+  --gold-border: rgba(212,160,64,0.28);
+  --white-glass: rgba(22,32,25,0.72);
+  --dark-glass:  rgba(0,0,0,0.20);
+  --border:      rgba(221,216,204,0.08);
+  --border-2:    rgba(221,216,204,0.05);
+  --shadow:      0 4px 24px rgba(0,0,0,0.30);
+  --shadow-lg:   0 16px 48px rgba(0,0,0,0.45);
+  --hero-bg:     #0c1510;
+  --on-hero:     #ddd8cc;
+  --on-hero-2:   rgba(221,216,204,0.50);
+  --on-hero-3:   rgba(221,216,204,0.25);
+  --detail-bg:   #090f0c;
+  --cta-bg:      #0c1510;
+  --footer-bg:   #060d08;
+  --modal-bg:    #162019;
+  --input-bg:    rgba(255,255,255,0.05);
+  --input-bdr:   rgba(255,255,255,0.10);
+  --input-txt:   #ddd8cc;
+  --input-ph:    rgba(221,216,204,0.28);
+  --card-bg:     #162019;
+  --badge-live:  #d4a040;
+  --badge-new:   #3d7a46;
+  --badge-urg:   #c43030;
+}
+
+/* ═══════════════════════════════════════════════
+   ARABIC OVERRIDES
+═══════════════════════════════════════════════ */
+[lang="ar"] body{font-family:var(--arab)}
+[lang="ar"] .serif-txt{font-family:var(--arab);font-weight:500}
+[lang="ar"] .hero-eyebrow::before{display:none}
+[lang="ar"] .hero-eyebrow::after{content:'';display:block;width:28px;height:1px;background:var(--gold)}
+[lang="ar"] .progress-labels{flex-direction:row-reverse}
+[lang="ar"] .bid-row{border-left:none;border-right:3px solid transparent}
+[lang="ar"] .bid-row.winning{border-right-color:var(--gold);border-left:none}
+[lang="ar"] .card-badge{left:auto;right:12px}
+[lang="ar"] .card-timer-badge{right:auto;left:12px}
+[lang="ar"] .toast{right:auto;left:24px;border-left:none;border-right:3px solid var(--gold);transform:translateX(-130%)}
+[lang="ar"] .toast.show{transform:translateX(0)}
+[lang="ar"] .modal-close{right:auto;left:16px}
+[lang="ar"] .tree-children{margin-left:0;margin-right:20px}
+[lang="ar"] .step-card{align-items:flex-end;text-align:right}
+[lang="ar"] .footer-bottom{flex-direction:row-reverse}
+[lang="ar"] .footer-legal{flex-direction:row-reverse}
+[lang="ar"] .header-right{flex-direction:row-reverse}
+
+/* ═══════════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════════ */
+body{
+  font-family:var(--sans);background:var(--bg);color:var(--ink);
+  overflow-x:hidden;transition:background .3s,color .3s;
+}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit}
+input,select,textarea{font-family:inherit}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg-alt)}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:3px}
+
+/* ═══════════════════════════════════════════════
+   MOBILE PREVIEW MODE
+═══════════════════════════════════════════════ */
+body.mobile-mode{
+  background:#1a1a2e!important;
+  display:flex;flex-direction:column;align-items:center;
+  padding-top:60px;min-height:100vh;
+}
+body.mobile-mode .mobile-frame-bar{
+  position:fixed;top:0;left:0;right:0;z-index:1100;
+  height:50px;background:#111;display:flex;align-items:center;justify-content:center;
+  gap:16px;font-size:12px;color:#aaa;letter-spacing:0.08em;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+body.mobile-mode .mobile-frame-bar span{color:#fff;font-weight:500}
+.mobile-frame-bar{display:none}
+body.mobile-mode #mobile-wrapper{
+  width:390px;min-height:844px;border-radius:40px;overflow:hidden;
+  box-shadow:0 0 0 10px #2a2a2a,0 0 0 11px #444,0 32px 80px rgba(0,0,0,0.6);
+  position:relative;background:var(--bg);
+  transform-origin:top center;
+  border:1px solid #333;
+}
+body.mobile-mode #mobile-wrapper .header{
+  padding:0 18px;height:58px;border-radius:0;
+}
+body.mobile-mode #mobile-wrapper .header-nav{display:none!important}
+body.mobile-mode #mobile-wrapper .btn-login{display:none!important}
+body.mobile-mode #mobile-wrapper #hero{
+  grid-template-columns:1fr!important;min-height:auto;
+}
+body.mobile-mode #mobile-wrapper .hero-right{display:none!important}
+body.mobile-mode #mobile-wrapper .hero-left{padding:60px 22px 44px!important}
+body.mobile-mode #mobile-wrapper .hero-title{font-size:38px!important}
+body.mobile-mode #mobile-wrapper .section{padding:52px 20px!important}
+body.mobile-mode #mobile-wrapper #detail{padding:52px 20px!important}
+body.mobile-mode #mobile-wrapper #register{padding:52px 20px!important}
+body.mobile-mode #mobile-wrapper footer{padding:40px 20px 28px!important}
+body.mobile-mode #mobile-wrapper .auctions-grid{grid-template-columns:1fr!important}
+body.mobile-mode #mobile-wrapper .detail-grid{grid-template-columns:1fr!important;gap:32px!important}
+body.mobile-mode #mobile-wrapper .reg-grid{grid-template-columns:1fr!important;gap:36px!important}
+body.mobile-mode #mobile-wrapper .steps-grid{grid-template-columns:1fr 1fr!important}
+body.mobile-mode #mobile-wrapper .footer-grid{grid-template-columns:1fr 1fr!important}
+body.mobile-mode #mobile-wrapper .form-row{grid-template-columns:1fr!important}
+body.mobile-mode #mobile-wrapper .section-hd{flex-direction:column!important;align-items:flex-start!important}
+body.mobile-mode #mobile-wrapper .hero-stats{gap:22px!important}
+body.mobile-mode #mobile-wrapper .reg-kpis{gap:14px!important}
+body.mobile-mode #mobile-wrapper .lang-bar .lang-btn{padding:4px 8px!important;font-size:10px!important}
+/* Notch top bar */
+body.mobile-mode #mobile-wrapper .header::before{
+  content:'';display:block;width:120px;height:28px;background:#000;
+  border-radius:0 0 16px 16px;position:absolute;top:0;left:50%;
+  transform:translateX(-50%);z-index:10;
+}
+
+/* View toggle button */
+.view-toggle{
+  width:36px;height:36px;border-radius:10px;
+  background:var(--bg-alt);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:17px;transition:all .2s;position:relative;
+}
+.view-toggle:hover{background:var(--surface2);border-color:var(--gold)}
+.view-toggle .vt-tooltip{
+  position:absolute;bottom:-36px;left:50%;transform:translateX(-50%);
+  background:#111;color:#fff;font-size:10px;padding:4px 8px;border-radius:5px;
+  white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .2s;
+  letter-spacing:0.05em;
+}
+.view-toggle:hover .vt-tooltip{opacity:1}
+
+/* ═══════════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════════ */
+.header{
+  position:fixed;inset:0 0 auto;z-index:999;height:66px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;gap:20px;
+  background:rgba(245,240,232,0.88);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+  transition:background .3s,border-color .3s;
+}
+[data-theme="dark"] .header{background:rgba(12,21,16,0.90)}
+
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;cursor:pointer}
+.logo-icon{
+  width:38px;height:38px;background:var(--primary);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:19px;flex-shrink:0;transition:background .3s;
+}
+.logo-texts{line-height:1.15}
+.logo-name{
+  font-family:var(--serif);font-size:16px;font-weight:600;
+  color:var(--primary);display:block;letter-spacing:0.01em;
+  transition:color .3s;
+}
+[lang="ar"] .logo-name{font-family:var(--arab);font-size:14px;font-weight:600}
+.logo-sub{
+  font-size:9px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--gold);display:block;font-weight:500;
+}
+
+.header-nav{display:flex;gap:28px;align-items:center}
+.header-nav a{
+  font-size:11.5px;font-weight:400;color:var(--ink-2);
+  letter-spacing:0.06em;text-transform:uppercase;
+  transition:color .2s;white-space:nowrap;
+}
+[lang="ar"] .header-nav a{letter-spacing:0;font-size:13px}
+.header-nav a:hover{color:var(--primary)}
+
+.header-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+
+/* Language pills */
+.lang-bar{
+  display:flex;background:var(--bg-alt);border-radius:100px;
+  padding:2px;border:1px solid var(--border);gap:1px;
+}
+.lang-btn{
+  background:none;border:none;cursor:pointer;padding:4px 11px;
+  border-radius:100px;font-size:11px;font-weight:500;
+  color:var(--ink-2);letter-spacing:0.05em;transition:all .2s;
+}
+[lang="ar"] .lang-btn{letter-spacing:0;font-size:12px}
+.lang-btn.on{background:var(--primary);color:#fff}
+.lang-btn:not(.on):hover{background:var(--dark-glass)}
+
+/* Theme toggle */
+.theme-toggle{
+  width:36px;height:36px;border-radius:10px;
+  background:var(--bg-alt);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:16px;transition:all .2s;
+}
+.theme-toggle:hover{background:var(--surface2);border-color:var(--gold)}
+
+/* Login button */
+.btn-login{
+  background:var(--primary);color:#fff;border:none;
+  padding:8px 20px;border-radius:100px;font-size:12px;font-weight:500;
+  cursor:pointer;letter-spacing:0.04em;transition:all .2s;white-space:nowrap;
+}
+.btn-login:hover{background:var(--primary-h);transform:translateY(-1px)}
+
+/* ═══════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════ */
+#hero{
+  min-height:100vh;padding-top:66px;
+  display:grid;grid-template-columns:55% 45%;
+  background:var(--hero-bg);position:relative;overflow:hidden;
+  transition:background .3s;
+}
+/* Arch decoration */
+#hero::before{
+  content:'';position:absolute;
+  width:420px;height:560px;
+  border-radius:210px 210px 0 0;
+  border:1px solid rgba(200,149,42,0.10);
+  top:60px;right:10%;pointer-events:none;z-index:0;
+}
+#hero::after{
+  content:'';position:absolute;
+  width:280px;height:380px;
+  border-radius:140px 140px 0 0;
+  border:1px solid rgba(200,149,42,0.07);
+  top:120px;right:calc(10% + 70px);pointer-events:none;z-index:0;
+}
+.hero-left{
+  padding:88px 64px 80px;display:flex;flex-direction:column;
+  justify-content:center;gap:26px;position:relative;z-index:2;
+}
+.hero-eyebrow{
+  font-size:10px;letter-spacing:0.20em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;display:flex;align-items:center;gap:10px;
+}
+.hero-eyebrow::before{content:'';display:block;width:26px;height:1px;background:var(--gold)}
+.hero-title{
+  font-family:var(--serif);font-size:clamp(48px,4.8vw,74px);
+  font-weight:300;color:var(--on-hero);line-height:1.06;
+}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-desc{font-size:14.5px;line-height:1.80;color:var(--on-hero-2);max-width:380px}
+.hero-btns{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.btn-gold{
+  background:var(--gold);color:#1a0e00;border:none;
+  padding:13px 32px;border-radius:100px;font-size:13.5px;font-weight:500;
+  cursor:pointer;letter-spacing:0.02em;transition:all .25s;
+  display:inline-block;
+}
+.btn-gold:hover{background:var(--gold-h);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,149,42,0.35)}
+.btn-outline{
+  color:var(--on-hero);font-size:13.5px;font-weight:400;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:gap .2s;opacity:0.65;
+}
+.btn-outline:hover{gap:14px;opacity:1}
+.hero-stats{
+  display:flex;gap:36px;padding-top:22px;
+  border-top:1px solid rgba(245,240,232,0.10);flex-wrap:wrap;
+}
+.stat{display:flex;flex-direction:column;gap:3px}
+.stat-n{font-family:var(--serif);font-size:30px;font-weight:300;color:var(--on-hero)}
+.stat-l{font-size:10px;letter-spacing:0.10em;text-transform:uppercase;color:var(--on-hero-3)}
+
+.hero-right{
+  position:relative;display:flex;align-items:center;justify-content:center;z-index:1;
+}
+.hero-visual{
+  font-size:160px;opacity:0.10;
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);
+  user-select:none;pointer-events:none;
+}
+.hero-glow{
+  position:absolute;width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,149,42,0.14),transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;
+}
+/* Live auction card floating */
+.hero-card{
+  position:absolute;bottom:52px;left:-20px;right:40px;
+  background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.12);border-radius:var(--r2);
+  padding:20px 22px;display:flex;gap:14px;align-items:center;
+  transition:transform .3s;z-index:3;
+}
+.hero-card:hover{transform:translateY(-3px)}
+.hero-card-icon{
+  width:54px;height:54px;border-radius:10px;flex-shrink:0;
+  background:rgba(200,149,42,0.15);border:1px solid rgba(200,149,42,0.25);
+  display:flex;align-items:center;justify-content:center;font-size:24px;
+}
+.hero-card-info{flex:1;min-width:0}
+.hero-card-tag{font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;font-weight:500}
+.hero-card-name{font-family:var(--serif);font-size:17px;color:var(--on-hero);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hero-card-breed{font-size:11px;color:var(--on-hero-2);margin-top:2px}
+.live-pill{
+  display:inline-flex;align-items:center;gap:5px;margin-top:5px;
+  background:var(--gold-light);border:1px solid var(--gold-border);
+  border-radius:100px;padding:3px 9px;
+  font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);
+}
+.live-pill-dot{
+  width:5px;height:5px;border-radius:50%;background:var(--gold);
+  animation:pulse 1.4s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
+.hero-card-price{text-align:right;flex-shrink:0}
+.hero-price-val{font-family:var(--serif);font-size:22px;color:var(--gold);font-weight:300;white-space:nowrap}
+.hero-price-lbl{font-size:9px;color:var(--on-hero-3);margin-top:2px}
+
+/* ═══════════════════════════════════════════════
+   AUCTION SECTION
+═══════════════════════════════════════════════ */
+.section{padding:88px 60px;transition:background .3s}
+.section-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;flex-wrap:wrap;gap:16px}
+.section-eyebrow{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:8px}
+.section-title{font-family:var(--serif);font-size:clamp(32px,3.5vw,48px);font-weight:300;color:var(--primary);line-height:1.1;transition:color .3s}
+.section-title em{font-style:italic}
+[data-theme="dark"] .section-title{color:var(--on-hero)}
+.section-link{
+  font-size:12px;color:var(--gold);letter-spacing:0.06em;
+  display:flex;align-items:center;gap:6px;
+  border-bottom:1px solid var(--gold);padding-bottom:3px;
+  transition:gap .2s;white-space:nowrap;
+}
+.section-link:hover{gap:11px}
+
+/* ── FILTERS ── */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.filter-btn{
+  background:var(--surface2);border:1px solid var(--border);
+  color:var(--ink-2);font-size:12px;padding:7px 16px;border-radius:100px;
+  cursor:pointer;transition:all .2s;font-weight:400;
+}
+.filter-btn:hover,.filter-btn.active{background:var(--primary);border-color:var(--primary);color:#fff}
+
+/* ── GRID ── */
+.auctions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.auction-card{
+  background:var(--card-bg);border-radius:var(--r2);overflow:hidden;
+  border:1px solid var(--border);cursor:pointer;
+  transition:transform .25s,box-shadow .25s,background .3s,border-color .3s;
+}
+.auction-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.auction-card:hover .card-img{transform:scale(1.06)}
+.card-img-wrap{aspect-ratio:4/3;overflow:hidden;background:var(--bg-alt);position:relative}
+.card-img{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-size:80px;background:var(--surface2);transition:transform .4s ease;
+}
+.card-badge{
+  position:absolute;top:12px;left:12px;
+  font-size:9px;letter-spacing:0.14em;text-transform:uppercase;
+  padding:4px 11px;border-radius:100px;font-weight:500;color:#fff;z-index:2;
+}
+.card-badge.live{background:var(--badge-live)}
+.card-badge.new{background:var(--badge-new)}
+.card-badge.urgent{background:var(--badge-urg)}
+.card-timer-badge{
+  position:absolute;bottom:12px;right:12px;z-index:2;
+  background:rgba(0,0,0,0.72);color:#fff;
+  font-size:13px;padding:5px 11px;border-radius:8px;
+  letter-spacing:0.04em;backdrop-filter:blur(6px);
+  font-variant-numeric:tabular-nums;
+}
+.card-body{padding:18px 20px 4px}
+.card-breed{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-2);margin-bottom:4px}
+.card-name{font-family:var(--serif);font-size:19px;font-weight:400;color:var(--ink);margin-bottom:6px}
+.card-meta{display:flex;gap:10px;font-size:11px;color:var(--ink-2);flex-wrap:wrap}
+.card-footer{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 20px;border-top:1px solid var(--border-2);margin-top:12px;
+}
+.card-price-lbl{font-size:9px;letter-spacing:0.10em;text-transform:uppercase;color:var(--ink-3)}
+.card-price{font-family:var(--serif);font-size:21px;color:var(--ink);font-weight:400}
+.card-price span{font-size:11px;color:var(--ink-2);font-family:var(--sans)}
+.card-bids{font-size:11px;color:var(--ink-2);text-align:right}
+.card-bids strong{display:block;font-family:var(--serif);font-size:17px;color:var(--gold);font-weight:400}
+.btn-bid{
+  width:100%;background:var(--primary);color:#fff;border:none;
+  padding:10px;border-radius:8px;font-size:12.5px;cursor:pointer;font-weight:500;
+  transition:background .2s;margin:10px 0 16px;
+}
+.btn-bid:hover{background:var(--primary-h)}
+
+/* ═══════════════════════════════════════════════
+   DETAIL SECTION
+═══════════════════════════════════════════════ */
+#detail{background:var(--detail-bg);padding:88px 60px;transition:background .3s}
+.detail-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:68px;align-items:start}
+
+/* Gallery */
+.gallery{display:flex;flex-direction:column;gap:12px}
+.gallery-main{
+  aspect-ratio:4/3;border-radius:var(--r2);overflow:hidden;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  display:flex;align-items:center;justify-content:center;font-size:100px;
+  position:relative;cursor:pointer;
+}
+.gallery-main::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 35% 65%,rgba(200,149,42,0.13),transparent 55%);
+  pointer-events:none;
+}
+.gallery-thumbs{display:flex;gap:10px}
+.g-thumb{
+  flex:1;aspect-ratio:1;border-radius:10px;border:1.5px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;
+  font-size:24px;cursor:pointer;transition:border-color .2s;
+}
+.g-thumb.on,.g-thumb:hover{border-color:var(--gold)}
+
+/* Pedigree */
+.pedigree-wrap{margin-top:28px}
+.pedigree-title{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.30);margin-bottom:14px}
+.tree-root{
+  background:rgba(200,149,42,0.08);border:1px solid rgba(200,149,42,0.22);
+  border-radius:8px;padding:10px 14px;
+}
+.tree-node{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:9px 13px}
+.tree-node-name{font-family:var(--serif);font-size:14px;color:var(--on-hero);font-weight:300}
+.tree-node-ring{font-size:10px;color:rgba(255,255,255,0.32);margin-top:2px}
+.tree-children{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px;margin-left:20px}
+.tree-children-2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;margin-left:40px}
+.tree-children-2 .tree-node{opacity:0.65}
+
+/* Info panel */
+.detail-info{color:var(--on-hero)}
+.det-eyebrow{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.det-name{font-family:var(--serif);font-size:clamp(36px,3.8vw,54px);font-weight:300;line-height:1.05;margin-bottom:5px}
+.det-breed{font-size:14px;color:var(--on-hero-2);margin-bottom:26px}
+.specs-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+.spec{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:12px 14px}
+.spec-lbl{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.32);margin-bottom:3px}
+.spec-val{font-family:var(--serif);font-size:16px;color:var(--on-hero);font-weight:300}
+.health-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:26px}
+.htag{
+  background:rgba(61,122,70,0.28);border:1px solid rgba(61,122,70,0.45);
+  color:rgba(255,255,255,0.72);font-size:10px;letter-spacing:0.05em;
+  padding:4px 11px;border-radius:100px;
+}
+
+/* Bid panel */
+.bid-panel{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);
+  border-radius:var(--r2);padding:24px;margin-bottom:20px;
+}
+.bid-panel-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px}
+.bid-lbl{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--on-hero-3);margin-bottom:4px}
+.bid-current{font-family:var(--serif);font-size:42px;color:var(--gold);font-weight:300;line-height:1;display:flex;align-items:baseline;gap:6px}
+.bid-currency-unit{font-size:18px;margin-bottom:2px}
+.bid-timer{text-align:right}
+.timer-val{font-family:var(--serif);font-size:26px;color:var(--on-hero);font-weight:300;letter-spacing:0.04em;font-variant-numeric:tabular-nums}
+.timer-val.red{color:#e07060}
+/* progress bar */
+.prog-bar{height:3px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden;margin-bottom:5px}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--gold));border-radius:2px;transition:width .5s ease}
+.progress-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--on-hero-3);margin-bottom:18px}
+/* bid input */
+.bid-row-wrap{display:flex;gap:8px;margin-bottom:12px}
+.bid-input{
+  flex:1;background:var(--input-bg);border:1.5px solid var(--input-bdr);
+  border-radius:8px;padding:12px 14px;font-size:18px;font-family:var(--serif);
+  color:var(--input-txt);outline:none;transition:border-color .2s;
+  -moz-appearance:textfield;
+}
+.bid-input::-webkit-outer-spin-button,.bid-input::-webkit-inner-spin-button{-webkit-appearance:none}
+.bid-input:focus{border-color:var(--gold)}
+.bid-input::placeholder{color:var(--input-ph);font-size:16px}
+.btn-place{
+  background:var(--gold);color:#1a0e00;border:none;
+  padding:12px 24px;border-radius:8px;font-size:13px;font-weight:600;
+  cursor:pointer;transition:all .2s;white-space:nowrap;
+}
+.btn-place:hover{background:var(--gold-h);transform:scale(1.02)}
+.btn-place:active{transform:scale(0.98)}
+/* quick bids */
+.quick-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.quick-lbl{font-size:10px;color:var(--on-hero-3);letter-spacing:0.10em;text-transform:uppercase}
+.quick-btn{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.10);
+  color:rgba(255,255,255,0.55);font-size:11.5px;padding:5px 13px;border-radius:100px;
+  cursor:pointer;transition:all .2s;
+}
+.quick-btn:hover{background:rgba(255,255,255,0.12);color:var(--on-hero)}
+/* bid history */
+.hist-header{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:10px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--on-hero-3);margin-bottom:10px;
+}
+.bid-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:9px 13px;background:rgba(255,255,255,0.03);
+  border-radius:6px;border-left:3px solid transparent;
+  font-size:12.5px;margin-bottom:6px;transition:background .2s;
+}
+.bid-row.winning{border-left-color:var(--gold);background:rgba(200,149,42,0.07)}
+.bid-row-user{color:rgba(255,255,255,0.65);font-size:12px}
+.bid-row-time{color:rgba(255,255,255,0.28);font-size:10px;margin-top:2px}
+.bid-row-amt{font-family:var(--serif);font-size:16px;color:var(--on-hero)}
+.bid-row.winning .bid-row-amt{color:var(--gold)}
+
+/* ═══════════════════════════════════════════════
+   HOW IT WORKS
+═══════════════════════════════════════════════ */
+#how{background:var(--bg-alt);transition:background .3s}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.step-card{display:flex;flex-direction:column;gap:12px}
+.step-num{font-family:var(--serif);font-size:48px;font-weight:300;color:rgba(0,0,0,0.08);line-height:1}
+[data-theme="dark"] .step-num{color:rgba(255,255,255,0.05)}
+.step-icon-wrap{
+  width:44px;height:44px;background:var(--primary);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+  margin-top:-16px;transition:background .3s;
+}
+.step-title{font-family:var(--serif);font-size:19px;color:var(--ink);font-weight:400;line-height:1.2}
+[data-theme="dark"] .step-title{color:var(--on-hero)}
+.step-desc{font-size:13px;line-height:1.72;color:var(--ink-2)}
+
+/* ═══════════════════════════════════════════════
+   REGISTER
+═══════════════════════════════════════════════ */
+#register{background:var(--cta-bg);padding:88px 60px;position:relative;overflow:hidden;transition:background .3s}
+#register::before{
+  content:'';position:absolute;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,149,42,0.09),transparent 70%);
+  top:-180px;right:-60px;pointer-events:none;
+}
+.reg-grid{display:grid;grid-template-columns:1fr 1fr;gap:68px;align-items:center}
+.reg-text-eyebrow{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:500}
+.reg-text-title{font-family:var(--serif);font-size:clamp(34px,3.5vw,50px);font-weight:300;color:var(--on-hero);line-height:1.08}
+.reg-text-title em{font-style:italic;color:var(--gold)}
+.reg-text-body{font-size:14px;line-height:1.80;color:var(--on-hero-2);margin-top:18px;max-width:400px}
+.reg-kpis{display:flex;gap:24px;margin-top:32px;flex-wrap:wrap}
+.kpi{display:flex;flex-direction:column;gap:3px}
+.kpi-num{font-family:var(--serif);font-size:28px;color:var(--gold);font-weight:300}
+.kpi-lbl{font-size:9px;color:var(--on-hero-3);letter-spacing:0.12em;text-transform:uppercase}
+.kpi-div{width:1px;background:rgba(255,255,255,0.08);align-self:stretch;margin:4px 0}
+
+.reg-form{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);
+  border-radius:var(--r2);padding:36px;
+}
+.form-title{font-family:var(--serif);font-size:22px;color:var(--on-hero);margin-bottom:22px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-group{margin-bottom:13px}
+.form-lbl{
+  display:block;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--on-hero-3);margin-bottom:5px;
+}
+.form-inp{
+  width:100%;background:var(--input-bg);border:1.5px solid var(--input-bdr);
+  border-radius:8px;padding:11px 14px;font-size:13px;
+  color:var(--input-txt);outline:none;transition:border-color .2s;
+}
+.form-inp:focus{border-color:var(--gold)}
+.form-inp::placeholder{color:var(--input-ph)}
+.form-sel{
+  width:100%;background:var(--input-bg);border:1.5px solid var(--input-bdr);
+  border-radius:8px;padding:11px 14px;font-size:13px;
+  color:var(--on-hero-2);outline:none;cursor:pointer;appearance:none;
+}
+.form-sel option{background:#1a3820;color:#f5f0e8}
+[data-theme="dark"] .form-sel option{background:#111d14;color:#ddd8cc}
+.form-check{display:flex;gap:9px;align-items:flex-start;margin:18px 0 0}
+.form-check input[type="checkbox"]{margin-top:3px;accent-color:var(--gold);cursor:pointer;width:15px;height:15px;flex-shrink:0}
+.form-check label{font-size:11.5px;color:rgba(255,255,255,0.40);line-height:1.55;cursor:pointer}
+.form-check label a{color:var(--gold)}
+.btn-reg{
+  width:100%;margin-top:16px;background:var(--gold);color:#1a0e00;
+  border:none;padding:14px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;
+  transition:all .25s;letter-spacing:0.01em;
+}
+.btn-reg:hover{background:var(--gold-h);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,149,42,0.32)}
+.btn-reg:active{transform:translateY(0)}
+.form-footer{text-align:center;margin-top:14px;font-size:12px;color:rgba(255,255,255,0.28)}
+.form-footer a{color:var(--gold);cursor:pointer}
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+footer{background:var(--footer-bg);padding:56px 60px 36px;color:rgba(255,255,255,0.32);transition:background .3s}
+.footer-grid{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;
+  padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:28px;
+}
+.footer-brand{display:flex;flex-direction:column;gap:12px}
+.footer-brand-logo{display:flex;align-items:center;gap:10px}
+.footer-brand-icon{width:32px;height:32px;background:var(--primary);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;transition:background .3s}
+.footer-brand-name{font-family:var(--serif);font-size:16px;color:rgba(255,255,255,0.65)}
+.footer-brand p{font-size:12.5px;line-height:1.75;max-width:260px}
+.footer-col-title{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:14px}
+.footer-col a{display:block;font-size:12.5px;color:rgba(255,255,255,0.32);margin-bottom:10px;transition:color .2s}
+.footer-col a:hover{color:rgba(255,255,255,0.70)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:11.5px}
+.footer-legal{display:flex;gap:20px}
+.footer-legal a{color:rgba(255,255,255,0.22);transition:color .2s}
+.footer-legal a:hover{color:rgba(255,255,255,0.55)}
+
+/* ═══════════════════════════════════════════════
+   MODAL (connexion)
+═══════════════════════════════════════════════ */
+.modal-backdrop{
+  position:fixed;inset:0;z-index:1000;
+  background:rgba(0,0,0,0.65);backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;pointer-events:none;transition:opacity .25s;
+}
+.modal-backdrop.open{opacity:1;pointer-events:all}
+.modal-box{
+  background:var(--modal-bg);border-radius:var(--r2);
+  width:100%;max-width:440px;padding:38px;position:relative;
+  transform:translateY(22px) scale(0.98);transition:transform .28s,background .3s;
+  max-height:92vh;overflow-y:auto;border:1px solid var(--border);
+}
+.modal-backdrop.open .modal-box{transform:translateY(0) scale(1)}
+.modal-close{
+  position:absolute;top:14px;right:16px;background:var(--surface2);border:none;
+  width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;
+  align-items:center;justify-content:center;font-size:17px;color:var(--ink-2);
+  transition:all .2s;
+}
+.modal-close:hover{background:var(--bg-alt);color:var(--ink)}
+.modal-title{font-family:var(--serif);font-size:26px;color:var(--ink);margin-bottom:4px;font-weight:400}
+.modal-sub{font-size:13px;color:var(--ink-2);margin-bottom:24px}
+/* Form inside modal (light theme) */
+.modal-box .form-lbl{color:var(--ink-2)}
+.modal-box .form-inp{
+  background:var(--surface2);border-color:var(--border);color:var(--ink);
+}
+.modal-box .form-inp:focus{border-color:var(--primary)}
+.modal-box .form-inp::placeholder{color:var(--ink-3)}
+.modal-box .btn-reg{background:var(--primary);color:#fff}
+.modal-box .btn-reg:hover{background:var(--primary-h);box-shadow:0 8px 24px rgba(0,0,0,0.18)}
+.modal-box .form-footer{color:var(--ink-2)}
+.modal-box .form-footer a{color:var(--primary)}
+.modal-divider{text-align:center;color:var(--ink-3);font-size:12px;margin:14px 0;position:relative}
+.modal-divider::before,.modal-divider::after{content:'';position:absolute;top:50%;width:38%;height:1px;background:var(--border)}
+.modal-divider::before{left:0}.modal-divider::after{right:0}
+
+/* ═══════════════════════════════════════════════
+   TOAST
+═══════════════════════════════════════════════ */
+.toast{
+  position:fixed;bottom:24px;right:24px;z-index:1100;
+  background:var(--footer-bg);color:rgba(255,255,255,0.90);
+  padding:13px 20px;border-radius:10px;font-size:13px;
+  border-left:3px solid var(--gold);
+  transform:translateX(130%);transition:transform .35s cubic-bezier(.4,0,.2,1);
+  display:flex;align-items:center;gap:9px;max-width:320px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.30);pointer-events:none;
+}
+.toast.show{transform:translateX(0);pointer-events:all}
+.toast-icon{font-size:16px;flex-shrink:0}
+
+/* ═══════════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════════ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+.fade-a{animation:fadeUp .65s ease both}
+.fade-b{animation:fadeUp .65s .12s ease both}
+.fade-c{animation:fadeUp .65s .24s ease both}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media(max-width:1080px){
+  .header{padding:0 24px}
+  .header-nav{display:none}
+  #hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{padding:56px 28px}
+  .section,.detail-grid+*,.steps-grid+*{padding:64px 28px}
+  .section{padding:64px 28px}
+  #detail,#register,footer{padding-left:28px;padding-right:28px}
+  #detail,#register{padding-top:64px;padding-bottom:64px}
+  .auctions-grid{grid-template-columns:1fr 1fr}
+  .detail-grid{grid-template-columns:1fr}
+  .reg-grid{grid-template-columns:1fr}
+  .steps-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .auctions-grid{grid-template-columns:1fr}
+  .steps-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .header-right{gap:5px}
+  .lang-btn{padding:4px 8px}
+  .btn-login{display:none}
+}
+
+
+/* ═══════════════════════════════════════════════
+   ADMIN CMS — FULL SCREEN PANEL
+═══════════════════════════════════════════════ */
+.adm{
+  position:fixed;inset:0;z-index:3000;
+  background:var(--bg);
+  display:flex;flex-direction:column;
+  opacity:0;pointer-events:none;transition:opacity .25s;
+  overflow:hidden;
+}
+.adm.open{opacity:1;pointer-events:all}
+
+/* Top bar */
+.adm-topbar{
+  height:52px;background:var(--primary);flex-shrink:0;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 24px;gap:16px;
+}
+.adm-topbar-left{display:flex;align-items:center;gap:12px}
+.adm-logo-dot{width:28px;height:28px;background:var(--gold);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.adm-title{font-family:var(--serif);font-size:17px;color:#fff;font-weight:400}
+.adm-env{background:rgba(200,149,42,.25);color:var(--gold);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:2px 8px;border-radius:4px;border:1px solid rgba(200,149,42,.3)}
+.adm-topbar-right{display:flex;align-items:center;gap:10px}
+.adm-admin-badge{background:rgba(255,255,255,.12);color:rgba(255,255,255,.8);font-size:11px;padding:4px 12px;border-radius:100px;display:flex;align-items:center;gap:6px}
+.adm-close-btn{background:rgba(255,255,255,.12);border:none;color:#fff;width:30px;height:30px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:background .2s}
+.adm-close-btn:hover{background:rgba(255,255,255,.22)}
+
+/* Body: sidebar + content */
+.adm-body{display:flex;flex:1;overflow:hidden}
+
+/* Sidebar */
+.adm-sidebar{
+  width:220px;flex-shrink:0;background:var(--surface);
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+  overflow-y:auto;
+}
+.adm-nav-section{padding:16px 12px 6px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+.adm-nav-item{
+  display:flex;align-items:center;gap:10px;padding:9px 14px;margin:1px 6px;
+  border-radius:8px;cursor:pointer;transition:all .18s;font-size:13px;color:var(--ink-2);
+  user-select:none;
+}
+.adm-nav-item:hover{background:var(--bg-alt);color:var(--ink)}
+.adm-nav-item.active{background:var(--primary);color:#fff}
+.adm-nav-item .ni-icon{font-size:16px;flex-shrink:0;width:22px;text-align:center}
+.adm-nav-badge{margin-left:auto;background:var(--gold);color:#1a0e00;font-size:9px;font-weight:600;padding:1px 6px;border-radius:100px;min-width:18px;text-align:center}
+.adm-nav-item.active .adm-nav-badge{background:rgba(255,255,255,.25);color:#fff}
+.adm-sidebar-footer{margin-top:auto;padding:14px;border-top:1px solid var(--border)}
+.adm-sidebar-footer p{font-size:11px;color:var(--ink-3);line-height:1.6}
+
+/* Content area */
+.adm-content{flex:1;overflow-y:auto;display:flex;flex-direction:column}
+.adm-tab{display:none;flex-direction:column;height:100%}
+.adm-tab.active{display:flex}
+
+/* Content header */
+.adm-ch{
+  padding:20px 28px 14px;border-bottom:1px solid var(--border);flex-shrink:0;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  background:var(--surface);
+}
+.adm-ch-left h2{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--ink)}
+.adm-ch-left p{font-size:12px;color:var(--ink-2);margin-top:2px}
+.adm-ch-right{display:flex;gap:8px;flex-wrap:wrap}
+
+/* Buttons */
+.btn-a{background:var(--primary);color:#fff;border:none;padding:8px 18px;border-radius:8px;font-size:12.5px;font-weight:500;cursor:pointer;transition:background .2s;display:inline-flex;align-items:center;gap:6px}
+.btn-a:hover{background:var(--primary-h)}
+.btn-a-gold{background:var(--gold);color:#1a0e00}
+.btn-a-gold:hover{background:var(--gold-h)}
+.btn-a-danger{background:#a82020;color:#fff}
+.btn-a-danger:hover{background:#cc2828}
+.btn-a-outline{background:var(--surface2);color:var(--ink-2);border:1px solid var(--border)}
+.btn-a-outline:hover{background:var(--bg-alt);color:var(--ink)}
+
+/* Inputs in admin (light surfaces) */
+.adm-inp{width:100%;background:var(--surface2);border:1.5px solid var(--border);border-radius:8px;padding:9px 13px;font-size:13px;color:var(--ink);outline:none;transition:border-color .2s;font-family:inherit}
+.adm-inp:focus{border-color:var(--primary)}
+.adm-inp::placeholder{color:var(--ink-3)}
+.adm-sel{width:100%;background:var(--surface2);border:1.5px solid var(--border);border-radius:8px;padding:9px 13px;font-size:13px;color:var(--ink);outline:none;cursor:pointer;appearance:none;font-family:inherit}
+.adm-sel option{background:var(--surface);color:var(--ink)}
+.adm-lbl{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;font-weight:500}
+.adm-fg{margin-bottom:14px}
+.adm-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.adm-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+
+/* Tables */
+.adm-table-wrap{overflow-x:auto;flex:1}
+.adm-table{width:100%;border-collapse:collapse;font-size:13px}
+.adm-table th{padding:11px 18px;text-align:left;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:500;border-bottom:1px solid var(--border);background:var(--surface2);white-space:nowrap;position:sticky;top:0;z-index:1}
+.adm-table td{padding:12px 18px;border-bottom:1px solid var(--border-2);color:var(--ink);vertical-align:middle}
+.adm-table tr:hover td{background:var(--surface2)}
+.adm-table tr:last-child td{border-bottom:none}
+
+/* Toolbar */
+.adm-toolbar{display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid var(--border);flex-wrap:wrap;background:var(--surface);flex-shrink:0}
+.adm-search{flex:1;min-width:160px;background:var(--surface2);border:1.5px solid var(--border);border-radius:8px;padding:8px 13px;font-size:13px;color:var(--ink);outline:none;transition:border-color .2s;font-family:inherit}
+.adm-search:focus{border-color:var(--primary)}
+.adm-search::placeholder{color:var(--ink-3)}
+.adm-filter{background:var(--surface2);border:1.5px solid var(--border);border-radius:8px;padding:8px 13px;font-size:12.5px;color:var(--ink-2);outline:none;cursor:pointer;font-family:inherit}
+
+/* Footer / pagination */
+.adm-foot{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-top:1px solid var(--border);background:var(--surface);font-size:12px;color:var(--ink-2);flex-shrink:0;flex-wrap:wrap;gap:8px}
+.adm-pager{display:flex;gap:4px}
+.pg{width:28px;height:28px;border-radius:6px;border:1px solid var(--border);background:var(--surface2);color:var(--ink-2);font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.pg.on,.pg:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+/* Status badges */
+.sb{display:inline-flex;align-items:center;gap:4px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;padding:3px 9px;border-radius:100px}
+.sb-active{background:rgba(61,122,70,.14);color:#2d6b35;border:1px solid rgba(61,122,70,.24)}
+[data-theme="dark"] .sb-active{background:rgba(61,122,70,.2);color:#5db86a}
+.sb-pending{background:rgba(200,149,42,.12);color:#a87820;border:1px solid rgba(200,149,42,.24)}
+[data-theme="dark"] .sb-pending{color:var(--gold)}
+.sb-banned{background:rgba(168,32,32,.10);color:#a82020;border:1px solid rgba(168,32,32,.20)}
+[data-theme="dark"] .sb-banned{background:rgba(168,32,32,.18);color:#e05050}
+.sb-live{background:rgba(200,149,42,.14);color:#a87820;border:1px solid rgba(200,149,42,.28)}
+[data-theme="dark"] .sb-live{color:var(--gold)}
+.sb-urgent{background:rgba(168,32,32,.10);color:#a82020;border:1px solid rgba(168,32,32,.20)}
+.sb-new{background:rgba(26,56,32,.10);color:#1a5a2a;border:1px solid rgba(26,56,32,.20)}
+[data-theme="dark"] .sb-new{background:rgba(61,122,70,.15);color:#5db86a;border-color:rgba(61,122,70,.3)}
+.sb-closed{background:rgba(100,100,100,.10);color:#666;border:1px solid rgba(100,100,100,.2)}
+[data-theme="dark"] .sb-closed{background:rgba(100,100,100,.15);color:#aaa}
+.sb-won{background:rgba(26,56,32,.14);color:#155a22;border:1px solid rgba(26,56,32,.28)}
+[data-theme="dark"] .sb-won{background:rgba(61,122,70,.2);color:#5db86a}
+
+/* Action buttons in tables */
+.ab{padding:4px 10px;border-radius:6px;font-size:11px;font-weight:500;border:none;cursor:pointer;transition:all .2s;white-space:nowrap}
+.ab-edit{background:var(--gold-light);color:var(--gold);border:1px solid var(--gold-border)}
+.ab-edit:hover{background:var(--gold);color:#fff}
+.ab-del{background:rgba(168,32,32,.08);color:#a82020;border:1px solid rgba(168,32,32,.18)}
+.ab-del:hover{background:#a82020;color:#fff}
+.ab-ban{background:rgba(168,32,32,.08);color:#a82020;border:1px solid rgba(168,32,32,.18)}
+.ab-ban:hover{background:#a82020;color:#fff}
+.ab-unban{background:rgba(61,122,70,.10);color:#2d6b35;border:1px solid rgba(61,122,70,.20)}
+.ab-unban:hover{background:#2d6b35;color:#fff}
+.ab-view{background:var(--surface2);color:var(--ink-2);border:1px solid var(--border)}
+.ab-view:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+.ab-close{background:rgba(168,32,32,.08);color:#a82020;border:1px solid rgba(168,32,32,.18)}
+.ab-close:hover{background:#a82020;color:#fff}
+.ab-reopen{background:rgba(61,122,70,.10);color:#2d6b35;border:1px solid rgba(61,122,70,.20)}
+.ab-reopen:hover{background:#2d6b35;color:#fff}
+.ab-win{background:rgba(200,149,42,.12);color:#a87820;border:1px solid rgba(200,149,42,.25)}
+.ab-win:hover{background:var(--gold);color:#1a0e00}
+.ab-row{display:flex;gap:4px;flex-wrap:wrap}
+
+/* User avatar */
+.ua{width:32px;height:32px;border-radius:50%;background:var(--primary);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0;margin-right:9px}
+.uc{display:flex;align-items:center}
+.un{font-weight:500;color:var(--ink);font-size:13px}
+.ue{font-size:11px;color:var(--ink-2);margin-top:1px}
+.cin-m{font-family:monospace;font-size:12px;color:var(--ink-2);letter-spacing:.05em}
+
+/* ── DASHBOARD ── */
+.dash-kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:20px;flex-shrink:0}
+.dk{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px}
+.dk-icon{font-size:22px;margin-bottom:10px}
+.dk-val{font-family:var(--serif);font-size:32px;font-weight:300;color:var(--ink);line-height:1}
+.dk-lbl{font-size:11px;color:var(--ink-2);margin-top:4px;letter-spacing:.04em}
+.dk-trend{font-size:11px;margin-top:6px}
+.dk-up{color:#2d7a3a}
+.dk-down{color:#a82020}
+.dash-2col{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;padding:0 20px 20px;flex:1;min-height:0}
+.dash-block{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.dash-block-hd{padding:14px 18px;border-bottom:1px solid var(--border);font-size:13px;font-weight:500;color:var(--ink);display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.dash-block-body{padding:0;overflow-y:auto;flex:1}
+/* Mini bar chart */
+.chart-bar-wrap{padding:16px 18px 10px;height:140px;display:flex;align-items:flex-end;gap:8px}
+.chart-bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%}
+.chart-bar{width:100%;background:linear-gradient(180deg,var(--gold),var(--primary));border-radius:4px 4px 0 0;min-height:4px;transition:height .4s ease}
+.chart-lbl{font-size:9px;color:var(--ink-3);text-align:center;white-space:nowrap;letter-spacing:.04em}
+.chart-val{font-size:10px;color:var(--ink-2);font-weight:500;text-align:center}
+/* Recent bid rows */
+.rb-row{display:flex;align-items:center;justify-content:space-between;padding:10px 18px;border-bottom:1px solid var(--border-2);font-size:12.5px}
+.rb-row:last-child{border-bottom:none}
+.rb-name{font-weight:500;color:var(--ink)}
+.rb-pigeon{color:var(--ink-2);font-size:11px;margin-top:1px}
+.rb-amt{font-family:var(--serif);font-size:15px;color:var(--gold);font-weight:300}
+.rb-time{font-size:10px;color:var(--ink-3);text-align:right;margin-top:1px}
+/* Top bidders */
+.tb-row{display:flex;align-items:center;gap:10px;padding:10px 18px;border-bottom:1px solid var(--border-2)}
+.tb-row:last-child{border-bottom:none}
+.tb-rank{font-family:var(--serif);font-size:18px;color:var(--ink-3);width:22px;flex-shrink:0;font-weight:300}
+.tb-name{flex:1;font-size:12.5px;font-weight:500;color:var(--ink)}
+.tb-count{font-size:12px;color:var(--ink-2)}
+.tb-total{font-family:var(--serif);font-size:14px;color:var(--primary);font-weight:300;text-align:right}
+[data-theme="dark"] .tb-total{color:var(--gold)}
+
+/* ── PIGEONS TAB ── */
+.pig-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;padding:20px}
+.pig-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:box-shadow .2s}
+.pig-card:hover{box-shadow:var(--shadow)}
+.pig-card-top{aspect-ratio:3/2;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:64px;position:relative}
+.pig-card-badge{position:absolute;top:8px;left:8px;font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:100px;font-weight:500;color:#fff}
+.pig-card-badge.live{background:var(--badge-live)}
+.pig-card-badge.new{background:var(--badge-new)}
+.pig-card-badge.urgent{background:var(--badge-urg)}
+.pig-card-body{padding:14px 16px}
+.pig-card-name{font-family:var(--serif);font-size:16px;color:var(--ink);font-weight:400;margin-bottom:2px}
+.pig-card-breed{font-size:11px;color:var(--ink-2);margin-bottom:10px}
+.pig-card-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-2);margin-bottom:12px}
+.pig-card-price{font-family:var(--serif);font-size:18px;color:var(--primary);font-weight:300}
+[data-theme="dark"] .pig-card-price{color:var(--gold)}
+.pig-card-actions{display:flex;gap:6px}
+
+/* Emoji picker */
+.emoji-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin-top:6px;max-height:180px;overflow-y:auto;padding:2px}
+.emoji-opt{width:32px;height:32px;border-radius:6px;border:1.5px solid var(--border);background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:17px;cursor:pointer;transition:all .15s}
+.emoji-opt:hover{border-color:var(--primary);background:var(--bg-alt)}
+.emoji-opt.sel{border-color:var(--gold);background:var(--gold-light);box-shadow:0 0 0 2px var(--gold)}
+.emoji-selected-preview{width:44px;height:44px;border:1.5px solid var(--gold);border-radius:10px;background:var(--gold-light);display:flex;align-items:center;justify-content:center;font-size:22px}
+
+/* ── AUCTIONS TAB ── */
+.auc-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin:0 20px 14px;overflow:hidden}
+.auc-card-hd{display:flex;align-items:center;gap:14px;padding:16px 18px;border-bottom:1px solid var(--border-2)}
+.auc-card-icon{width:44px;height:44px;border-radius:10px;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.auc-card-info{flex:1}
+.auc-card-name{font-family:var(--serif);font-size:16px;color:var(--ink);font-weight:400}
+.auc-card-sub{font-size:11px;color:var(--ink-2);margin-top:2px}
+.auc-card-body{padding:14px 18px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.auc-field-lbl{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px}
+.auc-field-val{font-family:var(--serif);font-size:15px;color:var(--ink);font-weight:300}
+.auc-field-inp{width:100%;background:var(--surface2);border:1.5px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px;color:var(--ink);outline:none;transition:border-color .2s;font-family:var(--serif)}
+.auc-field-inp:focus{border-color:var(--primary)}
+.auc-card-actions{padding:12px 18px;border-top:1px solid var(--border-2);display:flex;gap:6px;flex-wrap:wrap;background:var(--surface2)}
+
+/* ── BIDS TAB ── */
+.bids-scroll{flex:1;overflow-y:auto}
+
+/* ── EDIT DRAWER ── */
+.adm-drawer{
+  position:fixed;top:52px;right:0;bottom:0;z-index:3100;
+  width:480px;background:var(--surface);border-left:1px solid var(--border);
+  display:flex;flex-direction:column;
+  transform:translateX(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);
+  box-shadow:-8px 0 32px rgba(0,0,0,.12);
+}
+.adm-drawer.open{transform:translateX(0)}
+.adm-drawer-hd{padding:18px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;background:var(--surface)}
+.adm-drawer-title{font-family:var(--serif);font-size:19px;color:var(--ink);font-weight:400}
+.adm-drawer-sub{font-size:11px;color:var(--ink-2);margin-top:2px}
+.adm-drawer-close{background:var(--surface2);border:1px solid var(--border);color:var(--ink-2);width:28px;height:28px;border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .2s}
+.adm-drawer-close:hover{background:var(--bg-alt);color:var(--ink)}
+.adm-drawer-body{padding:20px 22px;overflow-y:auto;flex:1}
+.adm-drawer-foot{padding:14px 22px;border-top:1px solid var(--border);display:flex;gap:8px;justify-content:flex-end;flex-shrink:0;background:var(--surface)}
+
+/* Confirm overlay */
+.adm-confirm{
+  position:fixed;inset:0;z-index:4000;
+  background:rgba(0,0,0,.6);backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
+.adm-confirm.open{opacity:1;pointer-events:all}
+.adm-confirm-box{background:var(--surface);border-radius:14px;padding:28px;width:100%;max-width:380px;border:1px solid var(--border);transform:scale(.96);transition:transform .2s}
+.adm-confirm.open .adm-confirm-box{transform:scale(1)}
+.adm-confirm-icon{font-size:32px;text-align:center;margin-bottom:12px}
+.adm-confirm-title{font-family:var(--serif);font-size:20px;color:var(--ink);text-align:center;margin-bottom:6px;font-weight:400}
+.adm-confirm-text{font-size:13px;color:var(--ink-2);text-align:center;line-height:1.6;margin-bottom:20px}
+.adm-confirm-btns{display:flex;gap:10px}
+.adm-confirm-btns .btn-a{flex:1;justify-content:center}
+/* ── MEMBER MODAL (profil + enchères) ── */
+.memmodal-backdrop{
+  position:fixed;inset:0;z-index:1500;
+  background:rgba(0,0,0,0.6);backdrop-filter:blur(7px);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;pointer-events:none;transition:opacity .25s;
+}
+.memmodal-backdrop.open{opacity:1;pointer-events:all}
+.memmodal-box{
+  background:var(--modal-bg);border-radius:20px;
+  width:100%;max-width:640px;
+  border:1px solid var(--border);
+  transform:translateY(18px) scale(0.98);
+  transition:transform .28s,background .3s;
+  max-height:90vh;overflow:hidden;display:flex;flex-direction:column;
+}
+.memmodal-backdrop.open .memmodal-box{transform:translateY(0) scale(1)}
+.memmodal-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px 28px 18px;border-bottom:1px solid var(--border);flex-shrink:0;
+}
+.memmodal-title{font-family:var(--serif);font-size:22px;color:var(--ink);font-weight:400}
+.memmodal-close{
+  width:30px;height:30px;border-radius:8px;background:var(--surface2);border:1px solid var(--border);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--ink-2);transition:all .2s;
+}
+.memmodal-close:hover{background:var(--bg-alt);color:var(--ink)}
+.memmodal-body{padding:24px 28px;overflow-y:auto;flex:1}
+.memmodal-footer{
+  padding:16px 28px;border-top:1px solid var(--border);
+  display:flex;gap:10px;justify-content:flex-end;flex-shrink:0;
+  background:var(--surface);
+}
+/* Profile fields */
+.pf-avatar{
+  width:72px;height:72px;border-radius:50%;background:var(--primary);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:28px;font-weight:600;flex-shrink:0;margin:0 auto 20px;
+  transition:background .3s;
+}
+.pf-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pf-field{display:flex;flex-direction:column;gap:5px}
+.pf-field.full{grid-column:1/-1}
+.pf-lbl{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+.pf-val{font-size:14px;color:var(--ink);font-weight:400;
+  padding:10px 13px;background:var(--surface2);border-radius:8px;
+  border:1px solid var(--border);
+}
+.pf-inp{
+  width:100%;font-size:14px;color:var(--ink);
+  padding:10px 13px;background:var(--surface2);border-radius:8px;
+  border:1.5px solid var(--border);outline:none;transition:border-color .2s;
+  font-family:inherit;
+}
+.pf-inp:focus{border-color:var(--primary)}
+.pf-inp::placeholder{color:var(--ink-3)}
+/* Bid card */
+.my-bid-card{
+  background:var(--surface2);border:1px solid var(--border);border-radius:12px;
+  padding:16px 18px;margin-bottom:12px;display:flex;align-items:center;gap:16px;
+  transition:box-shadow .2s;
+}
+.my-bid-card:hover{box-shadow:var(--shadow)}
+.my-bid-icon{
+  width:52px;height:52px;border-radius:10px;background:var(--bg-alt);
+  display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;
+}
+.my-bid-info{flex:1;min-width:0}
+.my-bid-name{font-family:var(--serif);font-size:16px;color:var(--ink);font-weight:400;margin-bottom:3px}
+.my-bid-meta{font-size:11.5px;color:var(--ink-2)}
+.my-bid-right{text-align:right;flex-shrink:0}
+.my-bid-amt{font-family:var(--serif);font-size:20px;color:var(--primary);font-weight:300}
+[data-theme="dark"] .my-bid-amt{color:var(--gold)}
+.my-bid-status{font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+.bid-win{color:#2d7a3a;font-weight:600}
+.bid-out{color:var(--ink-3)}
+.empty-state{text-align:center;padding:44px 20px;color:var(--ink-2)}
+.empty-state .es-icon{font-size:48px;margin-bottom:14px;opacity:.4}
+.empty-state p{font-size:14px;line-height:1.7}
+/* ── PHOTO UPLOAD ── */
+.photo-upload-zone{
+  border:2px dashed var(--border);border-radius:var(--r2);
+  padding:28px 20px;text-align:center;cursor:pointer;
+  transition:all .2s;background:var(--surface2);position:relative;
+  overflow:hidden;
+}
+.photo-upload-zone:hover,.photo-upload-zone.drag{border-color:var(--gold);background:var(--gold-light)}
+.photo-upload-zone input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.photo-upload-icon{font-size:36px;margin-bottom:8px}
+.photo-upload-text{font-size:13px;color:var(--ink-2);line-height:1.5}
+.photo-upload-hint{font-size:11px;color:var(--ink-3);margin-top:4px}
+.photo-preview-grid{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.photo-thumb{
+  width:80px;height:80px;border-radius:8px;object-fit:cover;
+  border:1.5px solid var(--border);position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg-alt);font-size:28px;
+}
+.photo-thumb img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.photo-thumb-del{
+  position:absolute;top:3px;right:3px;
+  width:18px;height:18px;border-radius:50%;background:rgba(168,32,32,.85);
+  color:#fff;border:none;cursor:pointer;font-size:10px;
+  display:flex;align-items:center;justify-content:center;transition:background .2s;
+}
+.photo-thumb-del:hover{background:#a82020}
+
+/* ── CHAT ── */
+.chat-btn{
+  position:fixed;bottom:28px;right:80px;z-index:999;
+  width:52px;height:52px;border-radius:50%;
+  background:var(--primary);color:#fff;border:none;cursor:pointer;
+  font-size:22px;box-shadow:0 4px 20px rgba(0,0,0,0.25);
+  transition:all .25s;display:flex;align-items:center;justify-content:center;
+}
+[lang="ar"] .chat-btn{right:auto;left:80px}
+.chat-btn:hover{transform:scale(1.08);background:var(--primary-h)}
+.chat-badge{
+  position:absolute;top:-2px;right:-2px;
+  width:18px;height:18px;border-radius:50%;background:#c0392b;
+  color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;
+  border:2px solid var(--bg);
+}
+.chat-panel{
+  position:fixed;bottom:90px;right:80px;z-index:998;
+  width:340px;height:480px;
+  background:var(--modal-bg);border-radius:16px;border:1px solid var(--border);
+  box-shadow:0 12px 48px rgba(0,0,0,.2);
+  display:flex;flex-direction:column;
+  transform:scale(0.9) translateY(20px);transform-origin:bottom right;
+  opacity:0;pointer-events:none;transition:all .25s cubic-bezier(.4,0,.2,1);
+}
+[lang="ar"] .chat-panel{right:auto;left:80px;transform-origin:bottom left}
+.chat-panel.open{opacity:1;pointer-events:all;transform:scale(1) translateY(0)}
+.chat-header{
+  padding:14px 16px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;flex-shrink:0;
+  background:var(--primary);border-radius:16px 16px 0 0;
+}
+.chat-header-icon{font-size:18px}
+.chat-header-title{flex:1;font-size:13.5px;font-weight:500;color:#fff}
+.chat-header-sub{font-size:10px;color:rgba(255,255,255,.55);margin-top:1px}
+.chat-close{background:rgba(255,255,255,.15);border:none;color:#fff;width:26px;height:26px;border-radius:7px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.chat-close:hover{background:rgba(255,255,255,.25)}
+.chat-conversations{padding:8px;flex-shrink:0;border-bottom:1px solid var(--border-2)}
+.chat-conv-item{
+  display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:8px;
+  cursor:pointer;transition:background .15s;
+}
+.chat-conv-item:hover{background:var(--surface2)}
+.chat-conv-item.active{background:var(--gold-light);border:1px solid var(--gold-border)}
+.chat-conv-avatar{width:32px;height:32px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0}
+.chat-conv-name{font-size:12.5px;font-weight:500;color:var(--ink)}
+.chat-conv-preview{font-size:11px;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:170px}
+.chat-conv-time{font-size:10px;color:var(--ink-3);margin-left:auto;flex-shrink:0}
+.chat-unread{width:16px;height:16px;border-radius:50%;background:#c0392b;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.chat-messages{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
+.chat-msg{max-width:75%;padding:9px 12px;border-radius:12px;font-size:12.5px;line-height:1.5;word-break:break-word}
+.chat-msg.sent{background:var(--primary);color:#fff;align-self:flex-end;border-radius:12px 12px 3px 12px}
+.chat-msg.recv{background:var(--surface2);color:var(--ink);align-self:flex-start;border-radius:12px 12px 12px 3px}
+.chat-msg-time{font-size:9px;opacity:.55;margin-top:3px;text-align:right}
+.chat-msg.recv .chat-msg-time{text-align:left}
+.chat-input-row{
+  padding:10px;border-top:1px solid var(--border);
+  display:flex;gap:7px;flex-shrink:0;
+}
+.chat-inp{
+  flex:1;background:var(--surface2);border:1.5px solid var(--border);
+  border-radius:8px;padding:8px 12px;font-size:13px;color:var(--ink);
+  outline:none;transition:border-color .2s;font-family:inherit;resize:none;
+  max-height:80px;min-height:36px;
+}
+.chat-inp:focus{border-color:var(--primary)}
+.chat-send{
+  width:36px;height:36px;border-radius:8px;background:var(--primary);
+  color:#fff;border:none;cursor:pointer;font-size:16px;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s;flex-shrink:0;
+}
+.chat-send:hover{background:var(--primary-h)}
+.chat-empty{text-align:center;padding:32px 16px;color:var(--ink-2);font-size:13px}
+.chat-empty-icon{font-size:36px;margin-bottom:8px;opacity:.4}
+.chat-back{background:none;border:none;color:rgba(255,255,255,.7);cursor:pointer;font-size:15px;padding:0;margin-right:4px;transition:color .15s}
+.chat-back:hover{color:#fff}
+
+/* ── PAYMENT ── */
+.pay-modal-backdrop{
+  position:fixed;inset:0;z-index:1800;
+  background:rgba(0,0,0,.65);backdrop-filter:blur(7px);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;pointer-events:none;transition:opacity .25s;
+}
+.pay-modal-backdrop.open{opacity:1;pointer-events:all}
+.pay-box{
+  background:var(--modal-bg);border-radius:20px;width:100%;max-width:500px;
+  border:1px solid var(--border);
+  transform:translateY(16px) scale(.97);transition:transform .28s;
+  overflow:hidden;
+}
+.pay-modal-backdrop.open .pay-box{transform:translateY(0) scale(1)}
+.pay-header{
+  background:var(--primary);padding:20px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.pay-header-title{font-family:var(--serif);font-size:20px;color:#fff;font-weight:400}
+.pay-header-close{background:rgba(255,255,255,.14);border:none;color:#fff;width:28px;height:28px;border-radius:7px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center}
+.pay-header-close:hover{background:rgba(255,255,255,.24)}
+.pay-body{padding:24px}
+.pay-summary{
+  background:var(--gold-light);border:1px solid var(--gold-border);
+  border-radius:12px;padding:16px 18px;margin-bottom:22px;
+}
+.pay-summary-pigeon{font-family:var(--serif);font-size:18px;color:var(--ink);margin-bottom:4px}
+.pay-summary-amount{font-family:var(--serif);font-size:32px;color:var(--gold);font-weight:300}
+.pay-summary-label{font-size:11px;color:var(--ink-3);margin-top:2px;letter-spacing:.06em;text-transform:uppercase}
+.pay-methods-title{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;font-weight:500}
+.pay-method{
+  border:2px solid var(--border);border-radius:12px;padding:14px 16px;
+  margin-bottom:10px;cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;gap:14px;
+}
+.pay-method:hover{border-color:var(--gold);background:var(--gold-light)}
+.pay-method.selected{border-color:var(--gold);background:var(--gold-light)}
+.pay-method-icon{font-size:24px;flex-shrink:0}
+.pay-method-info{flex:1}
+.pay-method-name{font-size:13.5px;font-weight:600;color:var(--ink)}
+.pay-method-desc{font-size:11.5px;color:var(--ink-2);margin-top:2px;line-height:1.4}
+.pay-method-radio{width:18px;height:18px;border:2px solid var(--border);border-radius:50%;flex-shrink:0;transition:all .2s;position:relative}
+.pay-method.selected .pay-method-radio{border-color:var(--gold);background:var(--gold)}
+.pay-method.selected .pay-method-radio::after{content:'';position:absolute;inset:3px;border-radius:50%;background:#fff}
+.pay-btn{
+  width:100%;margin-top:18px;background:var(--primary);color:#fff;border:none;
+  padding:14px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;
+  transition:all .25s;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.pay-btn:hover{background:var(--primary-h);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.pay-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.pay-account-block{
+  margin-top:16px;padding:14px 16px;background:var(--surface2);
+  border-radius:10px;border:1px solid var(--border);font-size:13px;
+}
+.pay-account-block strong{color:var(--ink);display:block;margin-bottom:4px}
+.pay-account-block code{
+  background:var(--bg-alt);padding:2px 8px;border-radius:5px;
+  font-family:monospace;font-size:12px;letter-spacing:.04em;color:var(--primary);
+}
+.pay-success{
+  text-align:center;padding:32px 20px;
+}
+.pay-success-icon{font-size:52px;margin-bottom:14px}
+.pay-success-title{font-family:var(--serif);font-size:24px;color:var(--ink);margin-bottom:8px}
+.pay-success-text{font-size:13.5px;color:var(--ink-2);line-height:1.7}
+</style>
+</head>
+<body>
+
+<!-- Mobile frame bar (visible only in mobile mode) -->
+<div class="mobile-frame-bar" id="mobile-frame-bar">
+  <span>🏆 Derby Marrakech International</span>
+  <span style="opacity:.5">·</span>
+  <span>iPhone 14 Pro — 390×844</span>
+  <button onclick="toggleViewMode()" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:4px 12px;border-radius:6px;cursor:pointer;font-size:11px;margin-left:8px">← Retour Desktop</button>
+</div>
+
+<div id="mobile-wrapper">
+
+<!-- ══════════════════════════════════════
+     HEADER
+══════════════════════════════════════ -->
+<header class="header" id="main-header">
+  <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <div class="logo-icon">🏆</div>
+    <div class="logo-texts">
+      <span class="logo-name" id="logo-name">Derby Marrakech International</span>
+      <span class="logo-sub">مزاد · Auctions · Enchères</span>
+    </div>
+  </div>
+
+  <nav class="header-nav">
+    <a href="#auctions" data-i18n="nav.auctions">Enchères</a>
+    <a href="#detail"   data-i18n="nav.pigeons">Pigeons</a>
+    <a href="#how"      data-i18n="nav.how">Comment ça marche</a>
+    <a href="#register" data-i18n="nav.register">Inscription</a>
+  </nav>
+
+  <div class="header-right">
+    <div class="lang-bar">
+      <button class="lang-btn on" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn"    onclick="setLang('ar')">ع</button>
+      <button class="lang-btn"    onclick="setLang('en')">EN</button>
+    </div>
+    <button class="view-toggle" id="view-toggle-btn" onclick="toggleViewMode()" title="">
+      <span id="view-icon">📱</span>
+      <span class="vt-tooltip" id="vt-tip">Vue mobile</span>
+    </button>
+    <button class="theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()" title="Changer le thème">☀️</button>
+    <!-- Auth zone — toggled by JS -->
+    <button class="btn-login" id="admin-btn" onclick="openAdmin()" style="background:var(--gold);color:#1a0e00;display:none;margin-right:4px">⚙ Admin</button>
+    <button class="btn-login" id="btn-open-login" onclick="openModal('login')" data-i18n="header.login">Connexion</button>
+    <!-- User menu (shown after login) -->
+    <div id="user-menu" style="display:none;position:relative">
+      <button id="user-menu-btn" onclick="toggleUserMenu()" style="
+        display:flex;align-items:center;gap:8px;background:var(--bg-alt);
+        border:1px solid var(--border);border-radius:100px;
+        padding:5px 14px 5px 6px;cursor:pointer;transition:all .2s;
+      ">
+        <span id="user-avatar-hd" style="
+          width:26px;height:26px;border-radius:50%;background:var(--primary);
+          color:#fff;display:flex;align-items:center;justify-content:center;
+          font-size:11px;font-weight:600;flex-shrink:0;transition:background .3s;
+        ">?</span>
+        <span id="user-display-name" style="font-size:12px;font-weight:500;color:var(--ink);max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">—</span>
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="opacity:.5"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <!-- Dropdown -->
+      <div id="user-dropdown" style="
+        position:absolute;top:calc(100% + 8px);right:0;min-width:210px;
+        background:var(--surface);border:1px solid var(--border);border-radius:12px;
+        box-shadow:0 8px 32px rgba(0,0,0,0.15);padding:8px;
+        opacity:0;pointer-events:none;transform:translateY(-6px);
+        transition:opacity .2s,transform .2s;z-index:500;
+      ">
+        <!-- User info header -->
+        <div style="padding:10px 12px 12px;border-bottom:1px solid var(--border);margin-bottom:6px">
+          <div id="dd-name" style="font-weight:600;font-size:13px;color:var(--ink)">—</div>
+          <div id="dd-email" style="font-size:11px;color:var(--ink-2);margin-top:1px">—</div>
+          <div id="dd-role-badge" style="
+            display:inline-block;margin-top:6px;font-size:9px;letter-spacing:.12em;
+            text-transform:uppercase;padding:2px 8px;border-radius:100px;font-weight:600;
+          "></div>
+        </div>
+        <!-- Menu items -->
+        <button onclick="closeUserMenu();openProfile()" style="width:100%;text-align:left;background:none;border:none;padding:8px 12px;border-radius:8px;font-size:12.5px;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:9px;transition:background .15s" onmouseover="this.style.background='var(--bg-alt)'" onmouseout="this.style.background='none'">
+          <span>👤</span> <span id="lbl-profil">Mon profil</span>
+        </button>
+        <button onclick="closeUserMenu();openMyBids()" style="width:100%;text-align:left;background:none;border:none;padding:8px 12px;border-radius:8px;font-size:12.5px;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:9px;transition:background .15s" onmouseover="this.style.background='var(--bg-alt)'" onmouseout="this.style.background='none'">
+          <span>⚡</span> <span id="lbl-encheres">Mes enchères</span>
+        </button>
+        <button id="dd-admin-btn" onclick="closeUserMenu();openAdmin()" style="display:none;width:100%;text-align:left;background:none;border:none;padding:8px 12px;border-radius:8px;font-size:12.5px;color:var(--gold);cursor:pointer;display:none;align-items:center;gap:9px;transition:background .15s;font-weight:500" onmouseover="this.style.background='var(--gold-light)'" onmouseout="this.style.background='none'">
+          <span>⚙️</span> Panneau Admin
+        </button>
+        <div style="height:1px;background:var(--border);margin:6px 0"></div>
+        <button onclick="logoutUser()" style="width:100%;text-align:left;background:none;border:none;padding:8px 12px;border-radius:8px;font-size:12.5px;color:#a82020;cursor:pointer;display:flex;align-items:center;gap:9px;transition:background .15s;font-weight:500" onmouseover="this.style.background='rgba(168,32,32,0.07)'" onmouseout="this.style.background='none'">
+          <span>🚪</span> <span id="logout-lbl">Se déconnecter</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow fade-a"><span data-i18n="hero.eyebrow">Plateforme internationale</span></div>
+    <h1 class="hero-title fade-b serif-txt">
+      <span data-i18n="hero.line1">L'art des</span><br>
+      <em data-i18n="hero.line2">enchères</em><span data-i18n="hero.line3"> de pigeons</span><br>
+      <span data-i18n="hero.line4">d'élite</span>
+    </h1>
+    <p class="hero-desc fade-c" data-i18n="hero.desc">
+      Rejoignez la première plateforme internationale d'enchères de pigeons voyageurs au Maroc. Éleveurs et acheteurs connectés du monde entier, en temps réel.
+    </p>
+    <div class="hero-btns fade-c">
+      <a href="#auctions" class="btn-gold" data-i18n="hero.cta1">Voir les enchères</a>
+      <a href="#how" class="btn-outline">
+        <span data-i18n="hero.cta2">Comment ça marche</span>
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M8 2L13 7.5L8 13M13 7.5H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="hero-stats fade-c">
+      <div class="stat"><span class="stat-n" id="ctr-pigeons">0</span><span class="stat-l" data-i18n="stat.pigeons">Pigeons en vente</span></div>
+      <div class="stat"><span class="stat-n" id="ctr-members">0</span><span class="stat-l" data-i18n="stat.members">Membres actifs</span></div>
+      <div class="stat"><span class="stat-n" id="ctr-countries">0</span><span class="stat-l" data-i18n="stat.countries">Pays</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-glow"></div>
+    <div class="hero-visual">🏆</div>
+    <div class="hero-card" id="hero-card">
+      <div class="hero-card-icon">🏆</div>
+      <div class="hero-card-info">
+        <div class="hero-card-tag" data-i18n="card.featured">Enchère vedette</div>
+        <div class="hero-card-name" data-i18n="card.name">Étalon de l'Atlas</div>
+        <div class="hero-card-breed" data-i18n="card.breed">Homing Marocain · 2 ans · Mâle</div>
+        <span class="live-pill"><span class="live-pill-dot"></span><span data-i18n="live">En direct</span></span>
+      </div>
+      <div class="hero-card-price">
+        <div class="hero-price-val"><span id="hero-price">8 500</span> MAD</div>
+        <div class="hero-price-lbl" data-i18n="current.bid">Enchère actuelle</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     AUCTIONS
+══════════════════════════════════════ -->
+<section id="auctions" class="section">
+  <div class="section-hd">
+    <div>
+      <div class="section-eyebrow" data-i18n="sec.auctions.eyebrow">Adjudications en cours</div>
+      <h2 class="section-title"><span data-i18n="sec.auctions.t1">Enchères</span> <em data-i18n="sec.auctions.t2">actives</em></h2>
+    </div>
+    <a href="#" class="section-link">
+      <span data-i18n="sec.auctions.more">Tout voir</span>
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M7 1L12 6.5L7 12M12 6.5H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+
+  <!-- Filters -->
+  <div class="filters" id="filter-bar">
+    <button class="filter-btn active" onclick="filterAuctions('all',this)" data-i18n="filter.all">Tous</button>
+    <button class="filter-btn" onclick="filterAuctions('live',this)" data-i18n="filter.live">En direct</button>
+    <button class="filter-btn" onclick="filterAuctions('new',this)" data-i18n="filter.new">Nouveaux</button>
+    <button class="filter-btn" onclick="filterAuctions('urgent',this)" data-i18n="filter.urgent">Urgents</button>
+  </div>
+
+  <div class="auctions-grid" id="auctions-grid"></div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PIGEON DETAIL
+══════════════════════════════════════ -->
+<section id="detail">
+  <div id="detail-inner"><!-- rempli par renderDetailSection() --></div>
+</section>
+
+<!-- ══════════════════════════════════════
+     HOW IT WORKS
+══════════════════════════════════════ -->
+<section id="how" class="section">
+  <div class="section-hd">
+    <div>
+      <div class="section-eyebrow" data-i18n="how.eyebrow">Processus</div>
+      <h2 class="section-title"><span data-i18n="how.t1">Comment</span> <em data-i18n="how.t2">ça marche</em></h2>
+    </div>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <div class="step-icon-wrap">👤</div>
+      <h3 class="step-title" data-i18n="step1.t">Créez votre compte</h3>
+      <p class="step-desc" data-i18n="step1.d">Inscrivez-vous gratuitement. Fournissez vos informations KYC. Pour les enchères de grande valeur, une empreinte de carte bancaire est requise.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <div class="step-icon-wrap">🔍</div>
+      <h3 class="step-title" data-i18n="step2.t">Explorez les pigeons</h3>
+      <p class="step-desc" data-i18n="step2.d">Photos, vidéos, pedigree complet, carnet de santé et vaccinations. Filtrez par race, badge ou prix.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <div class="step-icon-wrap">⚡</div>
+      <h3 class="step-title" data-i18n="step3.t">Enchérissez en direct</h3>
+      <p class="step-desc" data-i18n="step3.d">Enchères en temps réel avec anti-sniping automatique : toute mise dans les 5 dernières minutes prolonge l'enchère de 5 minutes.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">04</div>
+      <div class="step-icon-wrap">🌍</div>
+      <h3 class="step-title" data-i18n="step4.t">Paiement & livraison</h3>
+      <p class="step-desc" data-i18n="step4.d">Paiement sécurisé Stripe / PayPal. Livraison internationale avec certificats ONSSA et formalités douanières.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     REGISTER
+══════════════════════════════════════ -->
+<section id="register">
+  <div class="reg-grid">
+    <div>
+      <div class="reg-text-eyebrow" data-i18n="reg.eyebrow">Rejoignez-nous</div>
+      <h2 class="reg-text-title serif-txt">
+        <span data-i18n="reg.t1">Prêt à enchérir sur</span><br>
+        <em data-i18n="reg.t2">les meilleurs pigeons</em><br>
+        <span data-i18n="reg.t3">du Maroc ?</span>
+      </h2>
+      <p class="reg-text-body" data-i18n="reg.desc">Inscription gratuite, vérification sous 48h, accès immédiat aux enchères mondiales.</p>
+      <div class="reg-kpis">
+        <div class="kpi"><span class="kpi-num">0%</span><span class="kpi-lbl" data-i18n="kpi.buy">Commission achat</span></div>
+        <div class="kpi-div"></div>
+        <div class="kpi"><span class="kpi-num">5%</span><span class="kpi-lbl" data-i18n="kpi.sell">Commission vendeur</span></div>
+        <div class="kpi-div"></div>
+        <div class="kpi"><span class="kpi-num">48h</span><span class="kpi-lbl" data-i18n="kpi.kyc">Vérification KYC</span></div>
+      </div>
+    </div>
+
+    <div class="reg-form">
+      <div class="form-title" data-i18n="form.title">Créer un compte</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-lbl" data-i18n="form.first">Prénom</label>
+          <input class="form-inp" type="text" id="reg-first" data-i18n-ph="ph.first">
+        </div>
+        <div class="form-group">
+          <label class="form-lbl" data-i18n="form.last">Nom</label>
+          <input class="form-inp" type="text" id="reg-last" data-i18n-ph="ph.last">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-lbl" data-i18n="form.email">Email</label>
+        <input class="form-inp" type="email" id="reg-email" placeholder="you@email.com">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-lbl" data-i18n="form.phone">Téléphone</label>
+          <input class="form-inp" type="tel" id="reg-phone" placeholder="+212 6 00 00 00 00">
+        </div>
+        <div class="form-group">
+          <label class="form-lbl" data-i18n="form.country">Pays</label>
+          <select class="form-sel" id="reg-country">
+            <option value="MA">🇲🇦 Maroc</option>
+            <option value="FR">🇫🇷 France</option>
+            <option value="BE">🇧🇪 Belgique</option>
+            <option value="DZ">🇩🇿 Algérie</option>
+            <option value="TN">🇹🇳 Tunisie</option>
+            <option value="SA">🇸🇦 Arabie Saoudite</option>
+            <option value="AE">🇦🇪 Émirats arabes unis</option>
+            <option value="NL">🇳🇱 Pays-Bas</option>
+            <option value="DE">🇩🇪 Allemagne</option>
+            <option value="OTHER">🌍 Autre</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-lbl" data-i18n="form.address">Adresse complète (livraison)</label>
+        <input class="form-inp" type="text" id="reg-address" data-i18n-ph="ph.address">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-lbl" data-i18n="form.cin">N° CIN / Carte nationale</label>
+          <input class="form-inp" type="text" id="reg-cin" data-i18n-ph="ph.cin" maxlength="20" style="letter-spacing:0.06em;font-family:monospace;font-size:14px">
+        </div>
+        <div class="form-group">
+          <label class="form-lbl" data-i18n="form.pwd">Mot de passe</label>
+          <input class="form-inp" type="password" id="reg-pwd" placeholder="••••••••••">
+        </div>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" id="reg-terms">
+        <label for="reg-terms" data-i18n="form.terms">J'accepte les <a href="#">conditions générales</a>, la <a href="#">politique de confidentialité</a> et les <a href="#">règles de transport d'animaux vivants</a>.</label>
+      </div>
+      <button class="btn-reg" onclick="handleRegister()" data-i18n="form.submit">Créer mon compte gratuitement</button>
+      <div class="form-footer">
+        <span data-i18n="form.existing">Déjà membre ?</span> <a onclick="openModal('login')" data-i18n="form.login.link">Se connecter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-logo">
+        <div class="footer-brand-icon">🏆</div>
+        <span class="footer-brand-name">Derby Marrakech International</span>
+      </div>
+      <p data-i18n="footer.desc">Première plateforme d'enchères internationale dédiée aux pigeons voyageurs du Maroc. Conforme aux réglementations ONSSA et douanières.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title" data-i18n="footer.platform">Plateforme</div>
+      <a href="#auctions" data-i18n="nav.auctions">Enchères actives</a>
+      <a href="#" data-i18n="footer.results">Résultats</a>
+      <a href="#" data-i18n="footer.sell">Vendre un pigeon</a>
+      <a href="#" data-i18n="footer.calendar">Calendrier</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title" data-i18n="footer.legal">Légal</div>
+      <a href="#" data-i18n="footer.cgv">CGV</a>
+      <a href="#" data-i18n="footer.transport">Transport animaux</a>
+      <a href="#" data-i18n="footer.onssa">Conformité ONSSA</a>
+      <a href="#" data-i18n="footer.gdpr">Données personnelles</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title" data-i18n="footer.support">Support</div>
+      <a href="#" data-i18n="footer.help">Centre d'aide</a>
+      <a href="#" data-i18n="footer.contact">Nous contacter</a>
+      <a href="#" data-i18n="footer.dispute">Signaler un litige</a>
+      <a href="#" data-i18n="footer.partners">Partenaires logistiques</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-i18n="footer.copy">© 2025 Derby Marrakech International. Tous droits réservés.</span>
+    <div class="footer-legal">
+      <a href="#" data-i18n="footer.mentions">Mentions légales</a>
+      <a href="#">Cookies</a>
+      <a href="#">RGPD</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════
+     MODAL
+══════════════════════════════════════ -->
+<div class="modal-backdrop" id="modal-backdrop" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="toast-icon" id="toast-icon">✓</span>
+  <span id="toast-msg">Message</span>
+</div>
+
+<!-- ══════════════════════════════════════
+     MEMBER MODAL — MON PROFIL
+══════════════════════════════════════ -->
+<div class="memmodal-backdrop" id="profile-backdrop" onclick="if(event.target===this)closeProfile()">
+  <div class="memmodal-box">
+    <div class="memmodal-header">
+      <div class="memmodal-title" id="profile-modal-title">Mon profil</div>
+      <button class="memmodal-close" onclick="closeProfile()">✕</button>
+    </div>
+    <div class="memmodal-body" id="profile-body"></div>
+    <div class="memmodal-footer" id="profile-footer"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     CHAT BUTTON + PANEL
+══════════════════════════════════════ -->
+<button class="chat-btn" id="chat-fab" onclick="toggleChat()" title="Messages" style="display:none">
+  💬
+  <span class="chat-badge" id="chat-badge" style="display:none">0</span>
+</button>
+
+<div class="chat-panel" id="chat-panel">
+  <div class="chat-header" id="chat-header">
+    <button class="chat-back" id="chat-back-btn" onclick="showConvList()" style="display:none">←</button>
+    <span class="chat-header-icon">💬</span>
+    <div>
+      <div class="chat-header-title" id="chat-panel-title">Messages</div>
+      <div class="chat-header-sub" id="chat-panel-sub">Derby Marrakech International</div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <!-- Conversation list -->
+  <div id="chat-conv-list" style="flex:1;overflow-y:auto;padding:8px">
+    <div class="chat-empty"><div class="chat-empty-icon">💬</div>Aucune conversation pour l'instant.</div>
+  </div>
+  <!-- Message thread (hidden by default) -->
+  <div id="chat-thread" style="display:none;flex:1;flex-direction:column;overflow:hidden">
+    <div class="chat-messages" id="chat-messages"></div>
+    <div class="chat-input-row">
+      <textarea class="chat-inp" id="chat-inp" placeholder="Écrire un message…" rows="1" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChatMsg()}"></textarea>
+      <button class="chat-send" onclick="sendChatMsg()">➤</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAYMENT MODAL
+══════════════════════════════════════ -->
+<div class="pay-modal-backdrop" id="pay-backdrop" onclick="if(event.target===this)closePayment()">
+  <div class="pay-box">
+    <div class="pay-header">
+      <div class="pay-header-title">💳 Paiement sécurisé</div>
+      <button class="pay-header-close" onclick="closePayment()">✕</button>
+    </div>
+    <div class="pay-body" id="pay-body"></div>
+  </div>
+</div>
+  <div class="memmodal-box">
+    <div class="memmodal-header">
+      <div class="memmodal-title" id="mybids-modal-title">Mes enchères</div>
+      <button class="memmodal-close" onclick="closeMyBids()">✕</button>
+    </div>
+    <div class="memmodal-body" id="mybids-body"></div>
+    <div class="memmodal-footer">
+      <button onclick="closeMyBids();document.getElementById('auctions').scrollIntoView({behavior:'smooth'})" style="background:var(--primary);color:#fff;border:none;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer">Voir les enchères actives</button>
+    </div>
+  </div>
+</div>
+
+</div><!-- end #mobile-wrapper -->
+
+<!-- ══════════════════════════════════════
+     ADMIN CMS — FULL SCREEN
+══════════════════════════════════════ -->
+<div class="adm" id="adm">
+
+  <!-- Top Bar -->
+  <div class="adm-topbar">
+    <div class="adm-topbar-left">
+      <div class="adm-logo-dot">🏆</div>
+      <span class="adm-title">Derby Marrakech International</span>
+      <span class="adm-env">Admin CMS</span>
+    </div>
+    <div class="adm-topbar-right">
+      <span class="adm-admin-badge">🔐 Super Admin</span>
+      <button class="adm-close-btn" onclick="closeAdmin()" title="Fermer">✕</button>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="adm-body">
+
+    <!-- Sidebar -->
+    <aside class="adm-sidebar">
+      <div class="adm-nav-section">Navigation</div>
+      <div class="adm-nav-item active" onclick="adm_tab('dashboard',this)"><span class="ni-icon">📊</span>Tableau de bord</div>
+      <div class="adm-nav-item" onclick="adm_tab('users',this)"><span class="ni-icon">👥</span>Utilisateurs<span class="adm-nav-badge" id="nb-users">0</span></div>
+      <div class="adm-nav-item" onclick="adm_tab('pigeons',this)"><span class="ni-icon">🕊️</span>Pigeons<span class="adm-nav-badge" id="nb-pigeons">0</span></div>
+      <div class="adm-nav-item" onclick="adm_tab('auctions',this)"><span class="ni-icon">⚡</span>Enchères<span class="adm-nav-badge" id="nb-auctions">0</span></div>
+      <div class="adm-nav-item" onclick="adm_tab('bids',this)"><span class="ni-icon">💰</span>Mises &amp; Ops<span class="adm-nav-badge" id="nb-bids">0</span></div>
+      <div class="adm-sidebar-footer">
+        <p>Derby Marrakech International<br>v2.0 — CMS Admin<br>© 2025</p>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <div class="adm-content">
+
+      <!-- ── TAB: DASHBOARD ── -->
+      <div class="adm-tab active" id="tab-dashboard">
+        <div class="adm-ch">
+          <div class="adm-ch-left"><h2>📊 Tableau de bord</h2><p>Vue globale de la plateforme en temps réel</p></div>
+          <div class="adm-ch-right">
+            <button class="btn-a btn-a-outline" onclick="refreshDashboard()">↻ Actualiser</button>
+          </div>
+        </div>
+        <div class="dash-kpi-grid" id="dash-kpis"></div>
+        <div class="dash-2col" id="dash-2col"></div>
+      </div>
+
+      <!-- ── TAB: USERS ── -->
+      <div class="adm-tab" id="tab-users">
+        <div class="adm-ch">
+          <div class="adm-ch-left"><h2>👥 Utilisateurs</h2><p>Gestion des comptes membres</p></div>
+          <div class="adm-ch-right">
+            <button class="btn-a" onclick="openDrawer('user',null)">＋ Ajouter</button>
+          </div>
+        </div>
+        <div class="adm-toolbar">
+          <input class="adm-search" type="text" id="usr-q" placeholder="🔍  Nom, email, CIN…" oninput="renderUsers()">
+          <select class="adm-filter" id="usr-status" onchange="renderUsers()">
+            <option value="">Tous les statuts</option>
+            <option value="active">Actifs</option>
+            <option value="pending">En attente</option>
+            <option value="banned">Bannis</option>
+          </select>
+          <select class="adm-filter" id="usr-country" onchange="renderUsers()">
+            <option value="">Tous les pays</option>
+            <option value="MA">🇲🇦 Maroc</option>
+            <option value="FR">🇫🇷 France</option>
+            <option value="BE">🇧🇪 Belgique</option>
+            <option value="SA">🇸🇦 Arabie Saoudite</option>
+            <option value="NL">🇳🇱 Pays-Bas</option>
+          </select>
+        </div>
+        <div class="adm-table-wrap">
+          <table class="adm-table">
+            <thead><tr><th>Utilisateur</th><th>CIN</th><th>Téléphone</th><th>Pays</th><th>Enchères</th><th>Statut</th><th>Inscrit le</th><th>Actions</th></tr></thead>
+            <tbody id="usr-tbody"></tbody>
+          </table>
+        </div>
+        <div class="adm-foot"><span id="usr-count">0 utilisateurs</span><div class="adm-pager" id="usr-pager"></div></div>
+      </div>
+
+      <!-- ── TAB: PIGEONS ── -->
+      <div class="adm-tab" id="tab-pigeons">
+        <div class="adm-ch">
+          <div class="adm-ch-left"><h2>🕊️ Pigeons</h2><p>Catalogue complet des lots</p></div>
+          <div class="adm-ch-right">
+            <button class="btn-a" onclick="openDrawer('pigeon',null)">＋ Ajouter un pigeon</button>
+          </div>
+        </div>
+        <div class="adm-toolbar">
+          <input class="adm-search" type="text" id="pig-q" placeholder="🔍  Nom, race, vendeur…" oninput="renderPigeons()">
+          <select class="adm-filter" id="pig-badge" onchange="renderPigeons()">
+            <option value="">Tous les badges</option>
+            <option value="live">En direct</option>
+            <option value="new">Nouveau</option>
+            <option value="urgent">Urgent</option>
+          </select>
+        </div>
+        <div class="pig-grid" id="pig-grid"></div>
+      </div>
+
+      <!-- ── TAB: AUCTIONS ── -->
+      <div class="adm-tab" id="tab-auctions">
+        <div class="adm-ch">
+          <div class="adm-ch-left"><h2>⚡ Enchères</h2><p>Contrôle total sur toutes les enchères</p></div>
+          <div class="adm-ch-right">
+            <select class="adm-filter" id="auc-filter" onchange="renderAuctionsAdmin()">
+              <option value="">Toutes</option>
+              <option value="live">En direct</option>
+              <option value="urgent">Urgentes</option>
+              <option value="new">Nouvelles</option>
+              <option value="closed">Clôturées</option>
+              <option value="won">Gagnées</option>
+            </select>
+          </div>
+        </div>
+        <div style="overflow-y:auto;flex:1;padding-top:12px" id="auc-list"></div>
+      </div>
+
+      <!-- ── TAB: BIDS ── -->
+      <div class="adm-tab" id="tab-bids">
+        <div class="adm-ch">
+          <div class="adm-ch-left"><h2>💰 Mises &amp; Opérations</h2><p>Historique complet de toutes les mises</p></div>
+        </div>
+        <div class="adm-toolbar">
+          <input class="adm-search" type="text" id="bid-q" placeholder="🔍  Enchérisseur, pigeon…" oninput="renderBidsAdmin()">
+          <select class="adm-filter" id="bid-pigeon-filter" onchange="renderBidsAdmin()">
+            <option value="">Tous les pigeons</option>
+          </select>
+          <select class="adm-filter" id="bid-status-filter" onchange="renderBidsAdmin()">
+            <option value="">Tous statuts</option>
+            <option value="winning">Gagnantes</option>
+            <option value="outbid">Dépassées</option>
+          </select>
+        </div>
+        <div class="adm-table-wrap bids-scroll">
+          <table class="adm-table">
+            <thead><tr><th>#</th><th>Enchérisseur</th><th>Pigeon</th><th>Montant</th><th>Statut</th><th>Horodatage</th><th>IP</th><th>Action</th></tr></thead>
+            <tbody id="bids-tbody"></tbody>
+          </table>
+        </div>
+        <div class="adm-foot"><span id="bids-count">0 mises</span><div class="adm-pager" id="bids-pager"></div></div>
+      </div>
+
+    </div><!-- end adm-content -->
+  </div><!-- end adm-body -->
+</div><!-- end .adm -->
+
+<!-- ── EDIT DRAWER ── -->
+<div class="adm-drawer" id="adm-drawer">
+  <div class="adm-drawer-hd">
+    <div><div class="adm-drawer-title" id="drawer-title">—</div><div class="adm-drawer-sub" id="drawer-sub">—</div></div>
+    <button class="adm-drawer-close" onclick="closeDrawer()">✕</button>
+  </div>
+  <div class="adm-drawer-body" id="drawer-body"></div>
+  <div class="adm-drawer-foot" id="drawer-foot"></div>
+</div>
+<!-- Drawer backdrop -->
+<div id="drawer-bd" onclick="closeDrawer()" style="position:fixed;inset:0;z-index:3050;background:rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:opacity .25s"></div>
+
+<!-- ── CONFIRM DIALOG ── -->
+<div class="adm-confirm" id="adm-confirm">
+  <div class="adm-confirm-box">
+    <div class="adm-confirm-icon" id="cf-icon">⚠️</div>
+    <div class="adm-confirm-title" id="cf-title">Confirmer</div>
+    <div class="adm-confirm-text" id="cf-text">Cette action est irréversible.</div>
+    <div class="adm-confirm-btns">
+      <button class="btn-a btn-a-outline" onclick="closeConfirm()">Annuler</button>
+      <button class="btn-a" id="cf-ok" onclick="">Confirmer</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════
+//  TRANSLATIONS
+// ═══════════════════════════════════════════════
+const LANGS = {
+fr:{
+  'nav.auctions':'Enchères','nav.pigeons':'Pigeons','nav.how':'Comment ça marche','nav.register':'Inscription',
+  'header.login':'Connexion',
+  'hero.eyebrow':'Plateforme internationale',
+  'hero.line1':"L'art des",'hero.line2':'enchères','hero.line3':' de pigeons','hero.line4':"d'élite",
+  'hero.desc':"Rejoignez la première plateforme d'enchères de pigeons voyageurs au Maroc. Éleveurs et acheteurs connectés du monde entier, en temps réel.",
+  'hero.cta1':'Voir les enchères','hero.cta2':'Comment ça marche',
+  'stat.pigeons':'Pigeons en vente','stat.members':'Membres actifs','stat.countries':'Pays',
+  'card.featured':'Enchère vedette','card.name':"Étalon de l'Atlas",'card.breed':'Homing Marocain · 2 ans · Mâle',
+  'live':'En direct','current.bid':'Enchère actuelle','currency':'MAD',
+  'sec.auctions.eyebrow':'Adjudications en cours','sec.auctions.t1':'Enchères','sec.auctions.t2':'actives','sec.auctions.more':'Tout voir',
+  'filter.all':'Tous','filter.live':'En direct','filter.new':'Nouveaux','filter.urgent':'Urgents',
+  'det.eyebrow':'Fiche détaillée','det.hero.t1':"Étalon de",'det.hero.t2':"l'Atlas",
+  'det.sub':'Homing Marocain · Mâle · 2 ans','det.name':"Étalon de l'Atlas",
+  'det.ring':'Bague officielle MA24-1138-K — certifié ONSSA',
+  'pedigree.title':'Arbre généalogique',
+  'ped.self':"Étalon de l'Atlas",'ped.father':'Père : Tensift','ped.mother':'Mère : Sahara Rose',
+  'ped.gf':'G.P. : Riad','ped.gm':'G.M. : Jbel Toubkal',
+  'spec.race':'Race','spec.race.v':'Homing Marocain',
+  'spec.age':'Âge','spec.age.v':'2 ans',
+  'spec.sex':'Sexe','spec.sex.v':'Mâle',
+  'spec.pal':'Palmarès','spec.pal.v':'1er Derby 2024',
+  'spec.seller':'Vendeur','spec.seller.v':'M. Benali, Marrakech',
+  'spec.origin':'Origine','spec.origin.v':'Marrakech, Maroc',
+  'h.pmv':'✓ Vaccin PMV','h.para':'✓ Paratyphose','h.dna':'✓ ADN certifié','h.onssa':'✓ Cert. ONSSA','h.vet':'✓ Carnet vétérinaire',
+  'time.left':'Temps restant',
+  'bid.start':'Départ : MAD 1 000','bid.reserve':'Réserve : 15 000',
+  'bid.quick':'Rapide :','btn.bid':'Enchérir →',
+  'bid.history':'Historique des mises',
+  'how.eyebrow':'Processus','how.t1':'Comment','how.t2':'ça marche',
+  'step1.t':'Créez votre compte','step1.d':"Inscrivez-vous gratuitement. Fournissez vos informations KYC. Pour les enchères de grande valeur, une empreinte de carte bancaire est requise.",
+  'step2.t':'Explorez les pigeons','step2.d':'Photos, vidéos, pedigree complet, carnet de santé et vaccinations. Filtrez par race, badge ou prix.',
+  'step3.t':'Enchérissez en direct','step3.d':"Enchères en temps réel avec anti-sniping : toute mise dans les 5 dernières minutes prolonge l'enchère de 5 minutes.",
+  'step4.t':'Paiement & livraison','step4.d':'Paiement sécurisé Stripe / PayPal. Livraison internationale avec certificats ONSSA et formalités douanières.',
+  'reg.eyebrow':'Rejoignez-nous','reg.t1':'Prêt à enchérir sur','reg.t2':'les meilleurs pigeons','reg.t3':'du Maroc ?',
+  'reg.desc':"Inscription gratuite, vérification sous 48h, accès immédiat aux enchères mondiales.",
+  'kpi.buy':'Commission achat','kpi.sell':'Commission vendeur','kpi.kyc':'Vérification KYC',
+  'form.title':'Créer un compte','form.first':'Prénom','form.last':'Nom',
+  'form.email':'Email','form.phone':'Téléphone','form.country':'Pays',
+  'form.address':'Adresse complète (livraison)','form.pwd':'Mot de passe',
+  'form.terms':"J'accepte les conditions générales, la politique de confidentialité et les règles de transport d'animaux vivants.",
+  'form.submit':'Créer mon compte gratuitement','form.existing':'Déjà membre ?','form.login.link':'Se connecter',
+  'ph.first':'Mohammed','ph.last':'El Fassi','ph.address':'N° rue, ville, code postal',
+  'form.cin':'N° CIN / Carte nationale','ph.cin':'Ex: AB123456',
+  'footer.desc':"Première plateforme d'enchères internationale dédiée aux pigeons voyageurs du Maroc.",
+  'footer.platform':'Plateforme','footer.results':'Résultats','footer.sell':'Vendre un pigeon','footer.calendar':'Calendrier',
+  'footer.legal':'Légal','footer.cgv':'CGV','footer.transport':'Transport animaux','footer.onssa':'Conformité ONSSA','footer.gdpr':'Données personnelles',
+  'footer.support':'Support','footer.help':"Centre d'aide",'footer.contact':'Nous contacter','footer.dispute':'Signaler un litige','footer.partners':'Partenaires logistiques',
+  'footer.copy':'© 2025 Derby Marrakech International. Tous droits réservés.','footer.mentions':'Mentions légales',
+  'badge.live':'En direct','badge.new':'Nouveau','badge.urgent':'⚡ Urgent',
+  'card.price.lbl':'Prix actuel','card.offers':'offres','card.bid.btn':'Enchérir maintenant',
+  'modal.login.title':'Connexion','modal.login.sub':'Accédez à votre espace membre',
+  'modal.email':'Email','modal.pwd':'Mot de passe','modal.submit':'Se connecter',
+  'modal.no.account':'Pas encore membre ?','modal.register.link':'Créer un compte',
+  'toast.min_bid':'Mise minimum','toast.low':'Montant insuffisant. Enchère actuelle :',
+  'toast.ok':'Mise enregistrée avec succès !',
+  'toast.snipe':'Mise enregistrée ! Enchère prolongée de 5 min (anti-sniping) ⏱',
+  'toast.rival':'Nouvelle mise enregistrée — Enchérissez !',
+  'toast.terms':'Veuillez accepter les conditions générales',
+  'toast.registered':'Compte créé ! Email de vérification KYC envoyé 📧',
+  'toast.login.ok':'Connexion réussie ! Bienvenue 👋',
+  'now':'À l\'instant',
+  'hist.offers':'offres'
+},
+ar:{
+  'nav.auctions':'المزادات','nav.pigeons':'الحمام','nav.how':'كيف يعمل','nav.register':'التسجيل',
+  'header.login':'تسجيل الدخول',
+  'hero.eyebrow':'منصة دولية',
+  'hero.line1':'فن','hero.line2':'مزادات','hero.line3':' الحمام','hero.line4':'النخبة',
+  'hero.desc':'انضم إلى أول منصة مزادات دولية مخصصة لحمام السباق في المغرب. ربط المربين والمشترين من جميع أنحاء العالم، في الوقت الفعلي.',
+  'hero.cta1':'عرض المزادات','hero.cta2':'كيف يعمل',
+  'stat.pigeons':'حمام للبيع','stat.members':'أعضاء نشطون','stat.countries':'دول',
+  'card.featured':'مزاد مميز','card.name':'فحل الأطلس','card.breed':'هومينغ مغربي · سنتان · ذكر',
+  'live':'مباشر','current.bid':'المزايدة الحالية','currency':'د.م.',
+  'sec.auctions.eyebrow':'مزادات جارية','sec.auctions.t1':'المزادات','sec.auctions.t2':'النشطة','sec.auctions.more':'عرض الكل',
+  'filter.all':'الكل','filter.live':'مباشر','filter.new':'جديد','filter.urgent':'عاجل',
+  'det.eyebrow':'بطاقة تفصيلية','det.hero.t1':'فحل','det.hero.t2':'الأطلس',
+  'det.sub':'هومينغ مغربي · ذكر · سنتان','det.name':'فحل الأطلس',
+  'det.ring':'الحلقة الرسمية MA24-1138-K — معتمد ONSSA',
+  'pedigree.title':'شجرة النسب',
+  'ped.self':'فحل الأطلس','ped.father':'الأب : تانسيفت','ped.mother':'الأم : صحراء روز',
+  'ped.gf':'الجد : رياض','ped.gm':'الجدة : جبل توبقال',
+  'spec.race':'السلالة','spec.race.v':'هومينغ مغربي',
+  'spec.age':'العمر','spec.age.v':'سنتان',
+  'spec.sex':'الجنس','spec.sex.v':'ذكر',
+  'spec.pal':'السجل الرياضي','spec.pal.v':'1st ديربي 2024',
+  'spec.seller':'البائع','spec.seller.v':'م. بنعلي، مراكش',
+  'spec.origin':'الأصل','spec.origin.v':'مراكش، المغرب',
+  'h.pmv':'✓ تطعيم PMV','h.para':'✓ الحمى البارا تيفية','h.dna':'✓ شهادة DNA','h.onssa':'✓ شهادة ONSSA','h.vet':'✓ دفتر بيطري',
+  'time.left':'الوقت المتبقي',
+  'bid.start':'البداية : 1,000 د.م.','bid.reserve':'الاحتياطي : 15,000',
+  'bid.quick':'سريع :','btn.bid':'المزايدة ←',
+  'bid.history':'سجل المزايدات',
+  'how.eyebrow':'العملية','how.t1':'كيف','how.t2':'يعمل',
+  'step1.t':'إنشاء حساب','step1.d':'سجّل مجانًا. قدّم معلومات KYC. للمزادات ذات القيمة العالية، يُطلب بصمة بطاقة بنكية.',
+  'step2.t':'استكشف الحمام','step2.d':'صور وفيديوهات وشجرة نسب كاملة وسجلات صحية ومواعيد تطعيم.',
+  'step3.t':'زايد مباشرة','step3.d':'مزادات في الوقت الفعلي مع نظام مكافحة القنص : أي مزايدة خلال آخر 5 دقائق تمدد المزاد تلقائيًا.',
+  'step4.t':'الدفع والتوصيل','step4.d':'دفع آمن عبر Stripe أو PayPal. توصيل دولي مع شهادات ONSSA والإجراءات الجمركية.',
+  'reg.eyebrow':'انضم إلينا','reg.t1':'هل أنت مستعد للمزايدة على','reg.t2':'أفضل حمام','reg.t3':'في المغرب؟',
+  'reg.desc':'تسجيل مجاني، تحقق خلال 48 ساعة، وصول فوري للمزادات العالمية.',
+  'kpi.buy':'عمولة الشراء','kpi.sell':'عمولة البيع','kpi.kyc':'التحقق KYC',
+  'form.title':'إنشاء حساب','form.first':'الاسم الأول','form.last':'اسم العائلة',
+  'form.email':'البريد الإلكتروني','form.phone':'الهاتف','form.country':'البلد',
+  'form.address':'العنوان الكامل (للتوصيل)','form.pwd':'كلمة المرور',
+  'form.terms':'أوافق على الشروط العامة وسياسة الخصوصية وقواعد نقل الحيوانات الحية.',
+  'form.submit':'إنشاء حسابي مجانًا','form.existing':'هل أنت عضو بالفعل؟','form.login.link':'تسجيل الدخول',
+  'ph.first':'محمد','ph.last':'العلوي','ph.address':'الشارع، المدينة، الرمز البريدي',
+  'form.cin':'رقم بطاقة الهوية الوطنية','ph.cin':'مثال: AB123456',
+  'footer.desc':'أول منصة مزادات دولية متخصصة في حمام السباق المغربي.',
+  'footer.platform':'المنصة','footer.results':'النتائج','footer.sell':'بيع حمام','footer.calendar':'التقويم',
+  'footer.legal':'القانوني','footer.cgv':'الشروط العامة','footer.transport':'نقل الحيوانات','footer.onssa':'الامتثال ONSSA','footer.gdpr':'حماية البيانات',
+  'footer.support':'الدعم','footer.help':'مركز المساعدة','footer.contact':'اتصل بنا','footer.dispute':'الإبلاغ عن نزاع','footer.partners':'شركاء اللوجستيك',
+  'footer.copy':'© 2025 ديربي مراكش الدولي. جميع الحقوق محفوظة.','footer.mentions':'الملاحظات القانونية',
+  'badge.live':'مباشر','badge.new':'جديد','badge.urgent':'⚡ عاجل',
+  'card.price.lbl':'السعر الحالي','card.offers':'عروض','card.bid.btn':'زايد الآن',
+  'modal.login.title':'تسجيل الدخول','modal.login.sub':'ادخل إلى مساحتك الشخصية',
+  'modal.email':'البريد الإلكتروني','modal.pwd':'كلمة المرور','modal.submit':'دخول',
+  'modal.no.account':'لست عضوًا بعد؟','modal.register.link':'إنشاء حساب',
+  'toast.min_bid':'الحد الأدنى للمزايدة','toast.low':'المبلغ غير كافٍ. المزايدة الحالية :',
+  'toast.ok':'تم تسجيل مزايدتك بنجاح!',
+  'toast.snipe':'تم التسجيل! المزاد مُمدَّد 5 دقائق (مكافحة القنص) ⏱',
+  'toast.rival':'مزايدة جديدة — زايد الآن!',
+  'toast.terms':'يرجى قبول الشروط العامة',
+  'toast.registered':'تم إنشاء الحساب! رسالة تحقق KYC أُرسلت 📧',
+  'toast.login.ok':'تم تسجيل الدخول! أهلاً بك 👋',
+  'now':'الآن',
+  'hist.offers':'عروض'
+},
+en:{
+  'nav.auctions':'Auctions','nav.pigeons':'Pigeons','nav.how':'How it works','nav.register':'Sign up',
+  'header.login':'Login',
+  'hero.eyebrow':'International platform',
+  'hero.line1':'The art of','hero.line2':'pigeon','hero.line3':' auctions','hero.line4':'at the highest level',
+  'hero.desc':'Join the first international online auction platform for homing pigeons in Morocco. Connecting breeders and buyers worldwide, in real time.',
+  'hero.cta1':'Browse auctions','hero.cta2':'How it works',
+  'stat.pigeons':'Pigeons for sale','stat.members':'Active members','stat.countries':'Countries',
+  'card.featured':'Featured auction','card.name':'Atlas Stallion','card.breed':'Moroccan Homing · 2 yrs · Male',
+  'live':'Live','current.bid':'Current bid','currency':'MAD',
+  'sec.auctions.eyebrow':'Ongoing lots','sec.auctions.t1':'Active','sec.auctions.t2':'auctions','sec.auctions.more':'View all',
+  'filter.all':'All','filter.live':'Live','filter.new':'New','filter.urgent':'Urgent',
+  'det.eyebrow':'Detailed profile','det.hero.t1':'Atlas','det.hero.t2':'Stallion',
+  'det.sub':'Moroccan Homing · Male · 2 yrs','det.name':'Atlas Stallion',
+  'det.ring':'Official ring MA24-1138-K — ONSSA certified',
+  'pedigree.title':'Pedigree tree',
+  'ped.self':'Atlas Stallion','ped.father':'Father: Tensift','ped.mother':'Mother: Sahara Rose',
+  'ped.gf':'G.F.: Riad','ped.gm':'G.M.: Jbel Toubkal',
+  'spec.race':'Breed','spec.race.v':'Moroccan Homing',
+  'spec.age':'Age','spec.age.v':'2 years',
+  'spec.sex':'Sex','spec.sex.v':'Male',
+  'spec.pal':'Record','spec.pal.v':'1st Derby 2024',
+  'spec.seller':'Seller','spec.seller.v':'M. Benali, Marrakech',
+  'spec.origin':'Origin','spec.origin.v':'Marrakech, Morocco',
+  'h.pmv':'✓ PMV vaccine','h.para':'✓ Paratyphoid','h.dna':'✓ DNA certified','h.onssa':'✓ ONSSA cert.','h.vet':'✓ Vet record',
+  'time.left':'Time remaining',
+  'bid.start':'Start: MAD 1,000','bid.reserve':'Reserve: 15,000',
+  'bid.quick':'Quick:','btn.bid':'Bid →',
+  'bid.history':'Bid history',
+  'how.eyebrow':'Process','how.t1':'How it','how.t2':'works',
+  'step1.t':'Create account','step1.d':'Register for free. Provide KYC info. For high-value auctions, a card authorization is required.',
+  'step2.t':'Explore pigeons','step2.d':'Photos, videos, full pedigree, health records and vaccinations. Filter by breed, badge or price.',
+  'step3.t':'Bid live','step3.d':'Real-time auctions with anti-sniping: any bid in the last 5 minutes automatically extends the auction by 5 minutes.',
+  'step4.t':'Payment & delivery','step4.d':'Secure payment via Stripe / PayPal. International delivery with ONSSA certificates and customs formalities.',
+  'reg.eyebrow':'Join us','reg.t1':'Ready to bid on the','reg.t2':'finest homing pigeons','reg.t3':'in Morocco?',
+  'reg.desc':'Free registration, fast KYC verification, immediate access to worldwide auctions.',
+  'kpi.buy':'Buyer commission','kpi.sell':'Seller commission','kpi.kyc':'KYC verification',
+  'form.title':'Create account','form.first':'First name','form.last':'Last name',
+  'form.email':'Email','form.phone':'Phone','form.country':'Country',
+  'form.address':'Full address (delivery)','form.pwd':'Password',
+  'form.terms':'I accept the general terms and conditions and live animal transport rules.',
+  'form.submit':'Create my free account','form.existing':'Already a member?','form.login.link':'Log in',
+  'ph.first':'Mohammed','ph.last':'El Fassi','ph.address':'Street, city, zip code',
+  'form.cin':'National ID / CIN number','ph.cin':'e.g. AB123456',
+  'footer.desc':'First international auction platform dedicated to homing pigeons from Morocco.',
+  'footer.platform':'Platform','footer.results':'Results','footer.sell':'Sell a pigeon','footer.calendar':'Calendar',
+  'footer.legal':'Legal','footer.cgv':'Terms','footer.transport':'Animal transport','footer.onssa':'ONSSA compliance','footer.gdpr':'Data protection',
+  'footer.support':'Support','footer.help':'Help center','footer.contact':'Contact us','footer.dispute':'Report dispute','footer.partners':'Logistics partners',
+  'footer.copy':'© 2025 Derby Marrakech International. All rights reserved.','footer.mentions':'Legal notices',
+  'badge.live':'Live','badge.new':'New','badge.urgent':'⚡ Urgent',
+  'card.price.lbl':'Current price','card.offers':'bids','card.bid.btn':'Bid now',
+  'modal.login.title':'Login','modal.login.sub':'Access your member area',
+  'modal.email':'Email','modal.pwd':'Password','modal.submit':'Log in',
+  'modal.no.account':'Not a member yet?','modal.register.link':'Create account',
+  'toast.min_bid':'Minimum bid','toast.low':'Amount too low. Current bid:',
+  'toast.ok':'Bid placed successfully!',
+  'toast.snipe':'Bid placed! Auction extended 5 min (anti-sniping) ⏱',
+  'toast.rival':'New bid — Bid now!',
+  'toast.terms':'Please accept the terms and conditions',
+  'toast.registered':'Account created! KYC verification email sent 📧',
+  'toast.login.ok':'Login successful! Welcome 👋',
+  'now':'Just now',
+  'hist.offers':'bids'
+}};
+
+// ═══════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════
+let LANG = 'fr';
+let THEME = 'light';
+let detailPrice = 8500;
+let bidCount = 14;
+let currentFilter = 'all';
+let CURRENT_USER = null;
+let FEATURED_PIGEON_ID = 1; // ID du pigeon affiché dans la Fiche détaillée
+
+function tr(k){ return (LANGS[LANG]&&LANGS[LANG][k]) || (LANGS['fr'][k]) || k; }
+
+// ═══════════════════════════════════════════════
+//  THEME (only 2)
+// ═══════════════════════════════════════════════
+function toggleTheme(){
+  THEME = THEME==='light' ? 'dark' : 'light';
+  applyTheme();
+  localStorage.setItem('dmi-theme', THEME);
+}
+function applyTheme(){
+  document.documentElement.setAttribute('data-theme', THEME);
+  document.getElementById('theme-toggle-btn').textContent = THEME==='light' ? '🌙' : '☀️';
+  document.getElementById('theme-toggle-btn').title = THEME==='light' ? 'Mode sombre / Dark mode' : 'Mode clair / Light mode';
+}
+
+// ═══════════════════════════════════════════════
+//  LANGUAGE
+// ═══════════════════════════════════════════════
+function setLang(l){
+  LANG = l;
+  const html = document.documentElement;
+  html.setAttribute('lang', l);
+  html.setAttribute('dir', l==='ar' ? 'rtl' : 'ltr');
+  document.querySelectorAll('.lang-btn').forEach((b,i)=>{
+    b.classList.toggle('on', ['fr','ar','en'][i]===l);
+  });
+  applyTranslations();
+  renderAuctions();
+  renderDetailSection();
+  renderBidHistory();
+  updateCntLabel();
+  // Refresh logout label when logged in
+  if(CURRENT_USER){
+    document.getElementById('logout-lbl').textContent =
+      l==='ar' ? 'تسجيل الخروج' : l==='en' ? 'Sign out' : 'Se déconnecter';
+  }
+  updateMemberMenuLabels();
+  localStorage.setItem('dmi-lang', l);
+}
+
+function applyTranslations(){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.getAttribute('data-i18n');
+    const v = tr(k);
+    if(v) el.innerHTML = v;
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+    const k = el.getAttribute('data-i18n-ph');
+    const v = tr(k);
+    if(v) el.setAttribute('placeholder', v);
+  });
+}
+
+function updateCntLabel(){
+  const el1 = document.getElementById('bid-cnt-lbl');
+  const el2 = document.getElementById('hist-total');
+  if(el1) el1.textContent = `${bidCount} ${tr('hist.offers')}`;
+  if(el2) el2.textContent = `${bidCount} ${tr('hist.offers')}`;
+}
+
+// ═══════════════════════════════════════════════
+//  PIGEON DATA
+// ═══════════════════════════════════════════════
+const PIGEONS = [
+  {id:1, emoji:'🏆', badge:'live', price:8500, bids:14, endSec:2*3600+14*60+37,
+   fr:{name:"Étalon de l'Atlas",breed:'Homing Marocain',age:'2 ans',sex:'Mâle',origin:'Marrakech'},
+   ar:{name:'فحل الأطلس',breed:'هومينغ مغربي',age:'سنتان',sex:'ذكر',origin:'مراكش'},
+   en:{name:'Atlas Stallion',breed:'Moroccan Homing',age:'2 yrs',sex:'Male',origin:'Marrakech'}},
+  {id:2, emoji:'🕊', badge:'live', price:5200, bids:7, endSec:5*3600+42*60+11,
+   fr:{name:'Perle du Sahel',breed:'Tumbler Oriental',age:'3 ans',sex:'Femelle',origin:'Agadir'},
+   ar:{name:'درة الساحل',breed:'تمبلر شرقي',age:'3 سنوات',sex:'أنثى',origin:'أكادير'},
+   en:{name:'Sahel Pearl',breed:'Oriental Tumbler',age:'3 yrs',sex:'Female',origin:'Agadir'}},
+  {id:3, emoji:'👑', badge:'new', price:3800, bids:4, endSec:18*3600+3*60+55,
+   fr:{name:'Sultan de Fès',breed:'Voyageur Marocain',age:'1 an',sex:'Mâle',origin:'Fès'},
+   ar:{name:'سلطان فاس',breed:'المسافر المغربي',age:'سنة',sex:'ذكر',origin:'فاس'},
+   en:{name:'Sultan of Fès',breed:'Moroccan Voyager',age:'1 yr',sex:'Male',origin:'Fès'}},
+  {id:4, emoji:'💎', badge:'urgent', price:14200, bids:21, endSec:0*3600+38*60+22,
+   fr:{name:'Diamant de Casablanca',breed:'Carrier Marocain',age:'4 ans',sex:'Mâle',origin:'Casablanca'},
+   ar:{name:'ماسة الدار البيضاء',breed:'كاريير مغربي',age:'4 سنوات',sex:'ذكر',origin:'الدار البيضاء'},
+   en:{name:'Casablanca Diamond',breed:'Moroccan Carrier',age:'4 yrs',sex:'Male',origin:'Casablanca'}},
+  {id:5, emoji:'🌹', badge:'new', price:2900, bids:3, endSec:31*3600+0*60+0,
+   fr:{name:'Belle de Meknès',breed:'Pigeon de Marrakech',age:'2 ans',sex:'Femelle',origin:'Meknès'},
+   ar:{name:'جميلة مكناس',breed:'حمام مراكش',age:'سنتان',sex:'أنثى',origin:'مكناس'},
+   en:{name:'Meknes Beauty',breed:'Marrakech Pigeon',age:'2 yrs',sex:'Female',origin:'Meknes'}},
+  {id:6, emoji:'🦅', badge:'live', price:7100, bids:9, endSec:8*3600+22*60+40,
+   fr:{name:'Champion de Ouarzazate',breed:'Homing de Montagne',age:'3 ans',sex:'Mâle',origin:'Ouarzazate'},
+   ar:{name:'بطل ورزازات',breed:'هومينغ الجبل',age:'3 سنوات',sex:'ذكر',origin:'ورزازات'},
+   en:{name:'Ouarzazate Champ',breed:'Mountain Homing',age:'3 yrs',sex:'Male',origin:'Ouarzazate'}},
+];
+
+let bidHistory = [
+  {user:'M. Benali',flag:'🇲🇦',amount:8500,isNow:true,winning:true},
+  {user:'J. Dupont',flag:'🇫🇷',amount:8000,time:'9 min',winning:false},
+  {user:'K. Al-Rashid',flag:'🇸🇦',amount:7500,time:'18 min',winning:false},
+  {user:'P. Claes',flag:'🇧🇪',amount:6800,time:'32 min',winning:false},
+  {user:'A. Tazi',flag:'🇲🇦',amount:6000,time:'45 min',winning:false},
+];
+
+// ═══════════════════════════════════════════════
+//  RENDER AUCTIONS
+// ═══════════════════════════════════════════════
+const cardTimers = {};
+
+function renderAuctions(){
+  const grid = document.getElementById('auctions-grid');
+  const L = LANG;
+
+  // Clear old timers
+  Object.keys(cardTimers).forEach(k=>{ clearInterval(cardTimers[k]); delete cardTimers[k]; });
+
+  const list = currentFilter==='all' ? PIGEONS : PIGEONS.filter(p=>p.badge===currentFilter);
+
+  if(list.length===0){
+    grid.innerHTML = `<p style="color:var(--ink-2);grid-column:1/-1;text-align:center;padding:40px 0;font-size:14px">Aucune enchère pour ce filtre.</p>`;
+    return;
+  }
+
+  grid.innerHTML = list.map(p=>{
+    const d = p[L] || p.fr;
+    const bLbl = tr('badge.'+p.badge);
+    const tid = `ctimer-${p.id}`;
+    return `
+    <div class="auction-card" onclick="scrollToDetail(${p.id})">
+      <div class="card-img-wrap">
+        <div class="card-img">${p.emoji}</div>
+        <div class="card-badge ${p.badge}">${bLbl}</div>
+        <div class="card-timer-badge" id="${tid}">--:--:--</div>
+      </div>
+      <div class="card-body">
+        <div class="card-breed">${d.breed}</div>
+        <div class="card-name serif-txt">${d.name}</div>
+        <div class="card-meta">
+          <span>🗓 ${d.age}</span>
+          <span>${d.sex}</span>
+          <span>📍 ${d.origin}</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div>
+          <div class="card-price-lbl">${tr('card.price.lbl')}</div>
+          <div class="card-price serif-txt">${p.price.toLocaleString()} <span>MAD</span></div>
+        </div>
+        <div class="card-bids">
+          <strong>${p.bids}</strong>
+          ${tr('card.offers')}
+        </div>
+      </div>
+      <div style="padding:0 14px 14px">
+        <button class="btn-bid" onclick="event.stopPropagation();scrollToDetail(${p.id})">${tr('card.bid.btn')}</button>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Start card timers
+  list.forEach(p=>{
+    let s = p.endSec;
+    const el = ()=>document.getElementById(`ctimer-${p.id}`);
+    cardTimers[p.id] = setInterval(()=>{
+      s--;
+      if(s<=0){ clearInterval(cardTimers[p.id]); if(el()) el().textContent='Terminé'; return; }
+      if(el()) el().textContent = fmtTime(s);
+    }, 1000);
+    if(el()) el().textContent = fmtTime(p.endSec);
+  });
+}
+
+function filterAuctions(f, btn){
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderAuctions();
+}
+
+function scrollToDetail(id){
+  document.getElementById('detail').scrollIntoView({behavior:'smooth'});
+}
+
+// ═══════════════════════════════════════════════
+//  TIMERS
+// ═══════════════════════════════════════════════
+function fmtTime(s){
+  const h = Math.floor(s/3600), m = Math.floor((s%3600)/60), sec = s%60;
+  if(h>0) return `${pad2(h)}:${pad2(m)}:${pad2(sec)}`;
+  return `${pad2(m)}:${pad2(sec)}`;
+}
+function pad2(n){ return String(n).padStart(2,'0'); }
+
+// Main detail timer — driven by FEATURED_PIGEON_ID
+let mainSec = 2*3600+14*60+37;
+setInterval(()=>{
+  mainSec = Math.max(0, mainSec-1);
+  const el = document.getElementById('main-timer');
+  if(!el) return;
+  el.textContent = fmtTime(mainSec);
+  el.classList.toggle('red', mainSec < 300);
+}, 1000);
+
+// ═══════════════════════════════════════════════
+//  DETAIL SECTION — DYNAMIC RENDER
+// ═══════════════════════════════════════════════
+function renderDetailSection(){
+  const p = PIGEONS.find(x => x.id === FEATURED_PIGEON_ID) || PIGEONS[0];
+  if(!p) return;
+  const L = LANG;
+  const d = p[L] || p.fr;
+  const ring = p.ring || 'MA24-1138-K';
+  const seller = p.seller || d.origin;
+  const palmares = d.palmares || p.fr?.palmares || '—';
+
+  // Reset live bid state for new featured pigeon
+  detailPrice = p.price;
+  bidCount    = p.bids;
+  mainSec     = p.endSec;
+
+  const eyebrowTxt  = L==='ar' ? 'بطاقة تفصيلية' : L==='en' ? 'Detailed profile' : 'Fiche détaillée';
+  const bidLbl      = L==='ar' ? 'المزايدة الحالية' : L==='en' ? 'Current bid' : 'Enchère actuelle';
+  const timeLbl     = L==='ar' ? 'الوقت المتبقي' : L==='en' ? 'Time remaining' : 'Temps restant';
+  const currencyLbl = L==='ar' ? 'د.م.' : 'MAD';
+  const startLbl    = L==='ar' ? 'البداية' : L==='en' ? 'Start' : 'Départ';
+  const reserveLbl  = L==='ar' ? 'الاحتياطي' : L==='en' ? 'Reserve' : 'Réserve';
+  const quickLbl    = L==='ar' ? 'سريع :' : L==='en' ? 'Quick:' : 'Rapide :';
+  const bidBtn      = L==='ar' ? 'المزايدة ←' : L==='en' ? 'Bid →' : 'Enchérir →';
+  const histLbl     = L==='ar' ? 'سجل المزايدات' : L==='en' ? 'Bid history' : 'Historique des mises';
+  const pedigreeLbl = L==='ar' ? 'شجرة النسب' : L==='en' ? 'Pedigree' : 'Arbre généalogique';
+  const raceLbl     = L==='ar' ? 'السلالة' : L==='en' ? 'Breed' : 'Race';
+  const ageLbl      = L==='ar' ? 'العمر' : L==='en' ? 'Age' : 'Âge';
+  const sexLbl      = L==='ar' ? 'الجنس' : L==='en' ? 'Sex' : 'Sexe';
+  const palLbl      = L==='ar' ? 'السجل الرياضي' : L==='en' ? 'Record' : 'Palmarès';
+  const sellerLbl   = L==='ar' ? 'البائع' : L==='en' ? 'Seller' : 'Vendeur';
+  const originLbl   = L==='ar' ? 'الأصل' : L==='en' ? 'Origin' : 'Origine';
+
+  const startPrice   = Math.round(p.price * 0.12);
+  const reservePrice = Math.round(p.price * 1.8);
+  const pct          = Math.min(100, Math.round(((p.price - startPrice) / (reservePrice - startPrice)) * 100));
+  const minBid       = p.price + 250;
+
+  document.getElementById('detail-inner').innerHTML = `
+    <div style="margin-bottom:20px">
+      <div class="det-eyebrow">${eyebrowTxt}</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(32px,3.5vw,46px);font-weight:300;color:var(--on-hero)">
+        ${d.name}
+      </h2>
+    </div>
+    <div class="detail-grid">
+      <!-- Left: Gallery + Pedigree -->
+      <div>
+        <div class="gallery">
+          <div class="gallery-main" id="gallery-main">${p.emoji}</div>
+          <div class="gallery-thumbs">
+            <div class="g-thumb on" onclick="setThumb(this,'${p.emoji}')">${p.emoji}</div>
+            <div class="g-thumb" onclick="setThumb(this,'🕊')">🕊</div>
+            <div class="g-thumb" onclick="setThumb(this,'📋')">📋</div>
+            <div class="g-thumb" onclick="setThumb(this,'🩺')">🩺</div>
+          </div>
+        </div>
+        <div class="pedigree-wrap">
+          <div class="pedigree-title">${pedigreeLbl}</div>
+          <div class="tree-root">
+            <div class="tree-node-name serif-txt">${d.name}</div>
+            <div class="tree-node-ring">${ring} · 2024</div>
+            <div class="tree-children">
+              <div class="tree-node">
+                <div class="tree-node-name">${L==='ar'?'الأب':L==='en'?'Father':'Père'} : Tensift</div>
+                <div class="tree-node-ring">MA22-0872 · 2022</div>
+              </div>
+              <div class="tree-node">
+                <div class="tree-node-name">${L==='ar'?'الأم':L==='en'?'Mother':'Mère'} : Sahara Rose</div>
+                <div class="tree-node-ring">MA22-1104 · 2022</div>
+              </div>
+            </div>
+            <div class="tree-children-2">
+              <div class="tree-node">
+                <div class="tree-node-name">${L==='ar'?'الجد':'G.P.'} : Riad</div>
+                <div class="tree-node-ring">MA19-0311 · 2019</div>
+              </div>
+              <div class="tree-node">
+                <div class="tree-node-name">${L==='ar'?'الجدة':'G.M.'} : Jbel Toubkal</div>
+                <div class="tree-node-ring">MA19-0654 · 2019</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Right: Info + Bid panel -->
+      <div class="detail-info">
+        <div class="det-eyebrow">${d.breed} · ${d.sex} · ${d.age}</div>
+        <h3 class="det-name serif-txt">${d.name}</h3>
+        <div class="det-breed">${L==='ar'?'الحلقة الرسمية':L==='en'?'Official ring':'Bague officielle'} ${ring} — ${L==='ar'?'معتمد ONSSA':L==='en'?'ONSSA certified':'certifié ONSSA'}</div>
+        <div class="specs-grid">
+          <div class="spec"><div class="spec-lbl">${raceLbl}</div><div class="spec-val">${d.breed}</div></div>
+          <div class="spec"><div class="spec-lbl">${ageLbl}</div><div class="spec-val">${d.age}</div></div>
+          <div class="spec"><div class="spec-lbl">${sexLbl}</div><div class="spec-val">${d.sex}</div></div>
+          <div class="spec"><div class="spec-lbl">${palLbl}</div><div class="spec-val">${palmares}</div></div>
+          <div class="spec"><div class="spec-lbl">${sellerLbl}</div><div class="spec-val">${seller}</div></div>
+          <div class="spec"><div class="spec-lbl">${originLbl}</div><div class="spec-val">${d.origin}</div></div>
+        </div>
+        <div class="health-row">
+          <span class="htag">✓ ${L==='ar'?'تطعيم PMV':L==='en'?'PMV vaccine':'Vaccin PMV'}</span>
+          <span class="htag">✓ ${L==='ar'?'الحمى البارا تيفية':L==='en'?'Paratyphoid':'Paratyphose'}</span>
+          <span class="htag">✓ ${L==='ar'?'شهادة DNA':L==='en'?'DNA certified':'ADN certifié'}</span>
+          <span class="htag">✓ ${L==='ar'?'شهادة ONSSA':L==='en'?'ONSSA cert.':'Cert. ONSSA'}</span>
+          <span class="htag">✓ ${L==='ar'?'دفتر بيطري':L==='en'?'Vet record':'Carnet vétérinaire'}</span>
+        </div>
+        <div class="bid-panel">
+          <div class="bid-panel-top">
+            <div>
+              <div class="bid-lbl">${bidLbl}</div>
+              <div class="bid-current">
+                <span class="bid-currency-unit">${currencyLbl}</span>
+                <span id="det-price">${p.price.toLocaleString()}</span>
+              </div>
+            </div>
+            <div class="bid-timer">
+              <div class="bid-lbl">${timeLbl}</div>
+              <div class="timer-val" id="main-timer">${fmtTime(p.endSec)}</div>
+            </div>
+          </div>
+          <div class="prog-bar"><div class="prog-fill" id="bid-prog" style="width:${pct}%"></div></div>
+          <div class="progress-labels">
+            <span>${startLbl} : ${currencyLbl} ${startPrice.toLocaleString()}</span>
+            <span id="bid-cnt-lbl">${p.bids} ${L==='ar'?'عروض':L==='en'?'bids':'enchères'}</span>
+            <span>${reserveLbl} : ${reservePrice.toLocaleString()}</span>
+          </div>
+          <div class="bid-row-wrap">
+            <input class="bid-input" type="number" id="bid-input" placeholder="${minBid.toLocaleString()}" min="${minBid}" step="250">
+            <button class="btn-place" onclick="placeBid()">${bidBtn}</button>
+          </div>
+          <div class="quick-row">
+            <span class="quick-lbl">${quickLbl}</span>
+            <button class="quick-btn" onclick="quickBid(250)">+250</button>
+            <button class="quick-btn" onclick="quickBid(500)">+500</button>
+            <button class="quick-btn" onclick="quickBid(1000)">+1 000</button>
+            <button class="quick-btn" onclick="quickBid(2000)">+2 000</button>
+          </div>
+        </div>
+        <div class="hist-header">
+          <span>${histLbl}</span>
+          <span id="hist-total">${p.bids} ${L==='ar'?'عروض':L==='en'?'bids':'offres'}</span>
+        </div>
+        <div id="bid-hist"></div>
+      </div>
+    </div>`;
+
+  // Re-render bid history with fresh data
+  renderBidHistory();
+}
+
+// ═══════════════════════════════════════════════
+//  SET FEATURED PIGEON (from admin)
+// ═══════════════════════════════════════════════
+function setFeaturedPigeon(id){
+  const p = PIGEONS.find(x => x.id === id);
+  if(!p) return;
+  FEATURED_PIGEON_ID = id;
+  // Reset live bid state
+  detailPrice = p.price;
+  bidCount    = p.bids;
+  mainSec     = p.endSec;
+  bidHistory  = [
+    {user:'M. Benali', flag:'🇲🇦', amount: p.price, isNow:true, winning:true},
+    {user:'J. Dupont', flag:'🇫🇷', amount: Math.round(p.price * 0.94), time:'9 min', winning:false},
+    {user:'K. Al-Rashid', flag:'🇸🇦', amount: Math.round(p.price * 0.88), time:'21 min', winning:false},
+  ];
+  renderDetailSection();
+  // Also update hero card
+  const heroPrice = document.getElementById('hero-price');
+  if(heroPrice) heroPrice.textContent = p.price.toLocaleString();
+  // Close admin, scroll to detail
+  closeAdmin();
+  setTimeout(()=>{ document.getElementById('detail').scrollIntoView({behavior:'smooth'}); }, 200);
+  toast(`✅ Fiche détaillée mise à jour → "${p.fr.name}"`, '✓');
+}
+
+// ═══════════════════════════════════════════════
+//  BID HISTORY
+// ═══════════════════════════════════════════════
+function renderBidHistory(){
+  const el = document.getElementById('bid-hist');
+  if(!el) return;
+  el.innerHTML = bidHistory.map(b=>`
+    <div class="bid-row ${b.winning?'winning':''}">
+      <div>
+        <div class="bid-row-user">${b.flag} ${b.user}</div>
+        <div class="bid-row-time">${b.isNow ? tr('now') : b.time}</div>
+      </div>
+      <div class="bid-row-amt serif-txt">${tr('currency')} ${b.amount.toLocaleString()}</div>
+    </div>
+  `).join('');
+}
+
+// ═══════════════════════════════════════════════
+//  GALLERY THUMB
+// ═══════════════════════════════════════════════
+function setThumb(btn, emoji){
+  document.querySelectorAll('.g-thumb').forEach(t=>t.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById('gallery-main').textContent = emoji;
+}
+
+// ═══════════════════════════════════════════════
+//  BIDDING
+// ═══════════════════════════════════════════════
+function placeBid(){
+  const inp = document.getElementById('bid-input');
+  const val = parseFloat(inp.value);
+  const minBid = detailPrice + 250;
+  if(!val || val < minBid){
+    toast(`${tr('toast.min_bid')}: ${tr('currency')} ${minBid.toLocaleString()}`, '⚠️');
+    return;
+  }
+  doPlaceBid(val);
+  inp.value = '';
+}
+
+function quickBid(plusAmount){
+  const newBid = detailPrice + plusAmount;
+  doPlaceBid(newBid);
+}
+
+function doPlaceBid(amount){
+  const antiSnipe = mainSec <= 300;
+
+  // Reset winning flags
+  bidHistory.forEach(b=>{ b.winning=false; delete b.isNow; });
+  const meLabel = LANG==='ar' ? 'أنت' : (LANG==='en' ? 'You' : 'Vous');
+  bidHistory.unshift({ user: meLabel, flag:'🌍', amount, isNow:true, winning:true });
+  if(bidHistory.length > 6) bidHistory.pop();
+
+  detailPrice = amount;
+  bidCount++;
+
+  // Update display
+  document.getElementById('det-price').textContent = amount.toLocaleString();
+  document.getElementById('hero-price').textContent = amount.toLocaleString();
+  document.getElementById('bid-input').placeholder = (amount+250).toLocaleString();
+  updateCntLabel();
+
+  // Progress bar
+  const pct = Math.min(100, ((amount-1000)/(15000-1000))*100);
+  document.getElementById('bid-prog').style.width = pct + '%';
+
+  renderBidHistory();
+
+  if(antiSnipe){
+    mainSec += 300;
+    toast(tr('toast.snipe'), '✓');
+  } else {
+    toast(`${tr('toast.ok')} ${tr('currency')} ${amount.toLocaleString()}`, '✓');
+  }
+
+  // Simulate rival bid after ~4s
+  setTimeout(()=>{
+    if(Math.random() > 0.35){
+      const rivals = {
+        fr:['K. Al-Rashid','J. Dupont','P. Claes','A. Tazi','L. El Amrani'],
+        ar:['ك. الراشد','ج. دوبون','ب. كلايس','أ. طازي','ل. العمراني'],
+        en:['K. Al-Rashid','J. Dupont','P. Claes','A. Tazi','L. El Amrani']
+      };
+      const flags = ['🇸🇦','🇫🇷','🇧🇪','🇲🇦','🇲🇦'];
+      const idx = Math.floor(Math.random()*5);
+      const inc = [250,500,750][Math.floor(Math.random()*3)];
+      const rivalAmt = detailPrice + inc;
+      bidHistory.forEach(b=>{ b.winning=false; delete b.isNow; });
+      bidHistory.unshift({ user: rivals[LANG][idx], flag: flags[idx], amount: rivalAmt, isNow:true, winning:true });
+      if(bidHistory.length>6) bidHistory.pop();
+      detailPrice = rivalAmt;
+      bidCount++;
+      document.getElementById('det-price').textContent = rivalAmt.toLocaleString();
+      document.getElementById('hero-price').textContent = rivalAmt.toLocaleString();
+      document.getElementById('bid-input').placeholder = (rivalAmt+250).toLocaleString();
+      updateCntLabel();
+      const p2 = Math.min(100, ((rivalAmt-1000)/(15000-1000))*100);
+      document.getElementById('bid-prog').style.width = p2+'%';
+      renderBidHistory();
+      toast(tr('toast.rival'), '🔔');
+    }
+  }, 3800 + Math.random()*1500);
+}
+
+// ═══════════════════════════════════════════════
+//  TOAST
+// ═══════════════════════════════════════════════
+let toastTimer = null;
+function toast(msg, icon='✓'){
+  clearTimeout(toastTimer);
+  document.getElementById('toast-msg').textContent = msg;
+  document.getElementById('toast-icon').textContent = icon;
+  const el = document.getElementById('toast');
+  el.classList.add('show');
+  toastTimer = setTimeout(()=>el.classList.remove('show'), 4000);
+}
+
+// ═══════════════════════════════════════════════
+//  MODAL
+// ═══════════════════════════════════════════════
+function openModal(type){
+  var body     = document.getElementById('modal-body');
+  var backdrop = document.getElementById('modal-backdrop');
+  if(!body || !backdrop) return;
+
+  if(type === 'login'){
+    var titleTxt = LANG==='ar' ? 'تسجيل الدخول' : LANG==='en' ? 'Sign in' : 'Connexion';
+    var subTxt   = LANG==='ar' ? 'ادخل إلى حسابك' : LANG==='en' ? 'Access your account' : 'Accédez à votre espace membre';
+    var emailLbl = LANG==='ar' ? 'البريد الإلكتروني / الاسم' : LANG==='en' ? 'Email / Username' : 'Email / Identifiant';
+    var pwdLbl   = LANG==='ar' ? 'كلمة المرور' : LANG==='en' ? 'Password' : 'Mot de passe';
+    var btnTxt   = LANG==='ar' ? 'دخول' : LANG==='en' ? 'Sign in' : 'Se connecter';
+    var forgotTxt= LANG==='ar' ? 'نسيت كلمة المرور؟' : LANG==='en' ? 'Forgot password?' : 'Mot de passe oublié ?';
+    var noAccTxt = LANG==='ar' ? 'لست عضواً بعد؟' : LANG==='en' ? 'Not a member?' : 'Pas encore membre ?';
+    var regTxt   = LANG==='ar' ? 'إنشاء حساب' : LANG==='en' ? 'Create account' : "S'inscrire";
+
+    body.innerHTML =
+      '<div class="modal-title">' + titleTxt + '</div>' +
+      '<div class="modal-sub">' + subTxt + '</div>' +
+      '<div class="form-group" style="margin-bottom:14px">' +
+        '<label class="form-lbl" style="color:var(--ink-2)">' + emailLbl + '</label>' +
+        '<input class="form-inp" type="text" id="m-email" placeholder="kech.admin" autocomplete="username">' +
+      '</div>' +
+      '<div class="form-group" style="margin-bottom:6px">' +
+        '<label class="form-lbl" style="color:var(--ink-2)">' + pwdLbl + '</label>' +
+        '<div style="position:relative">' +
+          '<input class="form-inp" type="password" id="m-pwd" placeholder="••••••••••" autocomplete="current-password" style="padding-right:42px">' +
+          '<button id="pwd-eye" type="button" onclick="togglePwdVisibility()" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:16px;color:var(--ink-2);line-height:1;padding:0">👁</button>' +
+        '</div>' +
+      '</div>' +
+      '<div style="text-align:right;margin-bottom:18px">' +
+        '<a href="#" style="font-size:12px;color:var(--gold)">' + forgotTxt + '</a>' +
+      '</div>' +
+      '<button class="btn-reg" id="btn-submit-login" onclick="submitLogin()">' + btnTxt + '</button>' +
+      '<div class="modal-divider">ou</div>' +
+      '<div class="form-footer" style="text-align:center;margin-top:12px;font-size:12.5px;color:var(--ink-2)">' +
+        noAccTxt + ' <a style="color:var(--primary);cursor:pointer;text-decoration:underline" onclick="closeModal();setTimeout(()=&gt;document.getElementById(&quot;register&quot;).scrollIntoView({behavior:&quot;smooth&quot;}),100)">' + regTxt + '</a>' +
+      '</div>';
+  }
+
+  backdrop.classList.add('open');
+
+  // Enter key support (added after innerHTML is set)
+  setTimeout(function(){
+    var eml = document.getElementById('m-email');
+    var pwd = document.getElementById('m-pwd');
+    if(eml) eml.onkeydown = function(e){ if(e.key==='Enter'){ if(pwd) pwd.focus(); } };
+    if(pwd) pwd.onkeydown = function(e){ if(e.key==='Enter') submitLogin(); };
+    if(eml) eml.focus();
+  }, 80);
+}
+
+function togglePwdVisibility(){
+  var inp = document.getElementById('m-pwd');
+  var eye = document.getElementById('pwd-eye');
+  if(!inp) return;
+  inp.type = inp.type === 'password' ? 'text' : 'password';
+  if(eye) eye.textContent = inp.type === 'password' ? '👁' : '🙈';
+}
+
+function closeModal(){
+  var el = document.getElementById('modal-backdrop');
+  if(el) el.classList.remove('open');
+}
+
+document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeModal(); closeUserMenu(); } });
+
+// ═══════════════════════════════════════════════
+//  REGISTER FORM VALIDATION
+// ═══════════════════════════════════════════════
+function handleRegister(){
+  var first   = (document.getElementById('reg-first')?.value   || '').trim();
+  var last    = (document.getElementById('reg-last')?.value    || '').trim();
+  var email   = (document.getElementById('reg-email')?.value   || '').trim();
+  var phone   = (document.getElementById('reg-phone')?.value   || '').trim();
+  var address = (document.getElementById('reg-address')?.value || '').trim();
+  var cin     = (document.getElementById('reg-cin')?.value     || '').trim();
+  var pwd     =  document.getElementById('reg-pwd')?.value     || '';
+  var terms   =  document.getElementById('reg-terms')?.checked;
+
+  // ── Validation ───────────────────────────────
+  if(!first || !last || !email || !phone || !address || !cin || !pwd){
+    toast(
+      LANG==='ar' ? 'يرجى ملء جميع الحقول الإلزامية' :
+      LANG==='en' ? 'Please fill all required fields' :
+      'Veuillez remplir tous les champs obligatoires', '⚠️');
+    return;
+  }
+  if(!terms){
+    toast(tr('toast.terms'), '⚠️');
+    return;
+  }
+  if(pwd.length < 6){
+    toast(
+      LANG==='ar' ? 'كلمة المرور يجب أن تحتوي على 6 أحرف على الأقل' :
+      LANG==='en' ? 'Password must be at least 6 characters' :
+      'Le mot de passe doit contenir au moins 6 caractères', '⚠️');
+    return;
+  }
+  if(cin.length < 4){
+    toast(
+      LANG==='ar' ? 'رقم بطاقة الهوية غير صالح' :
+      LANG==='en' ? 'Invalid CIN number' :
+      'Numéro CIN invalide', '⚠️');
+    return;
+  }
+  // ── Vérifier email unique ────────────────────
+  var allUsers = DEMO_USERS.concat(REGISTERED_USERS);
+  for(var k=0; k<allUsers.length; k++){
+    if(allUsers[k].email === email){
+      toast(
+        LANG==='ar' ? 'هذا البريد الإلكتروني مستخدم بالفعل' :
+        LANG==='en' ? 'This email is already registered' :
+        'Cet email est déjà utilisé. Veuillez vous connecter.', '⚠️');
+      return;
+    }
+  }
+
+  // ── Enregistrement ───────────────────────────
+  var country = document.getElementById('reg-country')?.value || 'MA';
+
+  // Ajouter dans REGISTERED_USERS (pour la connexion)
+  REGISTERED_USERS.push({
+    email:     email,
+    pwd:       pwd,
+    firstName: first,
+    lastName:  last
+  });
+
+  // Ajouter dans USERS_DB (pour le panneau admin)
+  USERS_DB.push({
+    id:        Date.now() % 999999,
+    firstName: first,
+    lastName:  last,
+    email:     email,
+    phone:     phone,
+    address:   address,
+    cin:       cin.toUpperCase(),
+    country:   country,
+    status:    'active',
+    bids:      0,
+    date:      new Date().toLocaleDateString('fr-FR')
+  });
+
+  // ── Connexion automatique après inscription ──
+  CURRENT_USER = {firstName: first, lastName: last, email: email, role: 'member'};
+  applyUserState();
+
+  // Vider le formulaire
+  ['reg-first','reg-last','reg-email','reg-phone','reg-address','reg-cin','reg-pwd'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.value = '';
+  });
+  document.getElementById('reg-terms').checked = false;
+
+  // Message de bienvenue
+  var welcome =
+    LANG==='ar' ? 'مرحباً ' + first + ' ! تم إنشاء حسابك وأنت الآن متصل.' :
+    LANG==='en' ? 'Welcome ' + first + '! Your account has been created and you are now signed in.' :
+    'Bienvenue ' + first + ' ! Compte créé avec succès, vous êtes connecté. 🎉';
+  toast(welcome, '✓');
+
+  // Remonter vers le haut du site
+  setTimeout(function(){
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }, 400);
+}
+
+// ═══════════════════════════════════════════════
+//  VIEW MODE TOGGLE (Mobile / Desktop)
+// ═══════════════════════════════════════════════
+let isMobileMode = false;
+function toggleViewMode(){
+  isMobileMode = !isMobileMode;
+  const body = document.body;
+  const icon = document.getElementById('view-icon');
+  const tip  = document.getElementById('vt-tip');
+  const bar  = document.getElementById('mobile-frame-bar');
+  if(isMobileMode){
+    body.classList.add('mobile-mode');
+    icon.textContent = '🖥';
+    tip.textContent  = 'Vue desktop';
+    bar.style.display = 'flex';
+    window.scrollTo({top:0,behavior:'smooth'});
+  } else {
+    body.classList.remove('mobile-mode');
+    icon.textContent = '📱';
+    tip.textContent  = 'Vue mobile';
+    bar.style.display = 'none';
+  }
+  localStorage.setItem('dmi-view', isMobileMode ? 'mobile' : 'desktop');
+}
+
+// ═══════════════════════════════════════════════
+//  ADMIN — DATA
+// ═══════════════════════════════════════════════
+let USERS_DB = [];
+// Les membres s'ajoutent ici à l'inscription
+
+// Enriched auctions data (mirrors PIGEONS but with extra fields)
+let AUCTIONS_DB = [];
+function syncAuctionsFromPigeons(){
+  PIGEONS.forEach(p=>{
+    const existing = AUCTIONS_DB.find(a=>a.pigeonId===p.id);
+    if(!existing){
+      AUCTIONS_DB.push({
+        id: p.id, pigeonId: p.id,
+        name: p.fr.name, emoji: p.emoji,
+        badge: p.badge, status: p.badge==='closed'?'closed':'active',
+        startPrice: Math.round(p.price*0.12),
+        reservePrice: Math.round(p.price*1.8),
+        currentPrice: p.price,
+        bids: p.bids,
+        durationSec: p.endSec,
+        winner: null,
+        seller: p.fr.origin,
+      });
+    }
+  });
+}
+
+// All bids log
+let ALL_BIDS = [];
+// Les mises réelles s'ajouteront ici
+
+const FLAG = {MA:'🇲🇦',FR:'🇫🇷',BE:'🇧🇪',SA:'🇸🇦',NL:'🇳🇱',DZ:'🇩🇿',TN:'🇹🇳',AE:'🇦🇪',DE:'🇩🇪',OTHER:'🌍'};
+const EMOJIS = ['🏆','🕊','🦅','👑','💎','🌹','⭐','🔥','🌙','💫','🌟','🐦','🦜','🦚','🦋','🌊','🌿','🍀','🌺','🎯','⚡','🌈','🔮','🎪','🎭','🌸','🍃','🌻','🌼','💐'];
+const EMOJIS_PIGEON = ['🕊','🏆','🦅','👑','💎','🌹','⭐','🔥','💫','🌟','🐦','🦜','🦚','🌊','🌿','⚡','🌈','🌸','🌺','🌻','🎯','🔮','🌙','🍀','🍃','💐','🌼','🎪'];
+
+// ═══════════════════════════════════════════════
+//  ADMIN — OPEN / CLOSE / TAB
+// ═══════════════════════════════════════════════
+let currentAdmTab = 'dashboard';
+
+function openAdmin(){
+  syncAuctionsFromPigeons();
+  updateNavBadges();
+  document.getElementById('adm').classList.add('open');
+  adm_tab('dashboard', document.querySelector('.adm-nav-item'));
+}
+function closeAdmin(){
+  document.getElementById('adm').classList.remove('open');
+  closeDrawer();
+  closeConfirm();
+}
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape'){
+    if(document.getElementById('adm-confirm').classList.contains('open')) closeConfirm();
+    else if(document.getElementById('adm-drawer').classList.contains('open')) closeDrawer();
+    else if(document.getElementById('adm').classList.contains('open')) closeAdmin();
+    else closeModal();
+  }
+});
+
+function adm_tab(name, el){
+  currentAdmTab = name;
+  document.querySelectorAll('.adm-nav-item').forEach(n=>n.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.adm-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  closeDrawer();
+  if(name==='dashboard') renderDashboard();
+  if(name==='users')     renderUsers();
+  if(name==='pigeons')   renderPigeons();
+  if(name==='auctions')  renderAuctionsAdmin();
+  if(name==='bids')      { populateBidPigeonFilter(); renderBidsAdmin(); }
+}
+
+function updateNavBadges(){
+  document.getElementById('nb-users').textContent    = USERS_DB.length;
+  document.getElementById('nb-pigeons').textContent  = PIGEONS.length;
+  document.getElementById('nb-auctions').textContent = AUCTIONS_DB.length;
+  document.getElementById('nb-bids').textContent     = ALL_BIDS.length;
+}
+
+// ═══════════════════════════════════════════════
+//  TAB 1 — DASHBOARD
+// ═══════════════════════════════════════════════
+function refreshDashboard(){ renderDashboard(); toast('Tableau de bord actualisé ✓','📊'); }
+
+function renderDashboard(){
+  const totalMad = ALL_BIDS.filter(b=>b.status==='winning').reduce((s,b)=>s+b.amount,0);
+  const activeAuc = AUCTIONS_DB.filter(a=>a.status==='active').length;
+  const topBidder = USERS_DB.sort((a,b)=>b.bids-a.bids)[0];
+
+  document.getElementById('dash-kpis').innerHTML = `
+    <div class="dk"><div class="dk-icon">👥</div><div class="dk-val">${USERS_DB.length}</div><div class="dk-lbl">Utilisateurs inscrits</div><div class="dk-trend dk-up">▲ +2 cette semaine</div></div>
+    <div class="dk"><div class="dk-icon">⚡</div><div class="dk-val">${activeAuc}</div><div class="dk-lbl">Enchères actives</div><div class="dk-trend dk-up">▲ ${AUCTIONS_DB.filter(a=>a.badge==='urgent').length} urgentes</div></div>
+    <div class="dk"><div class="dk-icon">💰</div><div class="dk-val">${totalMad.toLocaleString()} MAD</div><div class="dk-lbl">Volume total des mises</div><div class="dk-trend dk-up">▲ +12% ce mois</div></div>
+    <div class="dk"><div class="dk-icon">🏆</div><div class="dk-val">${topBidder?.firstName||'—'} ${topBidder?.lastName||''}</div><div class="dk-lbl">Top enchérisseur</div><div class="dk-trend">${topBidder?.bids||0} mises</div></div>
+  `;
+
+  // Chart + recent bids
+  const chartData = [
+    {lbl:'Lun',val:3200},{lbl:'Mar',val:8100},{lbl:'Mer',val:4500},
+    {lbl:'Jeu',val:9200},{lbl:'Ven',val:6700},{lbl:'Sam',val:14200},{lbl:'Dim',val:7800}
+  ];
+  const maxVal = Math.max(...chartData.map(d=>d.val));
+  const bars = chartData.map(d=>`
+    <div class="chart-bar-col">
+      <div class="chart-val">${(d.val/1000).toFixed(1)}k</div>
+      <div class="chart-bar" style="height:${Math.round((d.val/maxVal)*100)}%"></div>
+      <div class="chart-lbl">${d.lbl}</div>
+    </div>`).join('');
+
+  const recentBids = [...ALL_BIDS].reverse().slice(0,6).map(b=>`
+    <div class="rb-row">
+      <div><div class="rb-name">${b.flag} ${b.user}</div><div class="rb-pigeon">${b.pigeonName}</div></div>
+      <div style="text-align:right"><div class="rb-amt">${b.amount.toLocaleString()} MAD</div><div class="rb-time">${b.ts.split(' ')[1]}</div></div>
+    </div>`).join('');
+
+  const topBidders = [...USERS_DB].sort((a,b)=>b.bids-a.bids).slice(0,5).map((u,i)=>`
+    <div class="tb-row">
+      <span class="tb-rank">${i+1}</span>
+      <div class="uc"><div class="ua" style="width:28px;height:28px;font-size:11px">${u.firstName[0]}${u.lastName[0]}</div><span class="tb-name">${u.firstName} ${u.lastName}</span></div>
+      <span class="tb-count">${u.bids} mises</span>
+      <div class="tb-total">${(u.bids*700).toLocaleString()} MAD</div>
+    </div>`).join('');
+
+  document.getElementById('dash-2col').innerHTML = `
+    <div class="dash-block">
+      <div class="dash-block-hd">
+        <span>📈 Volume des mises (7 jours)</span>
+        <span style="font-size:11px;color:var(--ink-2)">${totalMad.toLocaleString()} MAD total</span>
+      </div>
+      <div class="chart-bar-wrap">${bars}</div>
+      <div class="dash-block-hd" style="border-top:1px solid var(--border)">🕐 Dernières mises</div>
+      <div class="dash-block-body">${recentBids}</div>
+    </div>
+    <div class="dash-block">
+      <div class="dash-block-hd">🏅 Top enchérisseurs</div>
+      <div class="dash-block-body">${topBidders}</div>
+      <div style="padding:14px 18px;border-top:1px solid var(--border)">
+        <div class="dash-block-hd" style="padding:0 0 10px;border:none;font-size:12.5px">📊 Répartition statuts</div>
+        ${statBar('Actifs',USERS_DB.filter(u=>u.status==='active').length,USERS_DB.length,'#2d7a3a')}
+        ${statBar('En attente',USERS_DB.filter(u=>u.status==='pending').length,USERS_DB.length,'#a87820')}
+        ${statBar('Bannis',USERS_DB.filter(u=>u.status==='banned').length,USERS_DB.length,'#a82020')}
+      </div>
+    </div>`;
+}
+function statBar(lbl,val,total,color){
+  const pct = total>0 ? Math.round(val/total*100) : 0;
+  return `<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+    <span style="font-size:11px;color:var(--ink-2);width:80px;flex-shrink:0">${lbl}</span>
+    <div style="flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden">
+      <div style="height:100%;width:${pct}%;background:${color};border-radius:3px"></div>
+    </div>
+    <span style="font-size:11px;color:var(--ink-2);width:36px;text-align:right">${val}</span>
+  </div>`;
+}
+
+// ═══════════════════════════════════════════════
+//  TAB 2 — USERS
+// ═══════════════════════════════════════════════
+let usrPage=1; const USR_PER=7;
+function renderUsers(){
+  const q  = (document.getElementById('usr-q')?.value||'').toLowerCase();
+  const st = document.getElementById('usr-status')?.value||'';
+  const co = document.getElementById('usr-country')?.value||'';
+  const list = USERS_DB.filter(u=>{
+    const mq = !q || (u.firstName+' '+u.lastName).toLowerCase().includes(q)||u.email.toLowerCase().includes(q)||u.cin.toLowerCase().includes(q)||u.phone.includes(q);
+    return mq && (!st||u.status===st) && (!co||u.country===co);
+  });
+  const start=(usrPage-1)*USR_PER, page=list.slice(start,start+USR_PER);
+  const sb={active:`<span class="sb sb-active">✓ Actif</span>`,pending:`<span class="sb sb-pending">⏳ En attente</span>`,banned:`<span class="sb sb-banned">⛔ Banni</span>`};
+  const tbody=document.getElementById('usr-tbody');
+  tbody.innerHTML=page.length?page.map(u=>`<tr>
+    <td><div class="uc"><div class="ua">${u.firstName[0]}${u.lastName[0]}</div><div><div class="un">${u.firstName} ${u.lastName}</div><div class="ue">${u.email}</div></div></div></td>
+    <td><span class="cin-m">${u.cin}</span></td>
+    <td style="font-size:12px;color:var(--ink-2)">${u.phone}</td>
+    <td>${FLAG[u.country]||'🌍'} ${u.country}</td>
+    <td style="font-family:var(--serif);font-size:16px;color:var(--gold);text-align:center">${u.bids}</td>
+    <td>${sb[u.status]||''}</td>
+    <td style="font-size:11px;color:var(--ink-3)">${u.date}</td>
+    <td><div class="ab-row">
+      <button class="ab ab-view" onclick="openDrawer('user-view',${u.id})">Voir</button>
+      <button class="ab ab-edit" onclick="openDrawer('user',${u.id})">Modifier</button>
+      ${u.status==='banned'
+        ?`<button class="ab ab-unban" onclick="toggleBanUser(${u.id})">Débannir</button>`
+        :`<button class="ab ab-ban" onclick="confirmAction('Bannir ${u.firstName} ${u.lastName} ?','Cette action suspend immédiatement son accès.','⛔',()=>toggleBanUser(${u.id}))">Bannir</button>`}
+    </div></td>
+  </tr>`).join(''):`<tr><td colspan="8" style="text-align:center;padding:32px;color:var(--ink-2)">Aucun utilisateur trouvé.</td></tr>`;
+  makePager('usr-pager',list.length,USR_PER,usrPage,p=>{usrPage=p;renderUsers()});
+  document.getElementById('usr-count').textContent=`${list.length} utilisateur${list.length!==1?'s':''}`;
+  document.getElementById('nb-users').textContent=USERS_DB.length;
+}
+function toggleBanUser(id){
+  const u=USERS_DB.find(x=>x.id===id); if(!u) return;
+  u.status=u.status==='banned'?'active':'banned';
+  renderUsers();
+  toast(u.status==='banned'?`⛔ ${u.firstName} ${u.lastName} banni`:`✓ ${u.firstName} ${u.lastName} réactivé`,u.status==='banned'?'⛔':'✓');
+}
+
+// ═══════════════════════════════════════════════
+//  TAB 3 — PIGEONS
+// ═══════════════════════════════════════════════
+let selectedEmoji = '🕊';
+function renderPigeons(){
+  const q=((document.getElementById('pig-q')?.value)||'').toLowerCase();
+  const badge=(document.getElementById('pig-badge')?.value)||'';
+  const list=PIGEONS.filter(p=>{
+    const name=p.fr.name.toLowerCase(); const breed=p.fr.breed.toLowerCase();
+    return (!q||name.includes(q)||breed.includes(q))&&(!badge||p.badge===badge);
+  });
+  document.getElementById('pig-grid').innerHTML=list.length?list.map(p=>{
+    const isFeatured = p.id === FEATURED_PIGEON_ID;
+    const badgeLabels = {live:'En direct',new:'Nouveau',urgent:'⚡ Urgent',closed:'Clôturé',won:'Gagnée'};
+    return `
+    <div class="pig-card" style="${isFeatured?'border:2px solid var(--gold);box-shadow:0 0 0 3px rgba(200,149,42,0.15)':''}">
+      <div class="pig-card-top" style="position:relative">
+        <span>${p.emoji}</span>
+        <span class="pig-card-badge ${p.badge}">${badgeLabels[p.badge]||p.badge}</span>
+        ${isFeatured?`<span style="position:absolute;top:8px;right:8px;background:var(--gold);color:#1a0e00;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:100px;font-weight:600">⭐ En vitrine</span>`:''}
+      </div>
+      <div class="pig-card-body">
+        <div class="pig-card-name">${p.fr.name}</div>
+        <div class="pig-card-breed">${p.fr.breed} · ${p.fr.age} · ${p.fr.sex}</div>
+        <div class="pig-card-meta"><span>📍 ${p.fr.origin}</span><span>${p.bids} mises</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+          <div class="pig-card-price">${p.price.toLocaleString()} MAD</div>
+        </div>
+        <div class="pig-card-actions">
+          ${isFeatured
+            ? `<button class="ab" style="flex:1;background:rgba(200,149,42,.15);color:var(--gold);border:1px solid var(--gold-border);cursor:default">⭐ En vitrine</button>`
+            : `<button class="ab ab-win" style="flex:1" onclick="confirmAction('Afficher ${p.fr.name} en Fiche détaillée ?','Ce pigeon sera mis en avant sur la page principale.','⭐',()=>setFeaturedPigeon(${p.id}))">⭐ Mettre en vitrine</button>`
+          }
+          <button class="ab ab-edit" onclick="openDrawer('pigeon',${p.id})">✏️</button>
+          <button class="ab ab-del" onclick="confirmAction('Supprimer ${p.fr.name} ?','Ce pigeon sera retiré du catalogue et de toutes les enchères.','🗑️',()=>deletePigeon(${p.id}))">🗑</button>
+        </div>
+      </div>
+    </div>`;
+  }).join(''):`<p style="color:var(--ink-2);padding:32px;text-align:center">Aucun pigeon trouvé.</p>`;
+}
+function deletePigeon(id){
+  const idx=PIGEONS.findIndex(p=>p.id===id);
+  if(idx<0) return;
+  const name=PIGEONS[idx].fr.name;
+  PIGEONS.splice(idx,1);
+  AUCTIONS_DB=AUCTIONS_DB.filter(a=>a.pigeonId!==id);
+  renderPigeons(); renderAuctions(); updateNavBadges();
+  toast(`🗑️ "${name}" supprimé du catalogue`,'🗑️');
+}
+
+// ═══════════════════════════════════════════════
+//  TAB 4 — AUCTIONS
+// ═══════════════════════════════════════════════
+function renderAuctionsAdmin(){
+  const f=(document.getElementById('auc-filter')?.value)||'';
+  const list=AUCTIONS_DB.filter(a=>!f||(f==='closed'?a.status==='closed':f==='won'?a.status==='won':a.badge===f));
+  const container=document.getElementById('auc-list');
+  if(!list.length){container.innerHTML=`<p style="color:var(--ink-2);padding:32px;text-align:center">Aucune enchère pour ce filtre.</p>`;return;}
+  const bMap={live:`<span class="sb sb-live">🔴 En direct</span>`,new:`<span class="sb sb-new">🟢 Nouveau</span>`,urgent:`<span class="sb sb-urgent">⚡ Urgent</span>`,closed:`<span class="sb sb-closed">⬛ Clôturé</span>`,won:`<span class="sb sb-won">🏆 Gagnée</span>`};
+  container.innerHTML=list.map(a=>`
+    <div class="auc-card">
+      <div class="auc-card-hd">
+        <div class="auc-card-icon">${a.emoji}</div>
+        <div class="auc-card-info">
+          <div class="auc-card-name">${a.name}</div>
+          <div class="auc-card-sub">${a.bids} mises · Vendeur: ${a.seller} ${bMap[a.badge]||''}</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          ${a.status==='closed'||a.status==='won'
+            ?`<button class="ab ab-reopen" onclick="aucReopen(${a.id})">↺ Rouvrir</button>`
+            :`<button class="ab ab-close" onclick="confirmAction('Clôturer l\\'enchère de ${a.name} ?','L\\'enchère sera définitivement fermée. Le gagnant actuel conserve son offre.','⛔',()=>aucClose(${a.id}))">Clôturer</button>`}
+          ${a.status==='active' && a.bids>0 ?`<button class="ab ab-win" onclick="confirmAction('Finaliser le gagnant de ${a.name} ?','La mise la plus haute sera déclarée gagnante et une notification sera envoyée.','🏆',()=>aucFinalize(${a.id}))">🏆 Finaliser</button>`:''}
+        </div>
+      </div>
+      <div class="auc-card-body">
+        <div>
+          <div class="auc-field-lbl">Prix de départ</div>
+          <input class="auc-field-inp" id="auc-start-${a.id}" value="${a.startPrice}" type="number">
+        </div>
+        <div>
+          <div class="auc-field-lbl">Prix actuel</div>
+          <input class="auc-field-inp" id="auc-cur-${a.id}" value="${a.currentPrice}" type="number">
+        </div>
+        <div>
+          <div class="auc-field-lbl">Prix de réserve</div>
+          <input class="auc-field-inp" id="auc-res-${a.id}" value="${a.reservePrice}" type="number">
+        </div>
+        <div>
+          <div class="auc-field-lbl">Badge</div>
+          <select class="auc-field-inp" id="auc-badge-${a.id}" style="font-size:12px">
+            <option value="live" ${a.badge==='live'?'selected':''}>🔴 En direct</option>
+            <option value="new" ${a.badge==='new'?'selected':''}>🟢 Nouveau</option>
+            <option value="urgent" ${a.badge==='urgent'?'selected':''}>⚡ Urgent</option>
+            <option value="closed" ${a.badge==='closed'?'selected':''}>⬛ Clôturé</option>
+          </select>
+        </div>
+        <div>
+          <div class="auc-field-lbl">Prolonger (minutes)</div>
+          <input class="auc-field-inp" id="auc-ext-${a.id}" type="number" value="0" min="0" max="120">
+        </div>
+        <div>
+          <div class="auc-field-lbl">Gagnant déclaré</div>
+          <div class="auc-field-val" style="font-size:12px">${a.winner||'—'}</div>
+        </div>
+      </div>
+      <div class="auc-card-actions">
+        <button class="btn-a" onclick="aucSave(${a.id})">💾 Enregistrer</button>
+        <span style="font-size:11px;color:var(--ink-2);align-self:center">${a.bids} mises enregistrées</span>
+      </div>
+    </div>`).join('');
+}
+function aucSave(id){
+  const a=AUCTIONS_DB.find(x=>x.id===id); if(!a) return;
+  const sp=parseFloat(document.getElementById(`auc-start-${id}`)?.value||a.startPrice);
+  const cp=parseFloat(document.getElementById(`auc-cur-${id}`)?.value||a.currentPrice);
+  const rp=parseFloat(document.getElementById(`auc-res-${id}`)?.value||a.reservePrice);
+  const badge=document.getElementById(`auc-badge-${id}`)?.value||a.badge;
+  const ext=parseInt(document.getElementById(`auc-ext-${id}`)?.value||0);
+  a.startPrice=sp; a.currentPrice=cp; a.reservePrice=rp; a.badge=badge;
+  if(ext>0){ a.durationSec+=(ext*60); document.getElementById(`auc-ext-${id}`).value=0; }
+  // Sync to PIGEONS
+  const p=PIGEONS.find(x=>x.id===a.pigeonId);
+  if(p){ p.price=cp; p.badge=badge; }
+  renderAuctions();
+  toast(`✓ Enchère "${a.name}" mise à jour${ext>0?' (+'+ext+' min)':''}`,'✓');
+}
+function aucClose(id){
+  const a=AUCTIONS_DB.find(x=>x.id===id); if(!a) return;
+  a.status='closed'; a.badge='closed';
+  const p=PIGEONS.find(x=>x.id===a.pigeonId); if(p) p.badge='closed';
+  renderAuctionsAdmin(); renderAuctions(); updateNavBadges();
+  toast(`⛔ Enchère "${a.name}" clôturée définitivement`,'⛔');
+}
+function aucReopen(id){
+  const a=AUCTIONS_DB.find(x=>x.id===id); if(!a) return;
+  a.status='active'; a.badge='live'; a.winner=null; a.durationSec=3600;
+  const p=PIGEONS.find(x=>x.id===a.pigeonId); if(p) p.badge='live';
+  renderAuctionsAdmin(); renderAuctions(); updateNavBadges();
+  toast(`↺ Enchère "${a.name}" rouverte (En direct)`,'↺');
+}
+function aucFinalize(id){
+  const a=AUCTIONS_DB.find(x=>x.id===id); if(!a) return;
+  const topBid=ALL_BIDS.filter(b=>b.auctionId===id&&b.status==='winning')[0];
+  a.winner=topBid?`${topBid.user} — ${topBid.amount.toLocaleString()} MAD`:'Aucune mise';
+  a.status='won'; a.badge='won';
+  const p=PIGEONS.find(x=>x.id===a.pigeonId); if(p) p.badge='won';
+  renderAuctionsAdmin(); renderAuctions(); updateNavBadges();
+  toast(`🏆 "${a.name}" finalisée ! Gagnant : ${a.winner}`,'🏆');
+}
+
+// ═══════════════════════════════════════════════
+//  TAB 5 — BIDS
+// ═══════════════════════════════════════════════
+let bidsPage=1; const BIDS_PER=8;
+function populateBidPigeonFilter(){
+  const sel=document.getElementById('bid-pigeon-filter'); if(!sel||sel.options.length>1) return;
+  PIGEONS.forEach(p=>{ const o=document.createElement('option'); o.value=p.fr.name; o.textContent=p.fr.name; sel.appendChild(o); });
+}
+function renderBidsAdmin(){
+  const q=(document.getElementById('bid-q')?.value||'').toLowerCase();
+  const pig=(document.getElementById('bid-pigeon-filter')?.value)||'';
+  const st=(document.getElementById('bid-status-filter')?.value)||'';
+  const list=ALL_BIDS.filter(b=>{
+    const mq=!q||b.user.toLowerCase().includes(q)||b.pigeonName.toLowerCase().includes(q);
+    return mq&&(!pig||b.pigeonName===pig)&&(!st||b.status===st);
+  });
+  const start=(bidsPage-1)*BIDS_PER, page=list.slice(start,start+BIDS_PER);
+  const sb={winning:`<span class="sb sb-won">🏆 Gagnante</span>`,outbid:`<span class="sb sb-closed">Dépassée</span>`};
+  document.getElementById('bids-tbody').innerHTML=page.length?page.map(b=>`<tr>
+    <td style="font-family:monospace;font-size:11px;color:var(--ink-3)">#${b.id}</td>
+    <td>${b.flag} ${b.user}</td>
+    <td style="font-size:12px">${b.pigeonName}</td>
+    <td style="font-family:var(--serif);font-size:16px;color:var(--gold);font-weight:300">${b.amount.toLocaleString()} MAD</td>
+    <td>${sb[b.status]||''}</td>
+    <td style="font-size:11px;color:var(--ink-3)">${b.ts}</td>
+    <td style="font-family:monospace;font-size:11px;color:var(--ink-3)">${b.ip}</td>
+    <td><button class="ab ab-del" onclick="confirmAction('Annuler cette mise ?','La mise de ${b.amount.toLocaleString()} MAD de ${b.user} sera annulée.','🗑️',()=>deleteBid(${b.id}))">Annuler</button></td>
+  </tr>`).join(''):`<tr><td colspan="8" style="text-align:center;padding:28px;color:var(--ink-2)">Aucune mise.</td></tr>`;
+  makePager('bids-pager',list.length,BIDS_PER,bidsPage,p=>{bidsPage=p;renderBidsAdmin()});
+  document.getElementById('bids-count').textContent=`${list.length} mise${list.length!==1?'s':''}`;
+  document.getElementById('nb-bids').textContent=ALL_BIDS.length;
+}
+function deleteBid(id){
+  const idx=ALL_BIDS.findIndex(b=>b.id===id); if(idx<0) return;
+  ALL_BIDS.splice(idx,1);
+  renderBidsAdmin();
+  toast(`🗑️ Mise annulée`,'🗑️');
+}
+
+// ═══════════════════════════════════════════════
+//  DRAWER — user / pigeon form
+// ═══════════════════════════════════════════════
+function openDrawer(type, id){
+  const drawer=document.getElementById('adm-drawer');
+  const bd=document.getElementById('drawer-bd');
+  const body=document.getElementById('drawer-body');
+  const foot=document.getElementById('drawer-foot');
+  const title=document.getElementById('drawer-title');
+  const sub=document.getElementById('drawer-sub');
+
+  if(type==='user-view'){
+    const u=USERS_DB.find(x=>x.id===id); if(!u) return;
+    title.textContent=`${u.firstName} ${u.lastName}`;
+    sub.textContent=`ID #${u.id} · Inscrit le ${u.date}`;
+    body.innerHTML=`
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px 16px">
+        ${ir('Prénom',u.firstName)}${ir('Nom',u.lastName)}
+        ${ir('Email',u.email)}${ir('Téléphone',u.phone)}
+        ${ir('CIN',u.cin,'monospace')}${ir('Pays',FLAG[u.country]+' '+u.country)}
+        ${ir('Statut',u.status)}${ir('Enchères',u.bids+' mises')}
+        <div style="grid-column:1/-1">${ir('Adresse',u.address||'Non renseignée')}</div>
+      </div>`;
+    foot.innerHTML=`<button class="btn-a btn-a-outline" onclick="closeDrawer()">Fermer</button><button class="btn-a" onclick="openDrawer('user',${u.id})">✏️ Modifier</button>`;
+  }
+  else if(type==='user'){
+    const u=id?USERS_DB.find(x=>x.id===id):null;
+    title.textContent=u?'Modifier l\'utilisateur':'Ajouter un utilisateur';
+    sub.textContent=u?`ID #${u.id} · ${u.email}`:'Nouveau compte';
+    body.innerHTML=`
+      <div class="adm-row adm-fg">
+        <div class="adm-fg"><label class="adm-lbl">Prénom</label><input class="adm-inp" id="d-first" value="${u?.firstName||''}"></div>
+        <div class="adm-fg"><label class="adm-lbl">Nom</label><input class="adm-inp" id="d-last" value="${u?.lastName||''}"></div>
+      </div>
+      <div class="adm-fg"><label class="adm-lbl">Email</label><input class="adm-inp" id="d-email" type="email" value="${u?.email||''}"></div>
+      <div class="adm-row adm-fg">
+        <div class="adm-fg"><label class="adm-lbl">Téléphone</label><input class="adm-inp" id="d-phone" value="${u?.phone||''}"></div>
+        <div class="adm-fg"><label class="adm-lbl">CIN</label><input class="adm-inp" id="d-cin" value="${u?.cin||''}" style="font-family:monospace;letter-spacing:.05em"></div>
+      </div>
+      <div class="adm-fg"><label class="adm-lbl">Adresse</label><input class="adm-inp" id="d-address" value="${u?.address||''}"></div>
+      <div class="adm-row adm-fg">
+        <div class="adm-fg"><label class="adm-lbl">Pays</label><select class="adm-sel" id="d-country">
+          ${['MA:🇲🇦 Maroc','FR:🇫🇷 France','BE:🇧🇪 Belgique','SA:🇸🇦 Arabie Saoudite','NL:🇳🇱 Pays-Bas','DZ:🇩🇿 Algérie','OTHER:🌍 Autre'].map(c=>{const[v,l]=c.split(':');return`<option value="${v}" ${u?.country===v?'selected':''}>${l}</option>`}).join('')}
+        </select></div>
+        <div class="adm-fg"><label class="adm-lbl">Statut</label><select class="adm-sel" id="d-status">
+          <option value="active" ${(!u||u.status==='active')?'selected':''}>✓ Actif</option>
+          <option value="pending" ${u?.status==='pending'?'selected':''}>⏳ En attente</option>
+          <option value="banned" ${u?.status==='banned'?'selected':''}>⛔ Banni</option>
+        </select></div>
+      </div>`;
+    foot.innerHTML=`<button class="btn-a btn-a-outline" onclick="closeDrawer()">Annuler</button><button class="btn-a" onclick="saveDrawerUser(${u?.id||0})">💾 Enregistrer</button>`;
+  }
+  else if(type==='pigeon'){
+    const p=id?PIGEONS.find(x=>x.id===id):null;
+    selectedEmoji=p?.emoji||'🕊';
+    title.textContent=p?'Modifier le pigeon':'Ajouter un pigeon';
+    sub.textContent=p?`ID #${p.id} — ${p.fr.name}`:'Nouveau lot';
+    const emojiGrid=EMOJIS_PIGEON.map(e=>`<div class="emoji-opt${e===selectedEmoji?' sel':''}" onclick="selectEmoji(this,'${e}')">${e}</div>`).join('');
+    body.innerHTML=`
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;padding:14px;background:var(--bg-alt);border-radius:10px">
+        <div class="emoji-selected-preview" id="emo-preview">${selectedEmoji}</div>
+        <div>
+          <div style="font-size:12px;font-weight:500;color:var(--ink);margin-bottom:4px">Emoji du pigeon</div>
+          <div style="font-size:11px;color:var(--ink-2)">Cliquez pour changer</div>
+        </div>
+      </div>
+      <div class="emoji-grid adm-fg">${emojiGrid}</div>
+
+      <!-- PHOTO UPLOAD -->
+      <div class="adm-fg" style="margin-top:16px">
+        <label class="adm-lbl">Photos du pigeon</label>
+        <div class="photo-upload-zone" id="photo-drop-zone"
+          ondragover="event.preventDefault();this.classList.add('drag')"
+          ondragleave="this.classList.remove('drag')"
+          ondrop="handlePhotoDrop(event)">
+          <input type="file" id="photo-file-input" accept="image/*" multiple onchange="handlePhotoSelect(this)">
+          <div class="photo-upload-icon">📸</div>
+          <div class="photo-upload-text">Glissez vos photos ici ou <b>cliquez pour parcourir</b></div>
+          <div class="photo-upload-hint">JPG, PNG, WEBP — Max 5 photos, 5 MB chacune</div>
+        </div>
+        <div class="photo-preview-grid" id="photo-preview-grid">
+          ${(p?.photos||[]).map((ph,i)=>`
+            <div class="photo-thumb" id="pthumb-${i}">
+              <img src="${ph}" alt="">
+              <button class="photo-thumb-del" onclick="removePhoto(${i})">✕</button>
+            </div>`).join('')}
+          ${!(p?.photos?.length) ? `<div style="font-size:11px;color:var(--ink-3);padding:4px 0">Aucune photo pour l'instant</div>` : ''}
+        </div>
+      </div>
+
+      <div style="margin-top:4px">
+        <div class="adm-fg"><label class="adm-lbl">Nom (FR)</label><input class="adm-inp" id="p-name-fr" value="${p?.fr.name||''}"></div>
+        <div class="adm-row adm-fg">
+          <div class="adm-fg"><label class="adm-lbl">Nom (AR)</label><input class="adm-inp" id="p-name-ar" value="${p?.ar.name||''}" style="font-family:var(--arab);direction:rtl"></div>
+          <div class="adm-fg"><label class="adm-lbl">Nom (EN)</label><input class="adm-inp" id="p-name-en" value="${p?.en.name||''}"></div>
+        </div>
+        <div class="adm-row adm-fg">
+          <div class="adm-fg"><label class="adm-lbl">Race</label><input class="adm-inp" id="p-breed" value="${p?.fr.breed||''}"></div>
+          <div class="adm-fg"><label class="adm-lbl">Bague / Ring</label><input class="adm-inp" id="p-ring" value="${p?.ring||'MA25-0000-X'}" style="font-family:monospace;letter-spacing:.05em"></div>
+        </div>
+        <div class="adm-row-3 adm-fg">
+          <div class="adm-fg"><label class="adm-lbl">Âge</label><input class="adm-inp" id="p-age" value="${p?.fr.age||''}"></div>
+          <div class="adm-fg"><label class="adm-lbl">Sexe</label><select class="adm-sel" id="p-sex"><option value="Mâle" ${(!p||p.fr.sex==='Mâle')?'selected':''}>Mâle</option><option value="Femelle" ${p?.fr.sex==='Femelle'?'selected':''}>Femelle</option></select></div>
+          <div class="adm-fg"><label class="adm-lbl">Origine</label><input class="adm-inp" id="p-origin" value="${p?.fr.origin||'Marrakech'}"></div>
+        </div>
+        <div class="adm-fg"><label class="adm-lbl">Vendeur</label><input class="adm-inp" id="p-seller" value="${p?.seller||''}"></div>
+        <div class="adm-fg"><label class="adm-lbl">Palmarès</label><input class="adm-inp" id="p-pal" value="${p?.fr.palmares||''}"></div>
+        <div class="adm-row adm-fg">
+          <div class="adm-fg"><label class="adm-lbl">Prix de départ (MAD)</label><input class="adm-inp" id="p-start" type="number" value="${p?Math.round(p.price*0.12):1000}"></div>
+          <div class="adm-fg"><label class="adm-lbl">Prix réserve (MAD)</label><input class="adm-inp" id="p-reserve" type="number" value="${p?Math.round(p.price*1.8):15000}"></div>
+        </div>
+        <div class="adm-row adm-fg">
+          <div class="adm-fg"><label class="adm-lbl">Durée (heures)</label><input class="adm-inp" id="p-dur" type="number" value="${p?Math.round(p.endSec/3600):48}" min="1" max="168"></div>
+          <div class="adm-fg"><label class="adm-lbl">Badge</label><select class="adm-sel" id="p-badge">
+            <option value="live" ${(!p||p.badge==='live')?'selected':''}>🔴 En direct</option>
+            <option value="new" ${p?.badge==='new'?'selected':''}>🟢 Nouveau</option>
+            <option value="urgent" ${p?.badge==='urgent'?'selected':''}>⚡ Urgent</option>
+          </select></div>
+        </div>
+      </div>`;
+    foot.innerHTML=`<button class="btn-a btn-a-outline" onclick="closeDrawer()">Annuler</button><button class="btn-a" onclick="saveDrawerPigeon(${p?.id||0})">💾 Enregistrer</button>`;
+  }
+
+  drawer.classList.add('open');
+  bd.style.opacity='1'; bd.style.pointerEvents='all';
+}
+
+function ir(lbl,val,ff=''){
+  return `<div><div style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:3px">${lbl}</div><div style="font-size:13px;color:var(--ink);font-family:${ff}">${val||'—'}</div></div>`;
+}
+
+function selectEmoji(el, emoji){
+  selectedEmoji=emoji;
+  document.querySelectorAll('.emoji-opt').forEach(e=>e.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('emo-preview').textContent=emoji;
+}
+
+function closeDrawer(){
+  document.getElementById('adm-drawer').classList.remove('open');
+  const bd=document.getElementById('drawer-bd');
+  bd.style.opacity='0'; bd.style.pointerEvents='none';
+}
+
+function saveDrawerUser(id){
+  const first=document.getElementById('d-first')?.value.trim();
+  const last =document.getElementById('d-last')?.value.trim();
+  const email=document.getElementById('d-email')?.value.trim();
+  if(!first||!last||!email){toast('Prénom, nom et email sont obligatoires','⚠️');return;}
+  if(id){
+    const u=USERS_DB.find(x=>x.id===id); if(!u) return;
+    u.firstName=first; u.lastName=last; u.email=email;
+    u.phone=document.getElementById('d-phone')?.value.trim()||u.phone;
+    u.cin=(document.getElementById('d-cin')?.value.trim()||u.cin).toUpperCase();
+    u.address=document.getElementById('d-address')?.value.trim()||u.address;
+    u.country=document.getElementById('d-country')?.value||u.country;
+    u.status=document.getElementById('d-status')?.value||u.status;
+    toast(`✓ ${first} ${last} — modifications enregistrées`,'✓');
+  } else {
+    USERS_DB.push({id:Date.now()%100000,firstName:first,lastName:last,email,
+      phone:document.getElementById('d-phone')?.value.trim()||'—',
+      cin:(document.getElementById('d-cin')?.value.trim()||'—').toUpperCase(),
+      address:document.getElementById('d-address')?.value.trim()||'—',
+      country:document.getElementById('d-country')?.value||'MA',
+      status:document.getElementById('d-status')?.value||'pending',
+      bids:0,date:new Date().toLocaleDateString('fr-FR')
+    });
+    toast(`✓ ${first} ${last} — compte créé`,'✓');
+  }
+  closeDrawer(); renderUsers(); updateNavBadges();
+}
+
+function saveDrawerPigeon(id){
+  const nameFr=document.getElementById('p-name-fr')?.value.trim();
+  if(!nameFr){toast('Le nom FR est obligatoire','⚠️');return;}
+  const badge=document.getElementById('p-badge')?.value||'live';
+  const startPrice=parseInt(document.getElementById('p-start')?.value||1000);
+  const durHours=parseInt(document.getElementById('p-dur')?.value||48);
+  const origin=document.getElementById('p-origin')?.value.trim()||'Marrakech';
+  const sex=document.getElementById('p-sex')?.value||'Mâle';
+  const age=document.getElementById('p-age')?.value.trim()||'2 ans';
+  const breed=document.getElementById('p-breed')?.value.trim()||'Homing Marocain';
+  if(id){
+    const p=PIGEONS.find(x=>x.id===id); if(!p) return;
+    p.emoji=selectedEmoji; p.badge=badge; p.endSec=durHours*3600;
+    p.price=startPrice;
+    p.fr={name:nameFr,breed,age,sex,origin,palmares:document.getElementById('p-pal')?.value.trim()||''};
+    p.ar={name:document.getElementById('p-name-ar')?.value.trim()||nameFr,breed,age:age,sex:sex==='Mâle'?'ذكر':'أنثى',origin};
+    p.en={name:document.getElementById('p-name-en')?.value.trim()||nameFr,breed,age,sex:sex==='Mâle'?'Male':'Female',origin};
+    p.ring=document.getElementById('p-ring')?.value.trim();
+    p.seller=document.getElementById('p-seller')?.value.trim();
+    toast(`✓ "${nameFr}" — modifications enregistrées`,'✓');
+  } else {
+    const newId=Date.now()%10000;
+    PIGEONS.push({id:newId,emoji:selectedEmoji,badge,price:startPrice,bids:0,endSec:durHours*3600,
+      ring:document.getElementById('p-ring')?.value.trim()||'MA25-0000-X',
+      seller:document.getElementById('p-seller')?.value.trim()||'—',
+      fr:{name:nameFr,breed,age,sex,origin,palmares:document.getElementById('p-pal')?.value.trim()||''},
+      ar:{name:document.getElementById('p-name-ar')?.value.trim()||nameFr,breed,age,sex:sex==='Mâle'?'ذكر':'أنثى',origin},
+      en:{name:document.getElementById('p-name-en')?.value.trim()||nameFr,breed,age,sex:sex==='Mâle'?'Male':'Female',origin}
+    });
+    syncAuctionsFromPigeons();
+    toast(`✓ "${nameFr}" — pigeon ajouté au catalogue`,'✓');
+  }
+  closeDrawer(); renderPigeons(); renderAuctions(); updateNavBadges();
+}
+
+// ═══════════════════════════════════════════════
+//  CONFIRM DIALOG
+// ═══════════════════════════════════════════════
+function confirmAction(title,text,icon,onOk){
+  document.getElementById('cf-title').textContent=title;
+  document.getElementById('cf-text').textContent=text;
+  document.getElementById('cf-icon').textContent=icon;
+  document.getElementById('cf-ok').onclick=()=>{closeConfirm();onOk();};
+  document.getElementById('adm-confirm').classList.add('open');
+}
+function closeConfirm(){ document.getElementById('adm-confirm').classList.remove('open'); }
+
+// ═══════════════════════════════════════════════
+//  PAGINATION HELPER
+// ═══════════════════════════════════════════════
+function makePager(elId, total, perPage, currentPage, onPage){
+  const el=document.getElementById(elId); if(!el) return;
+  const pages=Math.ceil(total/perPage);
+  el.innerHTML='';
+  for(let i=1;i<=pages;i++){
+    const b=document.createElement('button');
+    b.className='pg'+(i===currentPage?' on':'');
+    b.textContent=i;
+    b.onclick=()=>onPage(i);
+    el.appendChild(b);
+  }
+}
+
+// ═══════════════════════════════════════════════
+//  COUNTER ANIMATION
+// ═══════════════════════════════════════════════
+function animCount(id, target){
+  let c=0; const step=target/60;
+  const iv = setInterval(()=>{
+    c = Math.min(c+step, target);
+    const el = document.getElementById(id);
+    if(el) el.textContent = Math.floor(c).toLocaleString();
+    if(c>=target) clearInterval(iv);
+  }, 22);
+}
+
+// ═══════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════
+const savedTheme = localStorage.getItem('dmi-theme');
+const savedLang  = localStorage.getItem('dmi-lang');
+const savedView  = localStorage.getItem('dmi-view');
+if(savedTheme) THEME = savedTheme;
+applyTheme();
+
+if(savedLang){
+  setLang(savedLang);
+} else {
+  applyTranslations();
+  renderAuctions();
+  renderDetailSection();
+  renderBidHistory();
+}
+if(savedView === 'mobile') toggleViewMode();
+
+setTimeout(()=>{
+  animCount('ctr-pigeons', 312);
+  animCount('ctr-members', 4800);
+  animCount('ctr-countries', 38);
+}, 800);
+
+// ═══════════════════════════════════════════════
+//  MEMBER — MON PROFIL
+// ═══════════════════════════════════════════════
+var profileEditMode = false;
+
+function openProfile(){
+  if(!CURRENT_USER){ openModal('login'); return; }
+  profileEditMode = false;
+  renderProfileView();
+  document.getElementById('profile-backdrop').classList.add('open');
+}
+function closeProfile(){
+  document.getElementById('profile-backdrop').classList.remove('open');
+  profileEditMode = false;
+}
+
+function getMemberRecord(){
+  // Find in USERS_DB by email
+  for(var i=0; i<USERS_DB.length; i++){
+    if(USERS_DB[i].email === CURRENT_USER.email) return USERS_DB[i];
+  }
+  // Fallback: build from CURRENT_USER
+  return {
+    firstName: CURRENT_USER.firstName,
+    lastName:  CURRENT_USER.lastName,
+    email:     CURRENT_USER.email,
+    phone:     '',
+    address:   '',
+    cin:       '',
+    country:   'MA',
+    status:    'active',
+    bids:      0,
+    date:      new Date().toLocaleDateString('fr-FR')
+  };
+}
+
+function renderProfileView(){
+  var u = getMemberRecord();
+  var initials = (u.firstName.charAt(0) + u.lastName.charAt(0)).toUpperCase();
+  var countryLabel = {MA:'🇲🇦 Maroc',FR:'🇫🇷 France',BE:'🇧🇪 Belgique',SA:'🇸🇦 Arabie Saoudite',NL:'🇳🇱 Pays-Bas',DZ:'🇩🇿 Algérie',TN:'🇹🇳 Tunisie',AE:'🇦🇪 Émirats',DE:'🇩🇪 Allemagne',OTHER:'🌍 Autre'};
+  var statColor = {active:'#2d7a3a',pending:'#a87820',banned:'#a82020'};
+  var statLabel = {active:'✓ Actif',pending:'⏳ En attente',banned:'⛔ Suspendu'};
+
+  document.getElementById('profile-modal-title').textContent = 'Mon profil';
+  document.getElementById('profile-body').innerHTML =
+    '<div style="text-align:center">' +
+      '<div class="pf-avatar" style="margin:0 auto 6px">' + initials + '</div>' +
+      '<div style="font-family:var(--serif);font-size:22px;color:var(--ink);margin-bottom:2px">' + u.firstName + ' ' + u.lastName + '</div>' +
+      '<div style="font-size:12px;color:var(--ink-2);margin-bottom:6px">' + u.email + '</div>' +
+      '<span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:100px;background:rgba(61,122,70,.1);color:' + (statColor[u.status]||'#666') + ';border:1px solid rgba(61,122,70,.2)">' + (statLabel[u.status]||u.status) + '</span>' +
+    '</div>' +
+    '<div style="height:1px;background:var(--border);margin:22px 0 18px"></div>' +
+    '<div class="pf-grid">' +
+      '<div class="pf-field"><div class="pf-lbl">Prénom</div><div class="pf-val">' + (u.firstName||'—') + '</div></div>' +
+      '<div class="pf-field"><div class="pf-lbl">Nom</div><div class="pf-val">' + (u.lastName||'—') + '</div></div>' +
+      '<div class="pf-field"><div class="pf-lbl">Email</div><div class="pf-val">' + (u.email||'—') + '</div></div>' +
+      '<div class="pf-field"><div class="pf-lbl">Téléphone</div><div class="pf-val">' + (u.phone||'Non renseigné') + '</div></div>' +
+      '<div class="pf-field"><div class="pf-lbl">CIN</div><div class="pf-val" style="font-family:monospace;letter-spacing:.05em">' + (u.cin||'Non renseigné') + '</div></div>' +
+      '<div class="pf-field"><div class="pf-lbl">Pays</div><div class="pf-val">' + (countryLabel[u.country]||u.country||'—') + '</div></div>' +
+      '<div class="pf-field full"><div class="pf-lbl">Adresse de livraison</div><div class="pf-val">' + (u.address||'Non renseignée') + '</div></div>' +
+      '<div class="pf-field"><div class="pf-lbl">Membre depuis</div><div class="pf-val">' + (u.date||'—') + '</div></div>' +
+      '<div class="pf-field"><div class="pf-lbl">Enchères remportées</div><div class="pf-val" style="font-family:var(--serif);font-size:20px;color:var(--gold)">' + (u.bids||0) + '</div></div>' +
+    '</div>';
+
+  document.getElementById('profile-footer').innerHTML =
+    '<button onclick="renderProfileEdit()" style="background:var(--primary);color:#fff;border:none;padding:10px 24px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;transition:background .2s" onmouseover="this.style.background=\'var(--primary-h)\'" onmouseout="this.style.background=\'var(--primary)\'">✏️ Modifier mon profil</button>' +
+    '<button onclick="closeProfile()" style="background:var(--surface2);color:var(--ink-2);border:1px solid var(--border);padding:10px 20px;border-radius:8px;font-size:13px;cursor:pointer">Fermer</button>';
+}
+
+function renderProfileEdit(){
+  var u = getMemberRecord();
+  var initials = (u.firstName.charAt(0) + u.lastName.charAt(0)).toUpperCase();
+
+  document.getElementById('profile-modal-title').textContent = 'Modifier mon profil';
+  document.getElementById('profile-body').innerHTML =
+    '<div style="text-align:center;margin-bottom:22px">' +
+      '<div class="pf-avatar" style="margin:0 auto 8px">' + initials + '</div>' +
+      '<div style="font-size:12px;color:var(--ink-2)">Modifiez vos informations personnelles</div>' +
+    '</div>' +
+    '<div class="pf-grid">' +
+      '<div class="pf-field"><div class="pf-lbl">Prénom</div><input class="pf-inp" id="pf-first" value="' + (u.firstName||'') + '"></div>' +
+      '<div class="pf-field"><div class="pf-lbl">Nom</div><input class="pf-inp" id="pf-last" value="' + (u.lastName||'') + '"></div>' +
+      '<div class="pf-field"><div class="pf-lbl">Email</div><input class="pf-inp" id="pf-email" type="email" value="' + (u.email||'') + '"></div>' +
+      '<div class="pf-field"><div class="pf-lbl">Téléphone</div><input class="pf-inp" id="pf-phone" value="' + (u.phone||'') + '" placeholder="+212 6 00 00 00 00"></div>' +
+      '<div class="pf-field"><div class="pf-lbl">CIN</div><input class="pf-inp" id="pf-cin" value="' + (u.cin||'') + '" placeholder="AB123456" style="font-family:monospace;letter-spacing:.05em"></div>' +
+      '<div class="pf-field"><div class="pf-lbl">Pays</div><select class="pf-inp" id="pf-country">' +
+        ['MA:🇲🇦 Maroc','FR:🇫🇷 France','BE:🇧🇪 Belgique','SA:🇸🇦 Arabie Saoudite','NL:🇳🇱 Pays-Bas','DZ:🇩🇿 Algérie','TN:🇹🇳 Tunisie','AE:🇦🇪 Émirats','DE:🇩🇪 Allemagne','OTHER:🌍 Autre'].map(function(c){
+          var parts = c.split(':'); var v = parts[0]; var l = parts[1];
+          return '<option value="' + v + '"' + (u.country===v?' selected':'') + '>' + l + '</option>';
+        }).join('') +
+      '</select></div>' +
+      '<div class="pf-field full"><div class="pf-lbl">Adresse de livraison</div><input class="pf-inp" id="pf-address" value="' + (u.address||'') + '" placeholder="Numéro, rue, ville, code postal"></div>' +
+      '<div class="pf-field full"><div class="pf-lbl">Nouveau mot de passe <span style="font-weight:400;color:var(--ink-3)">(laisser vide = inchangé)</span></div><input class="pf-inp" id="pf-pwd" type="password" placeholder="••••••••••"></div>' +
+    '</div>';
+
+  document.getElementById('profile-footer').innerHTML =
+    '<button onclick="saveProfile()" style="background:var(--primary);color:#fff;border:none;padding:10px 24px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer">💾 Enregistrer</button>' +
+    '<button onclick="renderProfileView()" style="background:var(--surface2);color:var(--ink-2);border:1px solid var(--border);padding:10px 20px;border-radius:8px;font-size:13px;cursor:pointer">Annuler</button>';
+}
+
+function saveProfile(){
+  var first   = (document.getElementById('pf-first')?.value   || '').trim();
+  var last    = (document.getElementById('pf-last')?.value    || '').trim();
+  var email   = (document.getElementById('pf-email')?.value   || '').trim();
+  var phone   = (document.getElementById('pf-phone')?.value   || '').trim();
+  var cin     = (document.getElementById('pf-cin')?.value     || '').trim().toUpperCase();
+  var country = document.getElementById('pf-country')?.value  || 'MA';
+  var address = (document.getElementById('pf-address')?.value || '').trim();
+  var newPwd  = (document.getElementById('pf-pwd')?.value     || '').trim();
+
+  if(!first || !last || !email){
+    toast('Prénom, nom et email sont obligatoires','⚠️'); return;
+  }
+
+  // Update CURRENT_USER
+  CURRENT_USER.firstName = first;
+  CURRENT_USER.lastName  = last;
+  CURRENT_USER.email     = email;
+
+  // Update USERS_DB entry
+  var rec = getMemberRecord();
+  if(rec){ rec.firstName=first; rec.lastName=last; rec.email=email; rec.phone=phone; rec.cin=cin; rec.country=country; rec.address=address; }
+
+  // Update REGISTERED_USERS password if changed
+  if(newPwd.length >= 6){
+    for(var i=0; i<REGISTERED_USERS.length; i++){
+      if(REGISTERED_USERS[i].email === CURRENT_USER.email){
+        REGISTERED_USERS[i].pwd = newPwd;
+        REGISTERED_USERS[i].firstName = first;
+        REGISTERED_USERS[i].lastName  = last;
+        REGISTERED_USERS[i].email     = email;
+        break;
+      }
+    }
+  }
+
+  // Refresh header
+  applyUserState();
+  renderProfileView();
+  toast('✓ Profil mis à jour avec succès !','✓');
+}
+
+// ═══════════════════════════════════════════════
+//  MEMBER — MES ENCHÈRES
+// ═══════════════════════════════════════════════
+function openMyBids(){
+  if(!CURRENT_USER){ openModal('login'); return; }
+  renderMyBids();
+  document.getElementById('mybids-backdrop').classList.add('open');
+}
+function closeMyBids(){
+  document.getElementById('mybids-backdrop').classList.remove('open');
+}
+
+function renderMyBids(){
+  var u = CURRENT_USER;
+  var userName = u.firstName + ' ' + u.lastName;
+
+  // Trouver les mises du membre dans ALL_BIDS (par correspondance nom partiel)
+  var myBids = ALL_BIDS.filter(function(b){
+    return b.user.toLowerCase().indexOf(u.firstName.toLowerCase()) !== -1 ||
+           b.user.toLowerCase().indexOf(u.lastName.toLowerCase()) !== -1;
+  });
+
+  // Aussi regarder dans bidHistory (mises live de la session)
+  var liveBids = bidHistory.filter(function(b){
+    return b.user === u.firstName || b.user === 'Vous' || b.user === 'You' || b.user === 'أنت';
+  });
+
+  document.getElementById('mybids-modal-title').textContent = 'Mes enchères (' + (myBids.length + (liveBids.length>0?1:0)) + ')';
+
+  var html = '';
+
+  // Mise en cours (session active)
+  if(liveBids.length > 0){
+    html += '<div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px;font-weight:500">Enchère en cours</div>';
+    html += '<div class="my-bid-card" style="border-color:rgba(200,149,42,.3);background:rgba(200,149,42,.06)">' +
+      '<div class="my-bid-icon">🏆</div>' +
+      '<div class="my-bid-info">' +
+        '<div class="my-bid-name">Étalon de l\'Atlas</div>' +
+        '<div class="my-bid-meta">Homing Marocain · En cours</div>' +
+      '</div>' +
+      '<div class="my-bid-right">' +
+        '<div class="my-bid-amt">' + liveBids[0].amount.toLocaleString() + ' MAD</div>' +
+        '<div class="my-bid-status bid-win">🟡 Mise active</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  if(myBids.length > 0){
+    html += '<div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:' + (liveBids.length?'18px':'0') + ' 0 10px;font-weight:500">Historique des mises</div>';
+    html += myBids.map(function(b){
+      var pig = PIGEONS.find(function(p){ return p.id === b.auctionId; });
+      var emoji = pig ? pig.emoji : '🕊';
+      var isWin = b.status === 'winning';
+      return '<div class="my-bid-card">' +
+        '<div class="my-bid-icon">' + emoji + '</div>' +
+        '<div class="my-bid-info">' +
+          '<div class="my-bid-name">' + b.pigeonName + '</div>' +
+          '<div class="my-bid-meta">' + b.ts + '</div>' +
+        '</div>' +
+        '<div class="my-bid-right">' +
+          '<div class="my-bid-amt">' + b.amount.toLocaleString() + ' MAD</div>' +
+          '<div class="my-bid-status ' + (isWin?'bid-win':'bid-out') + '">' + (isWin?'🏆 Gagnante':'Dépassée') + '</div>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  if(!myBids.length && !liveBids.length){
+    html = '<div class="empty-state">' +
+      '<div class="es-icon">⚡</div>' +
+      '<p>Vous n\'avez pas encore participé à une enchère.<br>Explorez les lots disponibles et faites votre première mise !</p>' +
+    '</div>';
+  }
+
+  // Stats récap
+  var totalMises = myBids.length + liveBids.length;
+  var totalMAD   = myBids.reduce(function(s,b){ return s+b.amount; }, 0) + (liveBids[0]?liveBids[0].amount:0);
+  var nbWon      = myBids.filter(function(b){ return b.status==='winning'; }).length;
+
+  if(totalMises > 0){
+    html = '<div style="display:flex;gap:0;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:22px">' +
+      kpiMini('⚡', totalMises, 'Mises totales') +
+      kpiMini('🏆', nbWon + (liveBids.length>0?1:0), 'En tête') +
+      kpiMini('💰', totalMAD.toLocaleString() + ' MAD', 'Volume total') +
+    '</div>' + html;
+  }
+
+  document.getElementById('mybids-body').innerHTML = html;
+}
+
+function kpiMini(icon, val, lbl){
+  return '<div style="flex:1;padding:14px 16px;border-right:1px solid var(--border);text-align:center">' +
+    '<div style="font-size:18px;margin-bottom:4px">' + icon + '</div>' +
+    '<div style="font-family:var(--serif);font-size:18px;color:var(--ink);font-weight:300">' + val + '</div>' +
+    '<div style="font-size:10px;color:var(--ink-3);letter-spacing:.08em;text-transform:uppercase;margin-top:2px">' + lbl + '</div>' +
+  '</div>';
+}
+
+// Update labels when language changes
+function updateMemberMenuLabels(){
+  var profEl = document.getElementById('lbl-profil');
+  var bidEl  = document.getElementById('lbl-encheres');
+  if(profEl) profEl.textContent = LANG==='ar' ? 'ملفي الشخصي' : LANG==='en' ? 'My profile' : 'Mon profil';
+  if(bidEl)  bidEl.textContent  = LANG==='ar' ? 'مزايداتي' : LANG==='en' ? 'My bids' : 'Mes enchères';
+}
+
+var ADMIN_EMAIL    = 'kech.admin';
+var ADMIN_PASSWORD = '135798642';
+
+// Aucun compte démo — uniquement les comptes créés par inscription réelle
+var DEMO_USERS = [];
+
+// Comptes créés pendant la session (inscription en live)
+var REGISTERED_USERS = [];
+
+function submitLogin(){
+  var emailEl = document.getElementById('m-email');
+  var pwdEl   = document.getElementById('m-pwd');
+  if(!emailEl || !pwdEl){
+    toast('Erreur : formulaire introuvable', '⚠️');
+    return;
+  }
+  var email = emailEl.value.trim();
+  var pwd   = pwdEl.value.trim();
+
+  if(!email || !pwd){
+    var msg = LANG==='ar' ? 'يرجى ملء جميع الحقول' : LANG==='en' ? 'Please fill all fields' : 'Veuillez remplir tous les champs';
+    toast(msg, '⚠️');
+    return;
+  }
+
+  // ── Admin ────────────────────────────────────
+  if(email === ADMIN_EMAIL && pwd === ADMIN_PASSWORD){
+    CURRENT_USER = {firstName:'Admin', lastName:'Kech', email:ADMIN_EMAIL, role:'admin'};
+    closeModal();
+    applyUserState();
+    syncAuctionsFromPigeons();
+    toast('🔐 Connexion administrateur réussie !', '✓');
+    return;
+  }
+
+  // ── Membre démo ──────────────────────────────
+  var found = null;
+  for(var i=0; i<DEMO_USERS.length; i++){
+    if(DEMO_USERS[i].email === email && DEMO_USERS[i].pwd === pwd){
+      found = DEMO_USERS[i]; break;
+    }
+  }
+  // ── Membre inscrit pendant la session ────────
+  if(!found){
+    for(var j=0; j<REGISTERED_USERS.length; j++){
+      if(REGISTERED_USERS[j].email === email && REGISTERED_USERS[j].pwd === pwd){
+        found = REGISTERED_USERS[j]; break;
+      }
+    }
+  }
+  if(found){
+    CURRENT_USER = {firstName:found.firstName, lastName:found.lastName, email:found.email, role:'member'};
+    closeModal();
+    applyUserState();
+    toast('👋 Bienvenue, ' + found.firstName + ' !', '✓');
+    return;
+  }
+
+  // ── Mauvais identifiants ─────────────────────
+  var errMsg = LANG==='ar' ? 'بيانات الدخول غير صحيحة' : LANG==='en' ? 'Incorrect email or password' : 'Email ou mot de passe incorrect';
+  toast(errMsg, '⚠️');
+  // Highlight fields red
+  if(emailEl){ emailEl.style.borderColor='#c0392b'; setTimeout(function(){ emailEl.style.borderColor=''; }, 1500); }
+  if(pwdEl)  { pwdEl.style.borderColor='#c0392b';   setTimeout(function(){ pwdEl.style.borderColor=''; },   1500); }
+}
+
+function applyUserState(){
+  var loggedIn = !!CURRENT_USER;
+  var isAdmin  = loggedIn && CURRENT_USER.role === 'admin';
+
+  var btnLogin   = document.getElementById('btn-open-login');
+  var menuWrap   = document.getElementById('user-menu');
+  var adminBtn   = document.getElementById('admin-btn');
+
+  if(btnLogin) btnLogin.style.display  = loggedIn ? 'none' : '';
+  if(menuWrap) menuWrap.style.display  = loggedIn ? 'flex' : 'none';
+  if(adminBtn) adminBtn.style.display  = 'none';
+
+  if(loggedIn && CURRENT_USER){
+    var initials = (CURRENT_USER.firstName.charAt(0) + CURRENT_USER.lastName.charAt(0)).toUpperCase();
+    var avatarEl = document.getElementById('user-avatar-hd');
+    var nameEl   = document.getElementById('user-display-name');
+    var ddName   = document.getElementById('dd-name');
+    var ddEmail  = document.getElementById('dd-email');
+    var ddBadge  = document.getElementById('dd-role-badge');
+    var ddAdmin  = document.getElementById('dd-admin-btn');
+    var logoutL  = document.getElementById('logout-lbl');
+
+    if(avatarEl) avatarEl.textContent = initials;
+    if(nameEl)   nameEl.textContent   = CURRENT_USER.firstName;
+    if(ddName)   ddName.textContent   = CURRENT_USER.firstName + ' ' + CURRENT_USER.lastName;
+    if(ddEmail)  ddEmail.textContent  = CURRENT_USER.email;
+
+    if(ddBadge){
+      if(isAdmin){
+        ddBadge.textContent = '⚙ Administrateur';
+        ddBadge.style.background = 'rgba(200,149,42,.15)';
+        ddBadge.style.color = '#a87820';
+        ddBadge.style.border = '1px solid rgba(200,149,42,.3)';
+      } else {
+        ddBadge.textContent = '✓ Membre';
+        ddBadge.style.background = 'rgba(61,122,70,.12)';
+        ddBadge.style.color = '#2d6b35';
+        ddBadge.style.border = '1px solid rgba(61,122,70,.22)';
+      }
+    }
+    if(ddAdmin){
+      ddAdmin.style.display = isAdmin ? 'flex' : 'none';
+    }
+    if(logoutL){
+      logoutL.textContent = LANG==='ar' ? 'تسجيل الخروج' : LANG==='en' ? 'Sign out' : 'Se déconnecter';
+    }
+  }
+}
+
+function logoutUser(){
+  closeUserMenu();
+  var name = CURRENT_USER ? CURRENT_USER.firstName : '';
+  CURRENT_USER = null;
+  applyUserState();
+  var msg = LANG==='ar' ? 'وداعاً ' + name + '! تم تسجيل خروجك.' :
+            LANG==='en' ? 'Goodbye ' + name + '! You have been signed out.' :
+            'Au revoir ' + name + ' ! Vous êtes déconnecté.';
+  toast(msg, '👋');
+}
+
+function toggleUserMenu(){
+  var dd = document.getElementById('user-dropdown');
+  if(!dd) return;
+  var open = dd.getAttribute('data-open') === '1';
+  if(open){ closeUserMenu(); } else { openUserMenuDD(); }
+}
+function openUserMenuDD(){
+  var dd = document.getElementById('user-dropdown');
+  if(!dd) return;
+  dd.style.opacity = '1';
+  dd.style.pointerEvents = 'all';
+  dd.style.transform = 'translateY(0)';
+  dd.setAttribute('data-open','1');
+  setTimeout(function(){ document.addEventListener('click', outsideMenuClose); }, 50);
+}
+function closeUserMenu(){
+  var dd = document.getElementById('user-dropdown');
+  if(!dd) return;
+  dd.style.opacity = '0';
+  dd.style.pointerEvents = 'none';
+  dd.style.transform = 'translateY(-6px)';
+  dd.setAttribute('data-open','0');
+  document.removeEventListener('click', outsideMenuClose);
+}
+function outsideMenuClose(e){
+  var menu = document.getElementById('user-menu');
+  if(menu && !menu.contains(e.target)) closeUserMenu();
+}
+
+// shake keyframe
+(function(){
+  var s = document.createElement('style');
+  s.textContent = '@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}';
+  document.head.appendChild(s);
+})();
+
+// ═══════════════════════════════════════════════
+//  PHOTO UPLOAD (admin pigeon drawer)
+// ═══════════════════════════════════════════════
+var pendingPhotos = []; // array of {dataUrl, name}
+
+function handlePhotoSelect(input){
+  var files = Array.from(input.files);
+  loadPhotoFiles(files);
+}
+function handlePhotoDrop(e){
+  e.preventDefault();
+  document.getElementById('photo-drop-zone').classList.remove('drag');
+  var files = Array.from(e.dataTransfer.files).filter(function(f){ return f.type.startsWith('image/'); });
+  loadPhotoFiles(files);
+}
+function loadPhotoFiles(files){
+  var remaining = 5 - pendingPhotos.length;
+  if(remaining <= 0){ toast('Maximum 5 photos par pigeon','⚠️'); return; }
+  files.slice(0, remaining).forEach(function(file){
+    if(file.size > 5*1024*1024){ toast('Photo trop lourde (max 5 MB) : '+file.name,'⚠️'); return; }
+    var reader = new FileReader();
+    reader.onload = function(ev){
+      pendingPhotos.push({dataUrl: ev.target.result, name: file.name});
+      refreshPhotoPreview();
+    };
+    reader.readAsDataURL(file);
+  });
+}
+function refreshPhotoPreview(){
+  var grid = document.getElementById('photo-preview-grid');
+  if(!grid) return;
+  if(pendingPhotos.length === 0){
+    grid.innerHTML = '<div style="font-size:11px;color:var(--ink-3);padding:4px 0">Aucune photo pour l\'instant</div>';
+    return;
+  }
+  grid.innerHTML = pendingPhotos.map(function(ph,i){
+    return '<div class="photo-thumb">' +
+      '<img src="'+ph.dataUrl+'" alt="">' +
+      '<button class="photo-thumb-del" onclick="removePhoto('+i+')">✕</button>' +
+    '</div>';
+  }).join('');
+}
+function removePhoto(idx){
+  pendingPhotos.splice(idx,1);
+  refreshPhotoPreview();
+}
+function initPendingPhotos(existingPhotos){
+  pendingPhotos = (existingPhotos||[]).map(function(url){ return {dataUrl:url, name:'existing'}; });
+}
+
+// Patch saveDrawerPigeon to save photos
+var _origSaveDrawerPigeon = saveDrawerPigeon;
+saveDrawerPigeon = function(id){
+  // Store photos into pigeon before saving
+  var p = id ? PIGEONS.find(function(x){ return x.id===id; }) : null;
+  if(p){ p.photos = pendingPhotos.map(function(ph){ return ph.dataUrl; }); }
+  _origSaveDrawerPigeon(id);
+  // Update gallery in detail section if this is the featured pigeon
+  if(p && p.id === FEATURED_PIGEON_ID) renderDetailSection();
+};
+
+// Patch openDrawer to init photos
+var _origOpenDrawer = openDrawer;
+openDrawer = function(type, id){
+  if(type==='pigeon'){
+    var p = id ? PIGEONS.find(function(x){ return x.id===id; }) : null;
+    initPendingPhotos(p ? p.photos : []);
+  }
+  _origOpenDrawer(type, id);
+};
+
+// Update renderDetailSection gallery to use real photos
+var _origRenderDetail = renderDetailSection;
+renderDetailSection = function(){
+  _origRenderDetail();
+  // Replace emoji thumbs with real photos if available
+  var p = PIGEONS.find(function(x){ return x.id===FEATURED_PIGEON_ID; }) || PIGEONS[0];
+  if(!p || !p.photos || !p.photos.length) return;
+  var mainEl = document.getElementById('gallery-main');
+  var thumbsEl = document.querySelector('.gallery-thumbs');
+  if(!mainEl || !thumbsEl) return;
+  // Show first photo in main
+  mainEl.innerHTML = '<img src="'+p.photos[0]+'" style="width:100%;height:100%;object-fit:cover;border-radius:var(--r2)" alt="">';
+  // Show all photo thumbs
+  thumbsEl.innerHTML = p.photos.map(function(ph,i){
+    return '<div class="g-thumb'+(i===0?' on':'')+'" onclick="setThumbImg(this,\''+ph+'\')">'+
+      '<img src="'+ph+'" style="width:100%;height:100%;object-fit:cover;border-radius:6px" alt="">'+
+    '</div>';
+  }).join('');
+};
+
+function setThumbImg(btn, url){
+  document.querySelectorAll('.g-thumb').forEach(function(t){ t.classList.remove('on'); });
+  btn.classList.add('on');
+  var main = document.getElementById('gallery-main');
+  if(main) main.innerHTML = '<img src="'+url+'" style="width:100%;height:100%;object-fit:cover;border-radius:var(--r2)" alt="">';
+}
+
+// ═══════════════════════════════════════════════
+//  CHAT SYSTEM
+// ═══════════════════════════════════════════════
+var chatOpen = false;
+var activeConvId = null; // null = list view
+var CHAT_DB = {}; // {convId: [{from,text,ts}]}
+var CHAT_CONVS = []; // [{id, memberId, memberName, memberInitials, unread}]
+
+function toggleChat(){
+  chatOpen = !chatOpen;
+  document.getElementById('chat-panel').classList.toggle('open', chatOpen);
+  if(chatOpen){
+    if(CURRENT_USER && CURRENT_USER.role !== 'admin'){
+      // Member: open/create conv with admin
+      openConvWith('admin');
+    } else {
+      showConvList();
+    }
+  }
+}
+
+function showConvList(){
+  activeConvId = null;
+  document.getElementById('chat-back-btn').style.display = 'none';
+  document.getElementById('chat-panel-title').textContent = 'Messages';
+  document.getElementById('chat-panel-sub').textContent = 'Derby Marrakech International';
+  var convList = document.getElementById('chat-conv-list');
+  var thread   = document.getElementById('chat-thread');
+  convList.style.display = '';
+  thread.style.display   = 'none';
+
+  if(CHAT_CONVS.length === 0){
+    convList.innerHTML = '<div class="chat-empty"><div class="chat-empty-icon">💬</div>' +
+      (CURRENT_USER&&CURRENT_USER.role==='admin'
+        ? 'Aucune conversation de membre pour l\'instant.'
+        : 'Envoyez un message à l\'administrateur.') + '</div>';
+    return;
+  }
+
+  convList.innerHTML = CHAT_CONVS.map(function(c){
+    var msgs = CHAT_DB[c.id] || [];
+    var last = msgs.length ? msgs[msgs.length-1] : null;
+    var preview = last ? (last.from==='admin'?'Admin: ':c.memberName.split(' ')[0]+': ') + last.text : 'Nouvelle conversation';
+    var timeStr = last ? formatChatTime(last.ts) : '';
+    return '<div class="chat-conv-item'+(c.unread?' active':'')+'" onclick="openConvWith(\''+c.id+'\')">' +
+      '<div class="chat-conv-avatar">'+c.memberInitials+'</div>' +
+      '<div style="flex:1;min-width:0">' +
+        '<div style="display:flex;justify-content:space-between;align-items:center">' +
+          '<span class="chat-conv-name">'+c.memberName+'</span>' +
+          '<span class="chat-conv-time">'+timeStr+'</span>' +
+        '</div>' +
+        '<div class="chat-conv-preview">'+preview+'</div>' +
+      '</div>' +
+      (c.unread ? '<div class="chat-unread">'+c.unread+'</div>' : '') +
+    '</div>';
+  }).join('');
+}
+
+function openConvWith(convId){
+  // For members, convId is always 'admin'
+  if(CURRENT_USER && CURRENT_USER.role !== 'admin'){
+    convId = 'member_'+CURRENT_USER.email;
+    // Ensure conv exists
+    var exists = CHAT_CONVS.find(function(c){ return c.id===convId; });
+    if(!exists){
+      CHAT_CONVS.push({
+        id: convId,
+        memberId: CURRENT_USER.email,
+        memberName: CURRENT_USER.firstName+' '+CURRENT_USER.lastName,
+        memberInitials: (CURRENT_USER.firstName.charAt(0)+CURRENT_USER.lastName.charAt(0)).toUpperCase(),
+        unread: 0
+      });
+    }
+  }
+
+  activeConvId = convId;
+  var conv = CHAT_CONVS.find(function(c){ return c.id===convId; });
+  if(conv) conv.unread = 0;
+  updateChatBadge();
+
+  var isAdmin = CURRENT_USER && CURRENT_USER.role === 'admin';
+  var displayName = isAdmin ? (conv ? conv.memberName : 'Membre') : 'Administrateur';
+  var displaySub  = isAdmin ? (conv ? conv.memberId : '') : 'Derby Marrakech International';
+
+  document.getElementById('chat-panel-title').textContent = displayName;
+  document.getElementById('chat-panel-sub').textContent   = displaySub;
+  document.getElementById('chat-back-btn').style.display  = isAdmin ? 'inline' : 'none';
+
+  var convList = document.getElementById('chat-conv-list');
+  var thread   = document.getElementById('chat-thread');
+  convList.style.display = 'none';
+  thread.style.display   = 'flex';
+
+  renderChatMessages();
+  setTimeout(function(){
+    var msgs = document.getElementById('chat-messages');
+    if(msgs) msgs.scrollTop = msgs.scrollHeight;
+  }, 50);
+}
+
+function renderChatMessages(){
+  var msgs = CHAT_DB[activeConvId] || [];
+  var el   = document.getElementById('chat-messages');
+  if(!el) return;
+
+  if(!msgs.length){
+    el.innerHTML = '<div class="chat-empty" style="margin:auto"><div class="chat-empty-icon">💬</div>Démarrez la conversation !</div>';
+    return;
+  }
+
+  var isAdmin = CURRENT_USER && CURRENT_USER.role === 'admin';
+  el.innerHTML = msgs.map(function(m){
+    var isMine = isAdmin ? m.from==='admin' : m.from==='member';
+    return '<div>' +
+      '<div class="chat-msg '+(isMine?'sent':'recv')+'">'+
+        escapeHtml(m.text)+
+        '<div class="chat-msg-time">'+formatChatTime(m.ts)+'</div>'+
+      '</div>'+
+    '</div>';
+  }).join('');
+  el.scrollTop = el.scrollHeight;
+}
+
+function sendChatMsg(){
+  if(!activeConvId) return;
+  var inp = document.getElementById('chat-inp');
+  if(!inp) return;
+  var text = inp.value.trim();
+  if(!text) return;
+
+  if(!CHAT_DB[activeConvId]) CHAT_DB[activeConvId] = [];
+  var isAdmin = CURRENT_USER && CURRENT_USER.role === 'admin';
+  CHAT_DB[activeConvId].push({from: isAdmin?'admin':'member', text:text, ts:new Date()});
+  inp.value = '';
+
+  renderChatMessages();
+  showConvList(); // refresh list
+  openConvWith(activeConvId); // stay on thread
+
+  // Simulate reply if member is chatting (admin auto-reply)
+  if(!isAdmin){
+    setTimeout(function(){
+      var replies = [
+        'Bonjour ! Merci de nous contacter. Nous reviendrons vers vous très bientôt.',
+        'Nous avons bien reçu votre message. Notre équipe vous répond dans les plus brefs délais.',
+        'Merci pour votre message. Pour toute question urgente, consultez notre FAQ.',
+      ];
+      if(!CHAT_DB[activeConvId]) CHAT_DB[activeConvId] = [];
+      CHAT_DB[activeConvId].push({
+        from:'admin',
+        text: replies[Math.floor(Math.random()*replies.length)],
+        ts: new Date()
+      });
+      // Update conv unread if not viewing
+      var conv = CHAT_CONVS.find(function(c){ return c.id===activeConvId; });
+      renderChatMessages();
+      updateChatBadge();
+    }, 1200 + Math.random()*800);
+  }
+}
+
+function updateChatBadge(){
+  var total = CHAT_CONVS.reduce(function(s,c){ return s+(c.unread||0); }, 0);
+  var badge = document.getElementById('chat-badge');
+  if(!badge) return;
+  if(total > 0){ badge.textContent=total; badge.style.display='flex'; }
+  else badge.style.display='none';
+}
+
+function formatChatTime(ts){
+  if(!ts) return '';
+  var d = ts instanceof Date ? ts : new Date(ts);
+  return d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0');
+}
+function escapeHtml(str){
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// Show chat FAB only when logged in
+var _origApplyUser = applyUserState;
+applyUserState = function(){
+  _origApplyUser();
+  var fab = document.getElementById('chat-fab');
+  if(fab) fab.style.display = CURRENT_USER ? 'flex' : 'none';
+};
+
+// ═══════════════════════════════════════════════
+//  PAYMENT SYSTEM
+// ═══════════════════════════════════════════════
+var payState = { pigeonName:'', amount:0, method:'' };
+
+function openPayment(pigeonName, amount){
+  payState = { pigeonName: pigeonName||"Étalon de l'Atlas", amount: amount||detailPrice, method:'' };
+  if(!CURRENT_USER){ openModal('login'); return; }
+  renderPaymentBody();
+  document.getElementById('pay-backdrop').classList.add('open');
+}
+function closePayment(){
+  document.getElementById('pay-backdrop').classList.remove('open');
+  payState.method = '';
+}
+
+function renderPaymentBody(){
+  var body = document.getElementById('pay-body');
+  var amt  = payState.amount.toLocaleString();
+
+  body.innerHTML =
+    '<div class="pay-summary">' +
+      '<div class="pay-summary-pigeon">🕊 '+payState.pigeonName+'</div>' +
+      '<div class="pay-summary-label">Montant total à régler</div>' +
+      '<div class="pay-summary-amount">'+amt+' MAD</div>' +
+    '</div>' +
+    '<div class="pay-methods-title">Choisissez votre mode de paiement</div>' +
+
+    payMethod('virement','🏦','Virement bancaire',
+      'Wafa Bank · RIB : 007 780 0000000000000000 12<br>Au nom de : Derby Marrakech International',
+      'Délai : 24–48h') +
+    payMethod('cashplus','🏪','Cash Plus / Wafa Cash',
+      'Rendez-vous dans une agence CashPlus ou Wafa Cash avec la référence de transaction<br>Code à utiliser : <code style="background:var(--bg-alt);padding:1px 6px;border-radius:4px;font-family:monospace">DERBY-'+Math.random().toString(36).substring(2,8).toUpperCase()+'</code>',
+      'Paiement en espèces · Disponible 24h/24') +
+    payMethod('wafabank','💳','Carte Wafa Bank (en ligne)',
+      'Paiement direct par carte bancaire Wafa Bank sécurisé via CMI<br>Visa / Mastercard / MasterCard Prepaid acceptées',
+      'Immédiat · 3D Secure activé') +
+    payMethod('mobile','📱','Wafacash Mobile',
+      'Envoyez le montant par virement mobile Wafacash<br>Numéro : <code style="background:var(--bg-alt);padding:1px 6px;border-radius:4px;font-family:monospace">+212 6XX XX XX XX</code>',
+      'Instantané · Via l\'application Wafacash') +
+
+    '<button class="pay-btn" id="pay-submit-btn" onclick="submitPayment()" disabled>Confirmer le paiement</button>' +
+    '<div style="margin-top:14px;text-align:center;font-size:11px;color:var(--ink-3)">🔒 Transaction sécurisée · Vos données sont protégées</div>';
+}
+
+function payMethod(id, icon, name, desc, sub){
+  return '<div class="pay-method" id="pm-'+id+'" onclick="selectPayMethod(\''+id+'\')">'+
+    '<span class="pay-method-icon">'+icon+'</span>'+
+    '<div class="pay-method-info">'+
+      '<div class="pay-method-name">'+name+'</div>'+
+      '<div class="pay-method-desc">'+desc+'</div>'+
+      '<div style="font-size:10px;color:var(--ink-3);margin-top:3px">'+sub+'</div>'+
+    '</div>'+
+    '<div class="pay-method-radio" id="pmr-'+id+'"></div>'+
+  '</div>';
+}
+
+function selectPayMethod(id){
+  payState.method = id;
+  document.querySelectorAll('.pay-method').forEach(function(el){ el.classList.remove('selected'); });
+  document.querySelectorAll('.pay-method-radio').forEach(function(el){ el.classList.remove('selected'); });
+  var el = document.getElementById('pm-'+id);
+  var r  = document.getElementById('pmr-'+id);
+  if(el) el.classList.add('selected');
+  if(r)  r.classList.add('selected');
+  var btn = document.getElementById('pay-submit-btn');
+  if(btn) btn.disabled = false;
+}
+
+function submitPayment(){
+  if(!payState.method){ toast('Choisissez un mode de paiement','⚠️'); return; }
+  var methodNames = {
+    virement:'Virement bancaire',cashplus:'CashPlus / Wafa Cash',
+    wafabank:'Carte Wafa Bank',mobile:'Wafacash Mobile'
+  };
+  var body = document.getElementById('pay-body');
+  var refNum = 'DMI-'+Date.now().toString().slice(-8);
+  body.innerHTML =
+    '<div class="pay-success">' +
+      '<div class="pay-success-icon">✅</div>' +
+      '<div class="pay-success-title">Paiement initié !</div>' +
+      '<div class="pay-success-text">'+
+        'Votre demande de paiement a été enregistrée.<br><br>'+
+        '<strong>Référence :</strong> <code style="font-family:monospace;background:var(--surface2);padding:2px 8px;border-radius:5px">'+refNum+'</code><br><br>'+
+        '<strong>Mode :</strong> '+methodNames[payState.method]+'<br>'+
+        '<strong>Montant :</strong> '+payState.amount.toLocaleString()+' MAD<br>'+
+        '<strong>Pigeon :</strong> '+payState.pigeonName+'<br><br>'+
+        'Un email de confirmation vous sera envoyé.<br>'+
+        'Gardez votre référence pour suivre votre transaction.' +
+      '</div>' +
+      '<button onclick="closePayment()" style="margin-top:20px;background:var(--primary);color:#fff;border:none;padding:12px 32px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;transition:background .2s" onmouseover="this.style.background=\'var(--primary-h)\'" onmouseout="this.style.background=\'var(--primary)\'">Fermer</button>' +
+    '</div>';
+  toast('✓ Paiement initié — Réf : '+refNum,'✓');
+  // Add to ALL_BIDS as won
+  ALL_BIDS.push({
+    id: ALL_BIDS.length+1, auctionId: FEATURED_PIGEON_ID,
+    pigeonName: payState.pigeonName,
+    user: CURRENT_USER.firstName+' '+CURRENT_USER.lastName,
+    flag:'🌍', amount: payState.amount, status:'winning',
+    ts: new Date().toISOString().slice(0,19).replace('T',' '), ip:'—'
+  });
+}
+
+// Add "Payer" button to bid panel in renderDetailSection
+var _origRDS = renderDetailSection;
+renderDetailSection = function(){
+  _origRDS();
+  // Inject pay button after bid panel
+  setTimeout(function(){
+    var histHeader = document.querySelector('.hist-header');
+    if(!histHeader) return;
+    var existing = document.getElementById('pay-now-btn-row');
+    if(existing) return;
+    var row = document.createElement('div');
+    row.id = 'pay-now-btn-row';
+    row.style.cssText = 'margin-bottom:16px';
+    row.innerHTML = '<button onclick="openPaymentFromDetail()" style="'+
+      'width:100%;background:linear-gradient(135deg,var(--primary),var(--primary-h));'+
+      'color:#fff;border:none;padding:14px;border-radius:10px;font-size:14px;'+
+      'font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;'+
+      'gap:9px;transition:all .25s;box-shadow:0 4px 16px rgba(26,56,32,.3)'+
+      '" onmouseover="this.style.transform=\'translateY(-2px)\';this.style.boxShadow=\'0 8px 24px rgba(26,56,32,.4)\'"'+
+      '   onmouseout="this.style.transform=\'\';this.style.boxShadow=\'0 4px 16px rgba(26,56,32,.3)\'">' +
+      '<span>💳</span><span>Payer maintenant</span>' +
+    '</button>';
+    histHeader.parentNode.insertBefore(row, histHeader);
+  }, 100);
+};
+
+function openPaymentFromDetail(){
+  var p = PIGEONS.find(function(x){ return x.id===FEATURED_PIGEON_ID; }) || PIGEONS[0];
+  openPayment(p ? p.fr.name : 'Pigeon', detailPrice);
+}
+
+</script>
+</body>
+</html>
