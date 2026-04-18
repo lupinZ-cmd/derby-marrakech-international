@@ -1,0 +1,17 @@
+{
+  "name": "derby-marrakech-international",
+  "version": "1.0.0",
+  "description": "Derby Marrakech International",
+  "scripts": {
+    "dev": "npx http-server -p 3000",
+    "build": "echo 'Static HTML build complete'",
+    "lint": "echo 'No linter configured for HTML project'"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
