@@ -2191,13 +2191,8 @@ const PIGEONS = [
    en:{name:'Ouarzazate Champ',breed:'Mountain Homing',age:'3 yrs',sex:'Male',origin:'Ouarzazate'}},
 ];
 
-let bidHistory = [
-  {user:'M. Benali',flag:'🇲🇦',amount:8500,isNow:true,winning:true},
-  {user:'J. Dupont',flag:'🇫🇷',amount:8000,time:'9 min',winning:false},
-  {user:'K. Al-Rashid',flag:'🇸🇦',amount:7500,time:'18 min',winning:false},
-  {user:'P. Claes',flag:'🇧🇪',amount:6800,time:'32 min',winning:false},
-  {user:'A. Tazi',flag:'🇲🇦',amount:6000,time:'45 min',winning:false},
-];
+let bidHistory = [];
+// Seules les mises des membres réellement connectés s'ajoutent ici
 
 // ═══════════════════════════════════════════════
 //  RENDER AUCTIONS
@@ -2459,11 +2454,8 @@ function setFeaturedPigeon(id){
   detailPrice = p.price;
   bidCount    = p.bids;
   mainSec     = p.endSec;
-  bidHistory  = [
-    {user:'M. Benali', flag:'🇲🇦', amount: p.price, isNow:true, winning:true},
-    {user:'J. Dupont', flag:'🇫🇷', amount: Math.round(p.price * 0.94), time:'9 min', winning:false},
-    {user:'K. Al-Rashid', flag:'🇸🇦', amount: Math.round(p.price * 0.88), time:'21 min', winning:false},
-  ];
+  // Reset bid history — only real members will appear
+  bidHistory  = [];
   renderDetailSection();
   // Also update hero card
   const heroPrice = document.getElementById('hero-price');
@@ -2480,11 +2472,19 @@ function setFeaturedPigeon(id){
 function renderBidHistory(){
   const el = document.getElementById('bid-hist');
   if(!el) return;
+  if(!bidHistory.length){
+    el.innerHTML = '<div style="text-align:center;padding:24px 0;color:var(--on-hero-2);font-size:13px">' +
+      (LANG==='ar' ? 'لا توجد مزايدات بعد. كن أول من يزايد !' :
+       LANG==='en' ? 'No bids yet. Be the first to bid !' :
+       'Aucune mise pour l\'instant. Soyez le premier à enchérir !') +
+    '</div>';
+    return;
+  }
   el.innerHTML = bidHistory.map(b=>`
     <div class="bid-row ${b.winning?'winning':''}">
       <div>
         <div class="bid-row-user">${b.flag} ${b.user}</div>
-        <div class="bid-row-time">${b.isNow ? tr('now') : b.time}</div>
+        <div class="bid-row-time">${b.isNow ? tr('now') : (b.time||'')}</div>
       </div>
       <div class="bid-row-amt serif-txt">${tr('currency')} ${b.amount.toLocaleString()}</div>
     </div>
@@ -2504,6 +2504,12 @@ function setThumb(btn, emoji){
 //  BIDDING
 // ═══════════════════════════════════════════════
 function placeBid(){
+  if(!CURRENT_USER){
+    const msg = LANG==='ar' ? 'يجب تسجيل الدخول للمزايدة' : LANG==='en' ? 'Please sign in to place a bid' : 'Connectez-vous pour enchérir';
+    toast(msg, '⚠️');
+    setTimeout(()=>openModal('login'), 400);
+    return;
+  }
   const inp = document.getElementById('bid-input');
   const val = parseFloat(inp.value);
   const minBid = detailPrice + 250;
@@ -2516,6 +2522,12 @@ function placeBid(){
 }
 
 function quickBid(plusAmount){
+  if(!CURRENT_USER){
+    const msg = LANG==='ar' ? 'يجب تسجيل الدخول للمزايدة' : LANG==='en' ? 'Please sign in to place a bid' : 'Connectez-vous pour enchérir';
+    toast(msg, '⚠️');
+    setTimeout(()=>openModal('login'), 400);
+    return;
+  }
   const newBid = detailPrice + plusAmount;
   doPlaceBid(newBid);
 }
@@ -2523,23 +2535,53 @@ function quickBid(plusAmount){
 function doPlaceBid(amount){
   const antiSnipe = mainSec <= 300;
 
+  // Use real member name and flag
+  const memberName = CURRENT_USER
+    ? CURRENT_USER.firstName + ' ' + CURRENT_USER.lastName.charAt(0) + '.'
+    : (LANG==='ar' ? 'أنت' : LANG==='en' ? 'You' : 'Vous');
+
+  // Determine flag from member country in USERS_DB
+  let memberFlag = '🌍';
+  if(CURRENT_USER){
+    const rec = USERS_DB.find(u => u.email === CURRENT_USER.email);
+    if(rec) memberFlag = FLAG[rec.country] || '🌍';
+  }
+
   // Reset winning flags
   bidHistory.forEach(b=>{ b.winning=false; delete b.isNow; });
-  const meLabel = LANG==='ar' ? 'أنت' : (LANG==='en' ? 'You' : 'Vous');
-  bidHistory.unshift({ user: meLabel, flag:'🌍', amount, isNow:true, winning:true });
-  if(bidHistory.length > 6) bidHistory.pop();
+  bidHistory.unshift({ user: memberName, flag: memberFlag, amount, isNow:true, winning:true });
+  if(bidHistory.length > 20) bidHistory.pop();
+
+  // Save to ALL_BIDS log
+  const p = PIGEONS.find(x => x.id === FEATURED_PIGEON_ID) || PIGEONS[0];
+  ALL_BIDS.unshift({
+    id: ALL_BIDS.length + 1,
+    auctionId: FEATURED_PIGEON_ID,
+    pigeonName: p ? p.fr.name : '—',
+    user: memberName,
+    flag: memberFlag,
+    amount: amount,
+    status: 'winning',
+    ts: new Date().toISOString().slice(0,19).replace('T',' '),
+    ip: '—'
+  });
+  // Mark previous winning bids as outbid
+  ALL_BIDS.forEach((b, i) => { if(i > 0 && b.auctionId === FEATURED_PIGEON_ID && b.status === 'winning') b.status = 'outbid'; });
 
   detailPrice = amount;
   bidCount++;
 
   // Update display
   document.getElementById('det-price').textContent = amount.toLocaleString();
-  document.getElementById('hero-price').textContent = amount.toLocaleString();
+  const heroP = document.getElementById('hero-price');
+  if(heroP) heroP.textContent = amount.toLocaleString();
   document.getElementById('bid-input').placeholder = (amount+250).toLocaleString();
   updateCntLabel();
 
   // Progress bar
-  const pct = Math.min(100, ((amount-1000)/(15000-1000))*100);
+  const startPrice = Math.round((PIGEONS.find(x=>x.id===FEATURED_PIGEON_ID)||PIGEONS[0]).price * 0.12);
+  const resPrice   = Math.round((PIGEONS.find(x=>x.id===FEATURED_PIGEON_ID)||PIGEONS[0]).price * 1.8);
+  const pct = Math.min(100, ((amount - startPrice) / (resPrice - startPrice)) * 100);
   document.getElementById('bid-prog').style.width = pct + '%';
 
   renderBidHistory();
@@ -2550,34 +2592,6 @@ function doPlaceBid(amount){
   } else {
     toast(`${tr('toast.ok')} ${tr('currency')} ${amount.toLocaleString()}`, '✓');
   }
-
-  // Simulate rival bid after ~4s
-  setTimeout(()=>{
-    if(Math.random() > 0.35){
-      const rivals = {
-        fr:['K. Al-Rashid','J. Dupont','P. Claes','A. Tazi','L. El Amrani'],
-        ar:['ك. الراشد','ج. دوبون','ب. كلايس','أ. طازي','ل. العمراني'],
-        en:['K. Al-Rashid','J. Dupont','P. Claes','A. Tazi','L. El Amrani']
-      };
-      const flags = ['🇸🇦','🇫🇷','🇧🇪','🇲🇦','🇲🇦'];
-      const idx = Math.floor(Math.random()*5);
-      const inc = [250,500,750][Math.floor(Math.random()*3)];
-      const rivalAmt = detailPrice + inc;
-      bidHistory.forEach(b=>{ b.winning=false; delete b.isNow; });
-      bidHistory.unshift({ user: rivals[LANG][idx], flag: flags[idx], amount: rivalAmt, isNow:true, winning:true });
-      if(bidHistory.length>6) bidHistory.pop();
-      detailPrice = rivalAmt;
-      bidCount++;
-      document.getElementById('det-price').textContent = rivalAmt.toLocaleString();
-      document.getElementById('hero-price').textContent = rivalAmt.toLocaleString();
-      document.getElementById('bid-input').placeholder = (rivalAmt+250).toLocaleString();
-      updateCntLabel();
-      const p2 = Math.min(100, ((rivalAmt-1000)/(15000-1000))*100);
-      document.getElementById('bid-prog').style.width = p2+'%';
-      renderBidHistory();
-      toast(tr('toast.rival'), '🔔');
-    }
-  }, 3800 + Math.random()*1500);
 }
 
 // ═══════════════════════════════════════════════
@@ -2742,6 +2756,14 @@ function handleRegister(){
   // ── Connexion automatique après inscription ──
   CURRENT_USER = {firstName: first, lastName: last, email: email, role: 'member'};
   applyUserState();
+
+  // Mettre à jour les compteurs du hero
+  const memberCtr = document.getElementById('ctr-members');
+  if(memberCtr) memberCtr.textContent = USERS_DB.length;
+  // Pays distincts
+  const countries = [...new Set(USERS_DB.map(u=>u.country))].length;
+  const ctrC = document.getElementById('ctr-countries');
+  if(ctrC) ctrC.textContent = countries;
 
   // Vider le formulaire
   ['reg-first','reg-last','reg-email','reg-phone','reg-address','reg-cin','reg-pwd'].forEach(function(id){
@@ -3445,9 +3467,9 @@ if(savedLang){
 if(savedView === 'mobile') toggleViewMode();
 
 setTimeout(()=>{
-  animCount('ctr-pigeons', 312);
-  animCount('ctr-members', 4800);
-  animCount('ctr-countries', 38);
+  animCount('ctr-pigeons', PIGEONS.length);
+  animCount('ctr-members', USERS_DB.length);
+  animCount('ctr-countries', 0);
 }, 800);
 
 // ═══════════════════════════════════════════════
