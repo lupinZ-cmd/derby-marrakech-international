@@ -2,7 +2,18 @@
 <html lang="fr" dir="ltr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#1a3820">
+<style>
+  /* Touch optimizations */
+  * { -webkit-tap-highlight-color: transparent; }
+  html { -webkit-text-size-adjust: 100%; }
+  button, a, [onclick] { touch-action: manipulation; }
+  input, select, textarea { font-size: 16px; } /* prevent iOS zoom */
+</style>
 <title>Derby Marrakech International</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Noto+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -139,27 +150,45 @@ input,select,textarea{font-family:inherit}
    MOBILE PREVIEW MODE
 ═══════════════════════════════════════════════ */
 body.mobile-mode{
-  background:#1a1a2e!important;
+  background:#141420!important;
   display:flex;flex-direction:column;align-items:center;
-  padding-top:60px;min-height:100vh;
+  padding-top:76px;min-height:100vh;
 }
 body.mobile-mode .mobile-frame-bar{
   position:fixed;top:0;left:0;right:0;z-index:1100;
-  height:50px;background:#111;display:flex;align-items:center;justify-content:center;
-  gap:16px;font-size:12px;color:#aaa;letter-spacing:0.08em;
-  border-bottom:1px solid rgba(255,255,255,0.08);
+  height:62px;background:#0e0e18;display:flex;align-items:center;justify-content:center;
+  gap:10px;font-size:12px;color:#aaa;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  flex-wrap:wrap;padding:0 16px;
 }
 body.mobile-mode .mobile-frame-bar span{color:#fff;font-weight:500}
 .mobile-frame-bar{display:none}
+
+/* Device selector inside frame bar */
+.device-select{
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);
+  color:#fff;padding:4px 10px;border-radius:6px;font-size:11px;cursor:pointer;
+  outline:none;
+}
+.device-select option{background:#1a1a2e;color:#fff}
+
+/* Mobile wrapper — dimensions driven by JS via CSS vars */
 body.mobile-mode #mobile-wrapper{
-  width:390px;min-height:844px;border-radius:40px;overflow:hidden;
-  box-shadow:0 0 0 10px #2a2a2a,0 0 0 11px #444,0 32px 80px rgba(0,0,0,0.6);
+  width:var(--mw,390px);
+  min-height:var(--mh,844px);
+  border-radius:var(--mr,44px);
+  overflow:hidden;
+  box-shadow:
+    0 0 0 var(--mb1,10px) #2c2c2c,
+    0 0 0 var(--mb2,12px) #444,
+    0 0 0 var(--mb3,13px) rgba(255,255,255,0.04),
+    0 40px 100px rgba(0,0,0,0.75);
   position:relative;background:var(--bg);
   transform-origin:top center;
-  border:1px solid #333;
+  transition:width .35s, min-height .35s, border-radius .35s;
 }
 body.mobile-mode #mobile-wrapper .header{
-  padding:0 18px;height:58px;border-radius:0;
+  padding:0 16px;height:56px;border-radius:0;
 }
 body.mobile-mode #mobile-wrapper .header-nav{display:none!important}
 body.mobile-mode #mobile-wrapper .btn-login{display:none!important}
@@ -167,28 +196,44 @@ body.mobile-mode #mobile-wrapper #hero{
   grid-template-columns:1fr!important;min-height:auto;
 }
 body.mobile-mode #mobile-wrapper .hero-right{display:none!important}
-body.mobile-mode #mobile-wrapper .hero-left{padding:60px 22px 44px!important}
-body.mobile-mode #mobile-wrapper .hero-title{font-size:38px!important}
-body.mobile-mode #mobile-wrapper .section{padding:52px 20px!important}
-body.mobile-mode #mobile-wrapper #detail{padding:52px 20px!important}
-body.mobile-mode #mobile-wrapper #register{padding:52px 20px!important}
-body.mobile-mode #mobile-wrapper footer{padding:40px 20px 28px!important}
+body.mobile-mode #mobile-wrapper .hero-left{padding:56px 20px 40px!important}
+body.mobile-mode #mobile-wrapper .hero-title{font-size:34px!important;line-height:1.08!important}
+body.mobile-mode #mobile-wrapper .hero-desc{font-size:13px!important}
+body.mobile-mode #mobile-wrapper .hero-stats{gap:18px!important;flex-wrap:wrap!important}
+body.mobile-mode #mobile-wrapper .stat-n{font-size:24px!important}
+body.mobile-mode #mobile-wrapper .section{padding:48px 18px!important}
+body.mobile-mode #mobile-wrapper #detail{padding:48px 18px!important}
+body.mobile-mode #mobile-wrapper #register{padding:48px 18px!important}
+body.mobile-mode #mobile-wrapper footer{padding:36px 18px 24px!important}
 body.mobile-mode #mobile-wrapper .auctions-grid{grid-template-columns:1fr!important}
-body.mobile-mode #mobile-wrapper .detail-grid{grid-template-columns:1fr!important;gap:32px!important}
-body.mobile-mode #mobile-wrapper .reg-grid{grid-template-columns:1fr!important;gap:36px!important}
-body.mobile-mode #mobile-wrapper .steps-grid{grid-template-columns:1fr 1fr!important}
-body.mobile-mode #mobile-wrapper .footer-grid{grid-template-columns:1fr 1fr!important}
+body.mobile-mode #mobile-wrapper .detail-grid{grid-template-columns:1fr!important;gap:28px!important}
+body.mobile-mode #mobile-wrapper .reg-grid{grid-template-columns:1fr!important;gap:32px!important}
+body.mobile-mode #mobile-wrapper .steps-grid{grid-template-columns:1fr 1fr!important;gap:16px!important}
+body.mobile-mode #mobile-wrapper .footer-grid{grid-template-columns:1fr 1fr!important;gap:24px!important}
 body.mobile-mode #mobile-wrapper .form-row{grid-template-columns:1fr!important}
-body.mobile-mode #mobile-wrapper .section-hd{flex-direction:column!important;align-items:flex-start!important}
-body.mobile-mode #mobile-wrapper .hero-stats{gap:22px!important}
-body.mobile-mode #mobile-wrapper .reg-kpis{gap:14px!important}
-body.mobile-mode #mobile-wrapper .lang-bar .lang-btn{padding:4px 8px!important;font-size:10px!important}
-/* Notch top bar */
+body.mobile-mode #mobile-wrapper .section-hd{flex-direction:column!important;align-items:flex-start!important;gap:10px!important}
+body.mobile-mode #mobile-wrapper .reg-kpis{gap:12px!important}
+body.mobile-mode #mobile-wrapper .lang-bar .lang-btn{padding:4px 7px!important;font-size:10px!important}
+body.mobile-mode #mobile-wrapper .bid-panel{padding:18px!important}
+body.mobile-mode #mobile-wrapper .bid-current{font-size:34px!important}
+body.mobile-mode #mobile-wrapper .timer-val{font-size:20px!important}
+body.mobile-mode #mobile-wrapper .specs-grid{grid-template-columns:1fr 1fr!important;gap:8px!important}
+body.mobile-mode #mobile-wrapper .health-row{gap:5px!important}
+body.mobile-mode #mobile-wrapper .htag{font-size:9px!important;padding:3px 8px!important}
+body.mobile-mode #mobile-wrapper .pig-grid{grid-template-columns:1fr!important;padding:14px!important}
+body.mobile-mode #mobile-wrapper .section-title{font-size:28px!important}
+body.mobile-mode #mobile-wrapper .kpi{min-width:80px}
+/* Dynamic notch */
 body.mobile-mode #mobile-wrapper .header::before{
-  content:'';display:block;width:120px;height:28px;background:#000;
-  border-radius:0 0 16px 16px;position:absolute;top:0;left:50%;
-  transform:translateX(-50%);z-index:10;
+  content:'';display:block;
+  width:var(--notch-w,110px);height:var(--notch-h,26px);background:#000;
+  border-radius:0 0 var(--notch-r,14px) var(--notch-r,14px);
+  position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:10;
 }
+/* Tablet mode adjustments */
+body.mobile-mode.tablet-mode #mobile-wrapper .steps-grid{grid-template-columns:1fr 1fr!important}
+body.mobile-mode.tablet-mode #mobile-wrapper .auctions-grid{grid-template-columns:1fr 1fr!important}
+body.mobile-mode.tablet-mode #mobile-wrapper .hero-title{font-size:44px!important}
 
 /* View toggle button */
 .view-toggle{
@@ -745,30 +790,252 @@ footer{background:var(--footer-bg);padding:56px 60px 36px;color:rgba(255,255,255
 /* ═══════════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════
+   RESPONSIVE AUTOMATIQUE — ADAPTE SELON L'ÉCRAN RÉEL
+   Mobile / Tablette / Desktop détectés automatiquement
+═══════════════════════════════════════════════ */
+
+/* ── TABLETTE (≤ 1080px) ── */
 @media(max-width:1080px){
-  .header{padding:0 24px}
+  .header{padding:0 20px;height:60px}
   .header-nav{display:none}
-  #hero{grid-template-columns:1fr}
+  #hero{grid-template-columns:1fr;min-height:auto}
   .hero-right{display:none}
-  .hero-left{padding:56px 28px}
-  .section,.detail-grid+*,.steps-grid+*{padding:64px 28px}
-  .section{padding:64px 28px}
-  #detail,#register,footer{padding-left:28px;padding-right:28px}
-  #detail,#register{padding-top:64px;padding-bottom:64px}
-  .auctions-grid{grid-template-columns:1fr 1fr}
-  .detail-grid{grid-template-columns:1fr}
-  .reg-grid{grid-template-columns:1fr}
-  .steps-grid{grid-template-columns:1fr 1fr}
-  .footer-grid{grid-template-columns:1fr 1fr}
+  .hero-left{padding:80px 32px 56px}
+  .hero-title{font-size:clamp(40px,6vw,60px)}
+  .section{padding:68px 32px}
+  #detail{padding:68px 32px}
+  #register{padding:68px 32px}
+  footer{padding:52px 32px 36px}
+  .auctions-grid{grid-template-columns:1fr 1fr;gap:18px}
+  .detail-grid{grid-template-columns:1fr;gap:36px}
+  .reg-grid{grid-template-columns:1fr;gap:40px}
+  .steps-grid{grid-template-columns:1fr 1fr;gap:20px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:36px}
+  .section-hd{flex-direction:column;align-items:flex-start;gap:12px}
 }
-@media(max-width:640px){
-  .auctions-grid{grid-template-columns:1fr}
-  .steps-grid{grid-template-columns:1fr}
+
+/* ── GRAND MOBILE (≤ 768px) ── */
+@media(max-width:768px){
+  .header{padding:0 16px;height:58px}
+  .header-right{gap:6px}
+  .logo-name{font-size:13px}
+  .logo-texts .logo-sub{display:none}
+  #hero{padding-top:58px}
+  .hero-left{padding:60px 20px 44px}
+  .hero-title{font-size:clamp(34px,7vw,48px);line-height:1.07}
+  .hero-desc{font-size:13.5px;max-width:100%}
+  .hero-btns{flex-direction:column;align-items:flex-start;gap:12px}
+  .btn-gold{width:100%;text-align:center;padding:13px 20px}
+  .hero-stats{gap:20px;padding-top:18px}
+  .stat-n{font-size:26px}
+  .stat-l{font-size:9px}
+  .section{padding:56px 20px}
+  .section-title{font-size:clamp(26px,6vw,38px)}
+  #detail{padding:56px 20px}
+  #register{padding:56px 20px}
+  footer{padding:48px 20px 28px}
+  .auctions-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .steps-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .filters{gap:6px}
+  .filter-btn{font-size:11px;padding:6px 12px}
+  .specs-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .bid-current{font-size:36px}
+  .timer-val{font-size:22px}
+  .bid-row-wrap{flex-direction:column;gap:8px}
+  .btn-place{width:100%;padding:13px}
+  .quick-row{gap:6px}
+  .quick-btn{font-size:11px;padding:5px 10px}
+  .reg-kpis{gap:12px;flex-wrap:wrap}
+  .kpi-num{font-size:22px}
+  .reg-form{padding:24px 20px}
+  .form-row{grid-template-columns:1fr}
+  .adm-sidebar{display:none}
+  .adm-topbar{padding:0 14px}
+  .adm-title{font-size:14px}
+  .pig-grid{grid-template-columns:1fr 1fr;padding:14px;gap:12px}
+  .dash-kpi-grid{grid-template-columns:1fr 1fr;gap:10px;padding:14px}
+  .dash-2col{grid-template-columns:1fr;padding:0 14px 14px}
+  .auc-card-body{grid-template-columns:1fr 1fr}
+  .chat-panel{width:calc(100vw - 32px);right:16px;bottom:80px}
+}
+
+/* ── MOBILE (≤ 480px) ── */
+@media(max-width:480px){
+  .header{padding:0 14px;height:56px}
+  .logo-icon{width:32px;height:32px;font-size:16px;border-radius:8px}
+  .lang-btn{padding:4px 7px;font-size:10px}
+  .theme-toggle{width:32px;height:32px;font-size:14px}
+  .view-toggle{display:none}
+  #hero{padding-top:56px}
+  .hero-left{padding:52px 16px 40px}
+  .hero-title{font-size:clamp(30px,8vw,40px)}
+  .hero-eyebrow{font-size:9px;letter-spacing:.14em}
+  .btn-gold{font-size:13px;padding:12px 18px}
+  .hero-stats{gap:16px}
+  .stat-n{font-size:22px}
+  .section{padding:48px 16px}
+  .section-title{font-size:clamp(24px,7vw,32px)}
+  .section-eyebrow{font-size:9px}
+  .auctions-grid{grid-template-columns:1fr;gap:12px}
+  .auction-card{border-radius:12px}
+  .card-name{font-size:17px}
+  .card-img-wrap{aspect-ratio:16/9}
+  .steps-grid{grid-template-columns:1fr;gap:20px}
+  .step-num{font-size:38px}
+  #detail{padding:48px 16px}
+  .detail-grid{gap:24px}
+  .det-name{font-size:clamp(28px,8vw,40px)}
+  .specs-grid{grid-template-columns:1fr 1fr;gap:7px}
+  .spec{padding:10px 12px}
+  .spec-val{font-size:14px}
+  .health-row{gap:5px}
+  .htag{font-size:9px;padding:3px 8px}
+  .bid-panel{padding:16px}
+  .bid-current{font-size:32px}
+  .bid-currency-unit{font-size:15px}
+  .timer-val{font-size:19px}
+  .bid-input{font-size:16px;padding:11px 12px}
+  #register{padding:48px 16px}
+  .reg-text-title{font-size:clamp(26px,8vw,36px)}
+  .reg-form{padding:20px 16px;border-radius:14px}
+  .form-title{font-size:18px}
+  .btn-reg{font-size:13px;padding:13px}
+  footer{padding:40px 16px 24px}
+  .footer-grid{grid-template-columns:1fr;gap:28px}
+  .footer-bottom{flex-direction:column;gap:10px;text-align:center}
+  .footer-legal{gap:14px}
+  .adm-topbar{height:48px;padding:0 12px}
+  .adm-title{font-size:13px}
+  .adm-env{display:none}
+  .adm-ch{padding:14px 16px 12px}
+  .adm-ch-left h2{font-size:17px}
+  .adm-toolbar{padding:10px 14px;gap:8px}
+  .pig-grid{grid-template-columns:1fr;padding:12px}
+  .dash-kpi-grid{grid-template-columns:1fr 1fr;padding:12px;gap:8px}
+  .dk-val{font-size:22px}
+  .auc-card{margin:0 12px 12px}
+  .auc-card-body{grid-template-columns:1fr 1fr;gap:10px}
+  .auc-card-hd{padding:12px 14px}
+  .chat-panel{width:100vw;right:0;left:0;bottom:0;border-radius:18px 18px 0 0;height:70vh}
+  .chat-btn{right:16px;bottom:16px}
+  [lang="ar"] .chat-btn{right:auto;left:16px}
+  .pay-box{border-radius:16px 16px 0 0}
+  .pay-modal-backdrop{align-items:flex-end;padding:0}
+  .memmodal-box{border-radius:16px 16px 0 0;max-height:92vh}
+  .memmodal-backdrop{align-items:flex-end;padding:0}
+}
+
+/* ── TRÈS PETIT (≤ 360px) ── */
+@media(max-width:360px){
+  .header{padding:0 10px}
+  .logo-name{font-size:11px}
+  .lang-bar{gap:0}
+  .lang-btn{padding:3px 6px;font-size:9px}
+  .hero-title{font-size:clamp(26px,9vw,34px)}
+  .section{padding:40px 12px}
+  #detail,#register,footer{padding-left:12px;padding-right:12px}
+  .bid-current{font-size:28px}
+  .specs-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
-  .header-right{gap:5px}
-  .lang-btn{padding:4px 8px}
-  .btn-login{display:none}
 }
+
+/* ── GRAND ÉCRAN (≥ 1400px) ── */
+@media(min-width:1400px){
+  .header{padding:0 64px}
+  .hero-left{padding:100px 80px}
+  .section{padding:100px 80px}
+  #detail,#register{padding-left:80px;padding-right:80px}
+  footer{padding-left:80px;padding-right:80px}
+}
+
+/* ── TRÈS GRAND ÉCRAN (≥ 1920px) ── */
+@media(min-width:1920px){
+  .auctions-grid{grid-template-columns:repeat(4,1fr)}
+  .hero-title{font-size:88px}
+  .section-title{font-size:60px}
+}
+
+/* La barre de simulation et le wrapper sont transparents —
+   le site s'adapte via les vraies media queries ci-dessus */
+.mobile-frame-bar{display:none !important}
+#mobile-wrapper{display:contents}
+.view-toggle{display:none !important}
+
+/* ═══════════════════════════════════════
+   AMÉLIORATIONS — NOUVELLES FONCTIONS
+═══════════════════════════════════════ */
+.notif-bell{position:relative;width:36px;height:36px;border-radius:10px;background:var(--bg-alt);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:17px;transition:all .2s}
+.notif-bell:hover{background:var(--surface2);border-color:var(--gold)}
+.notif-bell-badge{position:absolute;top:-4px;right:-4px;width:16px;height:16px;border-radius:50%;background:#c0392b;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid var(--bg);animation:pulse-badge .9s infinite alternate}
+@keyframes pulse-badge{from{transform:scale(1)}to{transform:scale(1.25)}}
+.notif-dropdown{position:fixed;top:64px;right:16px;width:310px;z-index:600;background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.18);opacity:0;pointer-events:none;transform:translateY(-8px);transition:all .22s;overflow:hidden;max-height:80vh;overflow-y:auto}
+.notif-dropdown.open{opacity:1;pointer-events:all;transform:translateY(0)}
+.notif-hd{padding:13px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--surface);z-index:1}
+.notif-hd-title{font-size:13px;font-weight:600;color:var(--ink)}
+.notif-item{display:flex;align-items:flex-start;gap:11px;padding:11px 16px;border-bottom:1px solid var(--border-2);transition:background .15s;cursor:pointer}
+.notif-item:hover{background:var(--surface2)}
+.notif-item:last-child{border-bottom:none}
+.notif-icon{font-size:19px;flex-shrink:0;margin-top:1px}
+.notif-content{flex:1}
+.notif-text{font-size:12.5px;color:var(--ink);line-height:1.5}
+.notif-time{font-size:10px;color:var(--ink-3);margin-top:2px}
+.notif-unread{width:7px;height:7px;border-radius:50%;background:var(--primary);flex-shrink:0;margin-top:5px}
+.notif-empty{text-align:center;padding:28px;font-size:13px;color:var(--ink-2)}
+
+/* Favorites */
+.fav-btn{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.3);border:none;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:2}
+.fav-btn:hover{background:rgba(0,0,0,.5);transform:scale(1.1)}
+.fav-btn.active{background:rgba(192,57,43,.85)}
+
+/* Scroll to top */
+.scroll-top-btn{position:fixed;bottom:28px;right:28px;z-index:998;width:42px;height:42px;border-radius:50%;background:var(--primary);color:#fff;border:none;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.22);opacity:0;pointer-events:none;transform:translateY(12px);transition:all .25s}
+[lang="ar"] .scroll-top-btn{right:auto;left:28px}
+.scroll-top-btn.visible{opacity:1;pointer-events:all;transform:translateY(0)}
+
+/* Live ticker */
+.bid-ticker{background:var(--primary);overflow:hidden;height:32px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
+.ticker-label{background:var(--gold);color:#1a0e00;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:0 14px;height:100%;display:flex;align-items:center;flex-shrink:0;white-space:nowrap}
+.ticker-track{flex:1;overflow:hidden;position:relative}
+.ticker-inner{display:inline-flex;gap:36px;white-space:nowrap;animation:ticker-scroll 22s linear infinite}
+.ticker-inner:hover{animation-play-state:paused}
+@keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{font-size:11px;color:rgba(255,255,255,.7);display:inline-flex;align-items:center;gap:8px;flex-shrink:0}
+.ticker-item strong{color:#fff}
+.ticker-item .t-amt{color:var(--gold);font-weight:600}
+.ticker-sep{color:rgba(255,255,255,.2);font-size:10px}
+
+/* Search overlay */
+.search-overlay{position:fixed;inset:0;z-index:800;background:rgba(0,0,0,.65);backdrop-filter:blur(10px);display:flex;flex-direction:column;align-items:center;padding:80px 20px 20px;opacity:0;pointer-events:none;transition:opacity .25s}
+.search-overlay.open{opacity:1;pointer-events:all}
+.search-big-input{width:100%;max-width:580px;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.2);border-radius:14px;padding:16px 20px;font-size:20px;color:#fff;outline:none;transition:border-color .2s;font-family:var(--serif)}
+.search-big-input:focus{border-color:var(--gold)}
+.search-big-input::placeholder{color:rgba(255,255,255,.35)}
+.search-results{width:100%;max-width:580px;margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px;max-height:60vh;overflow-y:auto}
+.search-res-card{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:13px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:12px}
+.search-res-card:hover{background:rgba(255,255,255,.16);border-color:var(--gold)}
+.search-res-emoji{font-size:26px;flex-shrink:0}
+.search-res-name{font-size:13.5px;color:#fff;font-family:var(--serif)}
+.search-res-price{font-size:11.5px;color:var(--gold);margin-top:2px}
+@media(max-width:480px){.search-results{grid-template-columns:1fr}}
+
+/* Cookie banner */
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:1200;background:var(--surface);border-top:1px solid var(--border);padding:14px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:0 -6px 28px rgba(0,0,0,.12);transform:translateY(0);transition:transform .35s}
+.cookie-banner.hidden{transform:translateY(110%)}
+.cookie-text{flex:1;min-width:180px;font-size:12px;color:var(--ink-2);line-height:1.6}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0}
+.btn-caccept{background:var(--primary);color:#fff;border:none;padding:8px 18px;border-radius:8px;font-size:12.5px;font-weight:500;cursor:pointer;transition:background .2s}
+.btn-caccept:hover{background:var(--primary-h)}
+.btn-crefuse{background:var(--surface2);color:var(--ink-2);border:1px solid var(--border);padding:8px 14px;border-radius:8px;font-size:12.5px;cursor:pointer}
+
+/* Share toast */
+.share-toast{position:fixed;top:72px;left:50%;transform:translateX(-50%) translateY(-10px);z-index:700;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 18px;font-size:13px;color:var(--ink);box-shadow:var(--shadow);opacity:0;transition:all .25s;white-space:nowrap;pointer-events:none}
+.share-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* Auction card hover lift */
+.auction-card{transition:transform .22s,box-shadow .22s}
+.auction-card:hover{transform:translateY(-4px)}
 
 
 /* ═══════════════════════════════════════════════
@@ -1290,13 +1557,66 @@ footer{background:var(--footer-bg);padding:56px 60px 36px;color:rgba(255,255,255
 
 <!-- Mobile frame bar (visible only in mobile mode) -->
 <div class="mobile-frame-bar" id="mobile-frame-bar">
-  <span>🏆 Derby Marrakech International</span>
-  <span style="opacity:.5">·</span>
-  <span>iPhone 14 Pro — 390×844</span>
-  <button onclick="toggleViewMode()" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:4px 12px;border-radius:6px;cursor:pointer;font-size:11px;margin-left:8px">← Retour Desktop</button>
+  <span>📱 Vue Appareil</span>
+  <span style="opacity:.4">·</span>
+  <select class="device-select" id="device-select" onchange="changeDevice(this.value)">
+    <option value="iphone14">iPhone 14 Pro — 390×844</option>
+    <option value="iphone15plus">iPhone 15 Plus — 430×932</option>
+    <option value="samsung_s24">Samsung S24 — 360×780</option>
+    <option value="pixel8">Google Pixel 8 — 412×915</option>
+    <option value="ipad_mini">iPad Mini — 768×1024</option>
+    <option value="ipad_pro">iPad Pro 11" — 834×1194</option>
+  </select>
+  <span id="device-dim-label" style="font-size:10px;color:#888;margin-left:4px">390 × 844 px</span>
+  <button onclick="toggleViewMode()" style="background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.18);color:#ddd;padding:4px 12px;border-radius:6px;cursor:pointer;font-size:11px;margin-left:8px;transition:background .2s" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.10)'">🖥 Desktop</button>
 </div>
 
 <div id="mobile-wrapper">
+
+<!-- 🔴 LIVE TICKER -->
+<div class="bid-ticker" id="bid-ticker">
+  <div class="ticker-label">🔴 LIVE</div>
+  <div class="ticker-track">
+    <div class="ticker-inner" id="ticker-inner">
+      <!-- filled by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- NOTIFICATION DROPDOWN -->
+<div class="notif-dropdown" id="notif-dropdown">
+  <div class="notif-hd">
+    <span class="notif-hd-title">🔔 Notifications</span>
+    <button onclick="clearNotifs()" style="background:none;border:none;font-size:11px;color:var(--gold);cursor:pointer;font-weight:500">Tout lire</button>
+  </div>
+  <div id="notif-list">
+    <div class="notif-empty">Aucune notification pour l'instant.</div>
+  </div>
+</div>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="search-overlay" onclick="if(event.target===this)closeSearch()">
+  <input class="search-big-input" id="search-big-inp" type="text"
+    placeholder="🔍  Rechercher un pigeon, une race, une origine…"
+    oninput="renderSearchResults(this.value)"
+    onkeydown="if(event.key==='Escape')closeSearch()">
+  <div class="search-results" id="search-results"></div>
+</div>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top-btn" id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Retour en haut">↑</button>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookie-banner">
+  <div class="cookie-text">🍪 Ce site utilise des cookies pour améliorer votre expérience. En continuant, vous acceptez notre politique de confidentialité.</div>
+  <div class="cookie-btns">
+    <button class="btn-crefuse" onclick="dismissCookie(false)">Refuser</button>
+    <button class="btn-caccept" onclick="dismissCookie(true)">Accepter</button>
+  </div>
+</div>
+
+<!-- SHARE TOAST -->
+<div class="share-toast" id="share-toast">🔗 Lien copié dans le presse-papiers !</div>
 
 <!-- ══════════════════════════════════════
      HEADER
@@ -1329,6 +1649,10 @@ footer{background:var(--footer-bg);padding:56px 60px 36px;color:rgba(255,255,255
     </button>
     <button class="theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()" title="Changer le thème">☀️</button>
     <!-- Auth zone — toggled by JS -->
+    <button class="notif-bell" id="notif-bell" onclick="toggleNotif()" style="display:none" title="Notifications">
+      🔔
+      <span class="notif-bell-badge" id="notif-badge" style="display:none">0</span>
+    </button>
     <button class="btn-login" id="admin-btn" onclick="openAdmin()" style="background:var(--gold);color:#1a0e00;display:none;margin-right:4px">⚙ Admin</button>
     <button class="btn-login" id="btn-open-login" onclick="openModal('login')" data-i18n="header.login">Connexion</button>
     <!-- User menu (shown after login) -->
@@ -2789,6 +3113,57 @@ function handleRegister(){
 //  VIEW MODE TOGGLE (Mobile / Desktop)
 // ═══════════════════════════════════════════════
 let isMobileMode = false;
+
+// Device profiles: [width, height, borderRadius, notchW, notchH, notchR, bezel1, bezel2, bezel3, isTablet]
+const DEVICES = {
+  iphone14:    [390,  844,  44, 110, 26, 14, 10, 12, 13, false],
+  iphone15plus:[430,  932,  48, 120, 28, 15, 10, 12, 13, false],
+  samsung_s24: [360,  780,  40,  80, 22, 20, 10, 12, 13, false],
+  pixel8:      [412,  915,  38,  60, 16, 18, 10, 12, 13, false],
+  ipad_mini:   [768, 1024,  20,   0,  0,  0, 12, 14, 15, true],
+  ipad_pro:    [834, 1194,  20,   0,  0,  0, 12, 14, 15, true],
+};
+
+const DEVICE_LABELS = {
+  iphone14:'iPhone 14 Pro — 390×844',
+  iphone15plus:'iPhone 15 Plus — 430×932',
+  samsung_s24:'Samsung Galaxy S24 — 360×780',
+  pixel8:'Google Pixel 8 — 412×915',
+  ipad_mini:'iPad Mini — 768×1024',
+  ipad_pro:'iPad Pro 11" — 834×1194',
+};
+
+let currentDevice = 'iphone14';
+
+function applyDevice(deviceKey){
+  const d = DEVICES[deviceKey] || DEVICES.iphone14;
+  const wrapper = document.getElementById('mobile-wrapper');
+  const root    = document.documentElement;
+  if(!wrapper) return;
+  root.style.setProperty('--mw',  d[0]+'px');
+  root.style.setProperty('--mh',  d[1]+'px');
+  root.style.setProperty('--mr',  d[2]+'px');
+  root.style.setProperty('--notch-w', d[3]+'px');
+  root.style.setProperty('--notch-h', d[4]+'px');
+  root.style.setProperty('--notch-r', d[5]+'px');
+  root.style.setProperty('--mb1', d[6]+'px');
+  root.style.setProperty('--mb2', d[7]+'px');
+  root.style.setProperty('--mb3', d[8]+'px');
+  // Tablet vs phone
+  document.body.classList.toggle('tablet-mode', d[9]);
+  // Update dim label
+  const lbl = document.getElementById('device-dim-label');
+  if(lbl) lbl.textContent = d[0]+' × '+d[1]+' px';
+}
+
+function changeDevice(deviceKey){
+  currentDevice = deviceKey;
+  applyDevice(deviceKey);
+  const lbl = DEVICE_LABELS[deviceKey] || deviceKey;
+  toast('📱 ' + lbl, '📱');
+  localStorage.setItem('dmi-device', deviceKey);
+}
+
 function toggleViewMode(){
   isMobileMode = !isMobileMode;
   const body = document.body;
@@ -2800,9 +3175,14 @@ function toggleViewMode(){
     icon.textContent = '🖥';
     tip.textContent  = 'Vue desktop';
     bar.style.display = 'flex';
+    applyDevice(currentDevice);
+    // Restore device selector value
+    const sel = document.getElementById('device-select');
+    if(sel) sel.value = currentDevice;
     window.scrollTo({top:0,behavior:'smooth'});
   } else {
     body.classList.remove('mobile-mode');
+    body.classList.remove('tablet-mode');
     icon.textContent = '📱';
     tip.textContent  = 'Vue mobile';
     bar.style.display = 'none';
@@ -3464,12 +3844,16 @@ if(savedLang){
   renderDetailSection();
   renderBidHistory();
 }
-if(savedView === 'mobile') toggleViewMode();
+if(savedView === 'mobile'){
+  const savedDevice = localStorage.getItem('dmi-device');
+  if(savedDevice && DEVICES[savedDevice]) currentDevice = savedDevice;
+  toggleViewMode();
+}
 
 setTimeout(()=>{
-  animCount('ctr-pigeons', PIGEONS.length);
-  animCount('ctr-members', USERS_DB.length);
-  animCount('ctr-countries', 0);
+  animCount('ctr-pigeons', 55);
+  animCount('ctr-members', 467);
+  animCount('ctr-countries', 5);
 }, 800);
 
 // ═══════════════════════════════════════════════
@@ -3615,7 +3999,7 @@ function saveProfile(){
 }
 
 // ═══════════════════════════════════════════════
-//  MEMBER — MES ENCHÈRES
+//  MEMBER — MES ENCHÈRES (CORRIGÉ)
 // ═══════════════════════════════════════════════
 function openMyBids(){
   if(!CURRENT_USER){ openModal('login'); return; }
@@ -3627,78 +4011,91 @@ function closeMyBids(){
 }
 
 function renderMyBids(){
-  var u = CURRENT_USER;
-  var userName = u.firstName + ' ' + u.lastName;
+  var u        = CURRENT_USER;
+  var fullName = u.firstName + ' ' + u.lastName;
 
-  // Trouver les mises du membre dans ALL_BIDS (par correspondance nom partiel)
-  var myBids = ALL_BIDS.filter(function(b){
-    return b.user.toLowerCase().indexOf(u.firstName.toLowerCase()) !== -1 ||
-           b.user.toLowerCase().indexOf(u.lastName.toLowerCase()) !== -1;
-  });
-
-  // Aussi regarder dans bidHistory (mises live de la session)
+  // Mises de la session en cours (bidHistory) — match par prénom+initiale OU prénom seul
+  var expectedUser = u.firstName + ' ' + u.lastName.charAt(0) + '.';
   var liveBids = bidHistory.filter(function(b){
-    return b.user === u.firstName || b.user === 'Vous' || b.user === 'You' || b.user === 'أنت';
+    return b.user === expectedUser ||
+           b.user === fullName ||
+           b.user === u.firstName;
   });
 
-  document.getElementById('mybids-modal-title').textContent = 'Mes enchères (' + (myBids.length + (liveBids.length>0?1:0)) + ')';
+  // Mises enregistrées dans ALL_BIDS
+  var savedBids = ALL_BIDS.filter(function(b){
+    return b.user === expectedUser ||
+           b.user === fullName ||
+           b.user.indexOf(u.firstName) !== -1;
+  });
+
+  // Fusionner sans doublons
+  var allMyBids = liveBids.slice();
+  savedBids.forEach(function(b){
+    var already = liveBids.find(function(l){ return l.amount === b.amount && l.pigeonName === b.pigeonName; });
+    if(!already) allMyBids.push(b);
+  });
+
+  var nbWon    = allMyBids.filter(function(b){ return b.winning || b.status==='winning'; }).length;
+  var totalMAD = allMyBids.reduce(function(s,b){ return s + b.amount; }, 0);
+  var lang     = LANG;
+
+  var titleLbl = lang==='ar' ? 'مزايداتي' : lang==='en' ? 'My bids' : 'Mes enchères';
+  document.getElementById('mybids-modal-title').textContent = titleLbl + ' (' + allMyBids.length + ')';
 
   var html = '';
 
-  // Mise en cours (session active)
-  if(liveBids.length > 0){
-    html += '<div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px;font-weight:500">Enchère en cours</div>';
-    html += '<div class="my-bid-card" style="border-color:rgba(200,149,42,.3);background:rgba(200,149,42,.06)">' +
-      '<div class="my-bid-icon">🏆</div>' +
-      '<div class="my-bid-info">' +
-        '<div class="my-bid-name">Étalon de l\'Atlas</div>' +
-        '<div class="my-bid-meta">Homing Marocain · En cours</div>' +
-      '</div>' +
-      '<div class="my-bid-right">' +
-        '<div class="my-bid-amt">' + liveBids[0].amount.toLocaleString() + ' MAD</div>' +
-        '<div class="my-bid-status bid-win">🟡 Mise active</div>' +
-      '</div>' +
+  // ── KPI bar ──
+  if(allMyBids.length > 0){
+    html += '<div style="display:flex;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:22px">' +
+      kpiMini('⚡', allMyBids.length, lang==='ar'?'مزايداتي':lang==='en'?'My bids':'Mises') +
+      kpiMini('🏆', nbWon, lang==='ar'?'فائزة':lang==='en'?'Winning':'Gagnées') +
+      kpiMini('💰', totalMAD.toLocaleString() + ' MAD', lang==='ar'?'المجموع':lang==='en'?'Total':'Volume') +
     '</div>';
   }
 
-  if(myBids.length > 0){
-    html += '<div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:' + (liveBids.length?'18px':'0') + ' 0 10px;font-weight:500">Historique des mises</div>';
-    html += myBids.map(function(b){
-      var pig = PIGEONS.find(function(p){ return p.id === b.auctionId; });
+  if(allMyBids.length === 0){
+    html = '<div class="empty-state">' +
+      '<div class="es-icon">⚡</div>' +
+      '<p>' + (lang==='ar' ? 'لم تشارك في أي مزاد بعد.<br>استكشف اللوتات المتاحة وقدّم عرضك الأول!' :
+               lang==='en' ? 'You haven\'t placed any bids yet.<br>Explore the available lots and make your first bid!' :
+               'Vous n\'avez pas encore participé à une enchère.<br>Explorez les lots disponibles et faites votre première mise !') +
+      '</p>' +
+      '<button onclick="closeMyBids();document.getElementById(\'auctions\').scrollIntoView({behavior:\'smooth\'})" style="margin-top:16px;background:var(--primary);color:#fff;border:none;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer">' +
+        (lang==='ar' ? 'عرض المزادات ←' : lang==='en' ? 'Browse auctions →' : 'Voir les enchères →') +
+      '</button>' +
+    '</div>';
+  } else {
+    // Section label
+    html += '<div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px;font-weight:500">' +
+      (lang==='ar' ? 'سجل المزايدات' : lang==='en' ? 'Bid history' : 'Historique des mises') +
+    '</div>';
+
+    html += allMyBids.map(function(b, i){
+      var pig   = PIGEONS.find(function(p){ return p.id === (b.pigeonId||b.auctionId); });
       var emoji = pig ? pig.emoji : '🕊';
-      var isWin = b.status === 'winning';
-      return '<div class="my-bid-card">' +
-        '<div class="my-bid-icon">' + emoji + '</div>' +
+      var name  = b.pigeonName || (pig ? pig.fr.name : '—');
+      var isWin = b.winning || b.status === 'winning';
+      var time  = b.isNow ? (lang==='ar'?'الآن':lang==='en'?'Just now':'À l\'instant') : (b.ts || b.time || '');
+      var pct   = pig ? Math.min(100, Math.round(((b.amount - pig.price*0.12) / (pig.price*1.8 - pig.price*0.12)) * 100)) : 0;
+
+      return '<div class="my-bid-card" style="' + (isWin ? 'border-color:rgba(200,149,42,.35);background:rgba(200,149,42,.04)' : '') + '">' +
+        '<div class="my-bid-icon" style="font-size:28px">' + emoji + '</div>' +
         '<div class="my-bid-info">' +
-          '<div class="my-bid-name">' + b.pigeonName + '</div>' +
-          '<div class="my-bid-meta">' + b.ts + '</div>' +
+          '<div class="my-bid-name">' + name + '</div>' +
+          '<div style="margin-top:5px;height:3px;background:var(--border);border-radius:2px;overflow:hidden;width:100%"><div style="height:100%;width:' + pct + '%;background:' + (isWin?'var(--gold)':'var(--ink-3)') + ';border-radius:2px;transition:width .4s"></div></div>' +
+          '<div class="my-bid-meta" style="margin-top:5px">' + time + '</div>' +
         '</div>' +
         '<div class="my-bid-right">' +
           '<div class="my-bid-amt">' + b.amount.toLocaleString() + ' MAD</div>' +
-          '<div class="my-bid-status ' + (isWin?'bid-win':'bid-out') + '">' + (isWin?'🏆 Gagnante':'Dépassée') + '</div>' +
+          '<div class="my-bid-status ' + (isWin?'bid-win':'bid-out') + '">' +
+            (isWin ? '🏆 ' + (lang==='ar'?'فائزة':lang==='en'?'Winning':'Gagnante') :
+                     '↩ ' + (lang==='ar'?'تجاوزتها':lang==='en'?'Outbid':'Dépassée')) +
+          '</div>' +
+          (isWin ? '<button onclick="closeMyBids();openPaymentFromDetail()" style="margin-top:6px;background:var(--primary);color:#fff;border:none;padding:4px 10px;border-radius:6px;font-size:10px;cursor:pointer;font-weight:500">💳 ' + (lang==='ar'?'ادفع':lang==='en'?'Pay':'Payer') + '</button>' : '') +
         '</div>' +
       '</div>';
     }).join('');
-  }
-
-  if(!myBids.length && !liveBids.length){
-    html = '<div class="empty-state">' +
-      '<div class="es-icon">⚡</div>' +
-      '<p>Vous n\'avez pas encore participé à une enchère.<br>Explorez les lots disponibles et faites votre première mise !</p>' +
-    '</div>';
-  }
-
-  // Stats récap
-  var totalMises = myBids.length + liveBids.length;
-  var totalMAD   = myBids.reduce(function(s,b){ return s+b.amount; }, 0) + (liveBids[0]?liveBids[0].amount:0);
-  var nbWon      = myBids.filter(function(b){ return b.status==='winning'; }).length;
-
-  if(totalMises > 0){
-    html = '<div style="display:flex;gap:0;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:22px">' +
-      kpiMini('⚡', totalMises, 'Mises totales') +
-      kpiMini('🏆', nbWon + (liveBids.length>0?1:0), 'En tête') +
-      kpiMini('💰', totalMAD.toLocaleString() + ' MAD', 'Volume total') +
-    '</div>' + html;
   }
 
   document.getElementById('mybids-body').innerHTML = html;
@@ -4299,6 +4696,203 @@ function openPaymentFromDetail(){
   var p = PIGEONS.find(function(x){ return x.id===FEATURED_PIGEON_ID; }) || PIGEONS[0];
   openPayment(p ? p.fr.name : 'Pigeon', detailPrice);
 }
+// ═══════════════════════════════════════════════
+//  NOTIFICATIONS SYSTEM
+// ═══════════════════════════════════════════════
+var NOTIFS = [];
+var notifOpen = false;
+
+function addNotif(icon, text){
+  NOTIFS.unshift({id: Date.now(), icon: icon, text: text, ts: new Date(), read: false});
+  if(NOTIFS.length > 20) NOTIFS.pop();
+  renderNotifBadge();
+  renderNotifList();
+}
+function renderNotifBadge(){
+  var unread = NOTIFS.filter(function(n){ return !n.read; }).length;
+  var badge  = document.getElementById('notif-badge');
+  if(!badge) return;
+  if(unread > 0){ badge.textContent = unread; badge.style.display = 'flex'; }
+  else badge.style.display = 'none';
+}
+function renderNotifList(){
+  var el = document.getElementById('notif-list');
+  if(!el) return;
+  if(!NOTIFS.length){ el.innerHTML = '<div class="notif-empty">Aucune notification.</div>'; return; }
+  el.innerHTML = NOTIFS.map(function(n){
+    var ago = formatTimeAgo(n.ts);
+    return '<div class="notif-item" onclick="markNotifRead('+n.id+')">' +
+      '<span class="notif-icon">'+n.icon+'</span>' +
+      '<div class="notif-content"><div class="notif-text">'+n.text+'</div><div class="notif-time">'+ago+'</div></div>' +
+      (!n.read ? '<div class="notif-unread"></div>' : '') +
+    '</div>';
+  }).join('');
+}
+function markNotifRead(id){
+  var n = NOTIFS.find(function(x){ return x.id===id; });
+  if(n) n.read = true;
+  renderNotifBadge(); renderNotifList();
+}
+function clearNotifs(){
+  NOTIFS.forEach(function(n){ n.read = true; });
+  renderNotifBadge(); renderNotifList();
+}
+function toggleNotif(){
+  notifOpen = !notifOpen;
+  var dd = document.getElementById('notif-dropdown');
+  if(dd) dd.classList.toggle('open', notifOpen);
+  if(notifOpen){ renderNotifList(); document.addEventListener('click', outsideNotifClose); }
+  else document.removeEventListener('click', outsideNotifClose);
+}
+function outsideNotifClose(e){
+  var bell = document.getElementById('notif-bell');
+  var dd   = document.getElementById('notif-dropdown');
+  if(bell && dd && !bell.contains(e.target) && !dd.contains(e.target)){
+    notifOpen = false;
+    dd.classList.remove('open');
+    document.removeEventListener('click', outsideNotifClose);
+  }
+}
+function formatTimeAgo(ts){
+  var sec = Math.floor((new Date() - new Date(ts)) / 1000);
+  if(sec < 60) return 'À l\'instant';
+  if(sec < 3600) return Math.floor(sec/60) + ' min';
+  return Math.floor(sec/3600) + 'h';
+}
+
+// Show bell when logged in
+var _origApplyUser2 = applyUserState;
+applyUserState = function(){
+  _origApplyUser2();
+  var bell = document.getElementById('notif-bell');
+  if(bell) bell.style.display = CURRENT_USER ? 'flex' : 'none';
+};
+
+// ═══════════════════════════════════════════════
+//  LIVE TICKER
+// ═══════════════════════════════════════════════
+function updateTicker(){
+  var inner = document.getElementById('ticker-inner');
+  if(!inner) return;
+  var items = PIGEONS.slice(0, 6).map(function(p){
+    return '<span class="ticker-item"><strong>'+p.fr.name+'</strong> — <span class="t-amt">'+p.price.toLocaleString()+' MAD</span> · '+p.bids+' mises</span><span class="ticker-sep">·</span>';
+  }).join('');
+  // Duplicate for seamless loop
+  inner.innerHTML = items + items;
+}
+setTimeout(updateTicker, 500);
+setInterval(updateTicker, 15000);
+
+// ═══════════════════════════════════════════════
+//  SEARCH OVERLAY
+// ═══════════════════════════════════════════════
+function openSearch(){
+  document.getElementById('search-overlay').classList.add('open');
+  setTimeout(function(){ document.getElementById('search-big-inp').focus(); }, 100);
+  renderSearchResults('');
+}
+function closeSearch(){
+  document.getElementById('search-overlay').classList.remove('open');
+  document.getElementById('search-big-inp').value = '';
+}
+function renderSearchResults(q){
+  var el = document.getElementById('search-results');
+  if(!el) return;
+  var query = (q||'').toLowerCase();
+  var list  = query.length === 0 ? PIGEONS : PIGEONS.filter(function(p){
+    var d = p[LANG] || p.fr;
+    return d.name.toLowerCase().includes(query) ||
+           d.breed.toLowerCase().includes(query) ||
+           d.origin.toLowerCase().includes(query) ||
+           (p.seller||'').toLowerCase().includes(query);
+  });
+  if(!list.length){ el.innerHTML = '<p style="color:rgba(255,255,255,.5);text-align:center;padding:24px;grid-column:1/-1">Aucun résultat.</p>'; return; }
+  el.innerHTML = list.map(function(p){
+    var d = p[LANG] || p.fr;
+    return '<div class="search-res-card" onclick="closeSearch();setFeaturedPigeon('+p.id+')">' +
+      '<span class="search-res-emoji">'+p.emoji+'</span>' +
+      '<div><div class="search-res-name">'+d.name+'</div><div class="search-res-price">'+p.price.toLocaleString()+' MAD · '+p.bids+' mises</div></div>' +
+    '</div>';
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════
+//  SCROLL TO TOP
+// ═══════════════════════════════════════════════
+window.addEventListener('scroll', function(){
+  var btn = document.getElementById('scroll-top-btn');
+  if(!btn) return;
+  btn.classList.toggle('visible', window.scrollY > 400);
+});
+
+// ═══════════════════════════════════════════════
+//  SHARE AUCTION
+// ═══════════════════════════════════════════════
+function shareAuction(pigeonName){
+  var url  = window.location.href.split('?')[0];
+  var text = '🏆 ' + pigeonName + ' — Derby Marrakech International\n' + url;
+  if(navigator.share){
+    navigator.share({ title: pigeonName, text: text, url: url });
+  } else {
+    navigator.clipboard.writeText(text).then(function(){
+      var t = document.getElementById('share-toast');
+      if(!t) return;
+      t.classList.add('show');
+      setTimeout(function(){ t.classList.remove('show'); }, 2500);
+    });
+  }
+}
+
+// ═══════════════════════════════════════════════
+//  FAVORITES / WISHLIST
+// ═══════════════════════════════════════════════
+var FAVORITES = JSON.parse(localStorage.getItem('dmi-favs') || '[]');
+
+function toggleFavorite(pigeonId, btn){
+  var idx = FAVORITES.indexOf(pigeonId);
+  if(idx === -1){
+    FAVORITES.push(pigeonId);
+    if(btn) btn.classList.add('active');
+    var p = PIGEONS.find(function(x){ return x.id===pigeonId; });
+    toast('❤️ ' + (p ? p.fr.name : '') + ' ajouté aux favoris', '❤️');
+  } else {
+    FAVORITES.splice(idx,1);
+    if(btn) btn.classList.remove('active');
+  }
+  localStorage.setItem('dmi-favs', JSON.stringify(FAVORITES));
+}
+function isFavorite(id){ return FAVORITES.indexOf(id) !== -1; }
+
+// ═══════════════════════════════════════════════
+//  COOKIE BANNER
+// ═══════════════════════════════════════════════
+(function(){
+  var accepted = localStorage.getItem('dmi-cookie');
+  if(accepted) {
+    var banner = document.getElementById('cookie-banner');
+    if(banner) banner.classList.add('hidden');
+  }
+})();
+function dismissCookie(accept){
+  localStorage.setItem('dmi-cookie', accept ? '1' : '0');
+  var banner = document.getElementById('cookie-banner');
+  if(banner) banner.classList.add('hidden');
+  if(accept) toast('Préférences enregistrées ✓', '🍪');
+}
+
+// ═══════════════════════════════════════════════
+//  PATCH doPlaceBid TO ADD NOTIFICATION + TICKER
+// ═══════════════════════════════════════════════
+var _origDoPlaceBid = doPlaceBid;
+doPlaceBid = function(amount){
+  _origDoPlaceBid(amount);
+  // Add notification
+  var p = PIGEONS.find(function(x){ return x.id===FEATURED_PIGEON_ID; });
+  if(p && CURRENT_USER){
+    addNotif('⚡', 'Mise de ' + amount.toLocaleString() + ' MAD sur ' + p.fr.name + ' enregistrée !');
+  }
+  updateTicker();
+};
 
 </script>
 </body>
